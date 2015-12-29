@@ -1,0 +1,10 @@
+<h1> User index view</h1>
+<div>
+	<% counter = 0 %>
+	<% @users.each do |user| %>
+		<p>
+		<%= counter += 1 %>
+		<%= link_to user.user_name, user_path(user) %>
+		</p>
+	<% end %>
+</div>
