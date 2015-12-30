@@ -29,7 +29,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.10'
 
 # Use haml instead of html.erb
-gem 'haml', '~> 4.0', '>= 4.0.7'
+#gem 'haml', '~> 4.0', '>= 4.0.7'
+
+#Use cancan for authorization
+gem 'cancan', '~> 1.6', '>= 1.6.10'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
