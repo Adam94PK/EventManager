@@ -2,13 +2,17 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User new
+    puts "Jestem w KONSTRUKTORZE CANCAN Ability"
+    user ||= User.new
     if user.role == "admin"
+        puts "admin cancan JESTEM W ŚRDOKU"
         can :manage, :all
     elsif user.role == "pro_user"
-        can :manage, :user
+        puts "pro_user cancan JESTEM W ŚRDOKU"
+        can :manage, :all
     else
-        can :crud, Sessions
+        puts "else cancan JESTEM W ŚRDOKU"
+        can :manage, :all
     end
     #   user ||= User.new # guest user (not logged in)
     #   if user.admin?
