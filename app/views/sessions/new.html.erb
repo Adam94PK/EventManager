@@ -1,20 +1,21 @@
-<h1>Log in</h1>
-<div>
+<h1 id="new" class="col-sm-offset-1">Log in</h1>
+
+<form class = "form-horizontal">
 	<%= form_for :session, url: login_path do |f| %>
 
 		<p>
-		<%= f.label :user_name %>
+		<%= f.label :user_name, class: 'control-label col-sm-2' %>
 		<%= f.text_field :user_name %>
 		</p>
 
 		<p>
-		<%= f.label :password %>
+		<%= f.label :password, class: 'control-label col-sm-2' %>
 		<%= f.password_field :pasword %>
 		</p>
 
 		<p>
-		<%= f.submit 'Log in' %>
+		<%= f.submit "Log in", class: 'btn btn-primary col-sm-offset-2 col-sm-1' %>
 		</p>
 
 	<% end %>
-</div>
+</form>
