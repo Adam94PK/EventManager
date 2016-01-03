@@ -12,10 +12,11 @@ class ApplicationController < ActionController::Base
   
   def is_allowed? restraint
   	if Users::Authorization.new(current_user, restraint).perform
-		true
-	else
-		render_404
-	end		
+      true
+    else
+      render_404
+    end		
   end
-  
+
+
 end

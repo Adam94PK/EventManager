@@ -1,9 +1,6 @@
 module UsersHelper
-=begin
-	def is_allowed? restraint
-		unless Users::Authorization.new(current_user, restraint).perform
-			not_found
-		end		
+	def can_edit?(params_id)
+		puts "current_user #{current_user.id}, params_id #{params_id}"
+		puts current_user.id.to_s == params_id ? true : render_404
 	end
-=end
 end

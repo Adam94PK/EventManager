@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    can_edit? params[:id]
   	@user = find_user
   end
 
