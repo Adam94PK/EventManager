@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       log_in @user
   		redirect_to @user
   	else
+      flash.now[:danger] = 'Niepoprawne dane uzytkownika'
   		render 'new'
   	end
   end

@@ -9,4 +9,6 @@
 	<p>User email: <%= @user.email %></p>
 	<p>User Company name: <%= @user.company_name %></p>
 </div>
-<%= link_to "Usuń", user_path(@user), method: :delete %>
+<% if current_user.id == @user.id %>
+	<%= link_to "Usuń", user_path(@user), method: :delete %>
+<% end %>

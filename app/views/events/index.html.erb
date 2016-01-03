@@ -1,0 +1,9 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+<% counter = 0 %>
+<% @events.each do |event| %>
+	<p>
+	<%= counter+=1 %>
+	<%= link_to event.name, event_path(event) %>
+	</p>
+<% end %>
