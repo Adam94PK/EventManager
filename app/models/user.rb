@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	has_secure_password
+	
+
 	validates :name, length: { in: 3..30, message: "name long" }, allow_blank: true
 	validates :surname, length: { in: 4..30, message: "surname long" }, allow_blank: true
 	validates :user_name, uniqueness: true, presence: true, length: { in: 3..30, message: "user_name long" }, exclusion: { in: %w(hitler chuj kurwa), message: "user_name exclusion"}

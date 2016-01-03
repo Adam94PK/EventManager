@@ -14,7 +14,7 @@ module Users
 		private
 		attr_reader :user, :restraint
 
-		Role = { admin: 3, pro_user: 2, user: 1, quest: 0}
+		Role = { admin: 3, pro_user: 2, user: 1, guest: 0}
 		def include_restraint?(restraint)
 			if restraint.present?
 				Role[restraint] <= Role[user.role.to_sym]
