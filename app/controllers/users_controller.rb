@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   def index
+    is_allowed? :admin
   	@users = User.all
   end
 
