@@ -16,3 +16,32 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#downcontent {
+    padding-top: 50px;
+}
+
+.navbar{
+    background-color: #337ab7;
+    
+}
+.navbar .navbar-brand {
+    color: #fff;
+}
+#mypages {
+    color: #BFBFBF;
+}
+#mypages:hover{
+    color: #fff;
+}
+
+#sign_log a {
+    color: #fff;
+    font-family: arial, verdana, sans-serif;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+#sign_log a:hover{
+    color: #BFBFBF;
+}

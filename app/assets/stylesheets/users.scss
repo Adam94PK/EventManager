@@ -3,11 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+form {
+    padding-top: 40px; 
+    font-family: verdana;
+}
+
 form p input {
     width: 200px;
     display: block;
 }
 
-h1 {
-    color: red;
+#new {
+    color: black;
+    font-family: verdana;
 }
