@@ -1,14 +1,17 @@
-<div>
-	<h1><%= @user.user_name %></h1>
+<div class = "col-sm-offset-1">
+	<h1>User: <%= @user.user_name %></h1>
 </div>
 
-<div>
+<div class= "col-sm-offset-1">
 	<!--<p>User Name: <%= @user.user_name %></p>-->
-	<p>User Name: <%= @user.name %></p>
-	<p>User Surname: <%= @user.surname %></p>
-	<p>User email: <%= @user.email %></p>
-	<p>User Company name: <%= @user.company_name %></p>
+	<p>Name: <%= @user.name %></p>
+	<p>Surname: <%= @user.surname %></p>
+	<p>Email: <%= @user.email %></p>
+	<p>Company name: <%= @user.company_name %></p>
 </div>
+
 <% if current_user.id == @user.id %>
-	<%= link_to "Usuń", user_path(@user), method: :delete %>
+	<%= link_to "Edytuj", edit_user_path(@user), class: 'btn btn-primary col-sm-offset-1' %>
+	<%= link_to "Usuń", user_path(@user), method: :delete, class: 'btn btn-primary'  %>
 <% end %>
+

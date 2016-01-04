@@ -1,7 +1,27 @@
-<div>
-	<% if logged_in? %>
-		<%= link_to "Log out", logout_path, method: :delete  %>
-	<% else %>
-		<%= link_to "Log in", login_path %>
-	<%end%>
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="https://event-manager-perfectsound.c9users.io/">EventManager</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li><a id="mypages" href="https://event-manager-perfectsound.c9users.io/">Home</a></li>
+            <li><a id="mypages" href="https://event-manager-perfectsound.c9users.io/users/new">Sign up</a></li>
+            <li><a id="mypages" href="#">Page 2</a></li> 
+            <li><a id="mypages" href="#">Page 3</a></li> 
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="sign_log">
+        	
+              <% if logged_in? %>
+		            <%= link_to "Log out", logout_path, method: :delete  %>
+
+          	  <% else %>
+		            <%= link_to "Log in", login_path  %>
+		          
+		          <% end %>
+	          </li>
+          </ul>
+        </div>
+      </div>
+</nav>

@@ -1,3 +1,19 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+form {
+    padding-top: 40px; 
+    font-family: verdana;
+}
+
+form p input {
+    width: 200px;
+    display: block;
+}
+
+#header1 {
+    color: black;
+    font-family: verdana;
+}
