@@ -2,16 +2,14 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <%= link_to "EventManager", root_path, class: "navbar-brand" %>
-          <!--<a class="navbar-brand" href="https://event-manager-perfectsound.c9users.io/">EventManager</a>-->
         </div>
         <div>
           <ul class="nav navbar-nav">
-            <li>
-            <%= link_to "Home", root_path, id: "mypages" %>
-            <!--<a id="mypages" href="https://event-manager-perfectsound.c9users.io/">Home</a>--></li>
-            <li><a id="mypages" href="https://event-manager-perfectsound.c9users.io/users/new">Sign up</a></li>
-            <li><a id="mypages" href="#">Page 2</a></li> 
-            <li><a id="mypages" href="#">Page 3</a></li> 
+            <li> <%= link_to "Home", root_path, id: "mypages" %> </li>
+            <li> <%= link_to "Sign up", new_user_path, id: "mypages" %> </li>
+            
+            <li> <%= link_to "Page 2", root_path, id: "mypages" %> </li>
+            <li> <%= link_to "Page 3", root_path, id: "mypages" %> </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li id="sign_log">
