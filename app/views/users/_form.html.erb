@@ -1,13 +1,12 @@
 <!--<form id="form_new_user">
 -->
-<form class = "form-horizontal">
+<div class = "form-horizontal">
 	<%=form_for @user do |f|%>
 	
 		<p>
 		<%= f.label :name, class: 'control-label col-sm-2' %>
 		<%= f.text_field :name%>
 		</p>
-		
 
 		<p>
 		<%= f.label :surname, class: 'control-label col-sm-2' %>
@@ -54,4 +53,4 @@
 		</p>
 		
 	<% end %>
-</form>
+</div>

@@ -1,3 +1,16 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+    background-image: url("http://images.tinypic.pl/i/00741/woksr2xye90b.jpg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    min-height: 400px;
+}
+
+#mainheader {
+    color: black;
+    font-family: verdana;
+    text-align: center;
+}
