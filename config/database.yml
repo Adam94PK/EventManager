@@ -6,6 +6,8 @@
 #
 default: &default
   adapter: postgresql
+  user: postgres
+  template: template0
   pool: 5
   timeout: 5000
 
