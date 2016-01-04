@@ -9,11 +9,4 @@ class User < ActiveRecord::Base
 	validates :role, inclusion: { in: %w(admin pro_user user), message: "role inclusion" }
 	validates :password, presence: true, length: { in: 6..20, message: "password long" }
 
-
-	#The available roles
-	Roles = [ :admin, :pro_user, :user, :quest ]
-	def is?(requested_role)
-		self.role == requested_role.to_s
-	end
-	
 end

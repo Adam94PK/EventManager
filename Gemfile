@@ -35,7 +35,7 @@ gem 'bcrypt', '~> 3.1.10'
 #gem 'haml', '~> 4.0', '>= 4.0.7'
 
 #Use cancancan for authorization
-gem 'cancancan', '~> 1.10'
+#gem 'cancancan', '~> 1.10'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

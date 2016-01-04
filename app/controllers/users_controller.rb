@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   def index
+    is_allowed? :admin
   	@users = User.all
   end
 
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    can_edit? params[:id]
   	@user = find_user
   end
 
