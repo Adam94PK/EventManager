@@ -17,25 +17,25 @@ ActiveRecord::Schema.define(version: 20160104194406) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "user_id"
+    t.string   "name",         default: "New Event"
+    t.integer  "user_id",                            null: false
     t.integer  "main_page_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   add_index "events", ["name"], name: "index_events_on_name", using: :btree
 
   create_table "events_guests", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "guest_id"
+    t.integer "event_id", null: false
+    t.integer "guest_id", null: false
   end
 
   add_index "events_guests", ["event_id"], name: "index_events_guests_on_event_id", using: :btree
   add_index "events_guests", ["guest_id"], name: "index_events_guests_on_guest_id", using: :btree
 
   create_table "guests", force: :cascade do |t|
-    t.string   "email"
+    t.string   "email",      null: false
     t.string   "name"
     t.string   "surname"
     t.datetime "created_at", null: false
@@ -45,29 +45,29 @@ ActiveRecord::Schema.define(version: 20160104194406) do
   add_index "guests", ["email"], name: "index_guests_on_email", using: :btree
 
   create_table "main_pages", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      default: "Main Page"
     t.text     "header"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "main_pages", ["title"], name: "index_main_pages_on_title", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "user_name"
-    t.string   "role"
+    t.string   "user_name",                               null: false
+    t.string   "role",                   default: "user"
     t.string   "name"
     t.string   "surname"
     t.string   "company_name"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "email",                  default: "",     null: false
+    t.string   "encrypted_password",     default: "",     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,      null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"

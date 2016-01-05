@@ -4,12 +4,10 @@ class EventsController < ApplicationController
   end
 
   def new
-  	is_allowed? :pro_user
   	@event = Event.new
   end
 
   def create
-  	is_allowed? :pro_user
   	@event = current_user.events.build(event_params)
   	if @event.save
   		redirect_to @event
