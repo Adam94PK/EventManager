@@ -14,8 +14,8 @@
 		<%= f.email_field :email, autofocus: true %>
 		</p>
 
-    <p>
-    <%= f.label :name, class: 'control-label col-sm-2' %>
+        <p>
+        <%= f.label :name, class: 'control-label col-sm-2' %>
 		<%= f.text_field :name, autofocus: true%>
 		</p>
 
@@ -34,25 +34,25 @@
 		<%= f.text_field :role, autofocus: true %>
 		</p>
   
-  <br>
+      <br>
 
-    <p>
-    <%= f.label "Password *", class: 'control-label col-sm-2' %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "off" %>
-    </p>
+        <p>
+        <%= f.label "Password *", class: 'control-label col-sm-2' %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off" %>
+        </p>
 
-    <p>
-    <%= f.label "Password confirmation *", class: 'control-label col-sm-2' %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </p>
+        <p>
+        <%= f.label "Password confirmation *", class: 'control-label col-sm-2' %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </p>
 
-    <div class="actions">
-    <%= f.submit "Sign up", class: 'btn btn-primary col-sm-offset-2 col-sm-1' %>
-    <%= link_to "or simply Log in :)", new_user_session_path, class: 'btn btn-link' %>
-    </div>
+        <div class="actions">
+        <%= f.submit "Sign up", class: 'btn btn-primary col-sm-offset-2 col-sm-1' %>
+        <%= link_to "or simply Log in :)", new_user_session_path, class: 'btn btn-link' %>
+        </div>
     
     
   <% end %>
