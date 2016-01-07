@@ -1,9 +1,19 @@
-<h1>Sign up</h1>
+<h2>Sign up</h2>
 
 <div class="form-horizontal">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
     
+		<p>
+		<%= f.label "Username *", class: 'control-label col-sm-2' %>
+		<%= f.text_field :user_name, autofocus: true %>
+		</p>
+		
+		<p>
+		<%= f.label "Email *", class: 'control-label col-sm-2' %>
+		<%= f.email_field :email, autofocus: true %>
+		</p>
+
     <p>
     <%= f.label :name, class: 'control-label col-sm-2' %>
 		<%= f.text_field :name, autofocus: true%>
@@ -15,34 +25,19 @@
 		</p>
 
 		<p>
-		<%= f.label :user_name, class: 'control-label col-sm-2' %>
-		<%= f.text_field :user_name, autofocus: true %>
-		</p>
-
-		<p>
 		<%= f.label :company_name, class: 'control-label col-sm-2' %>
 		<%= f.text_field :company_name, autofocus: true %>		
-		</p>
-
-		<p>
-		<%= f.label :email, class: 'control-label col-sm-2' %>
-		<%= f.email_field :email, autofocus: true %>
 		</p>
 
 		<p>
 		<%= f.label :role, class: 'control-label col-sm-2' %>
 		<%= f.text_field :role, autofocus: true %>
 		</p>
-
-    <p>
-    <%= f.label :email, class: 'control-label col-sm-2' %>
-    <%= f.email_field :email, autofocus: true %>
-    </p>
   
   <br>
 
     <p>
-    <%= f.label :password, class: 'control-label col-sm-2' %>
+    <%= f.label "Password *", class: 'control-label col-sm-2' %>
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
@@ -50,7 +45,7 @@
     </p>
 
     <p>
-    <%= f.label :password_confirmation, class: 'control-label col-sm-2' %>
+    <%= f.label "Password confirmation *", class: 'control-label col-sm-2' %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </p>
 
@@ -60,6 +55,6 @@
     </div>
     
     
-<% end %>
+  <% end %>
 </div>
 <% #render "devise/shared/links" %>
