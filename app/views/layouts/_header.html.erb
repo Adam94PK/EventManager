@@ -6,33 +6,29 @@
         <div>
           <ul class="nav navbar-nav">
             <li><%= link_to "Home", root_path, id: "mypages" %></li>
-            <li>
-             
-             <% if user_signed_in? %>
-               <%= link_to "Edit", edit_user_registration_path, id: "mypages" %>
-               
-              <% else %>
-                <%= link_to "Sign up", new_user_registration_path, id: "mypages" %>
-                
-              <% end %>
-             
-             </li>
-            <li> <%= link_to "Page 2", root_path, id: "mypages" %> </li>
-            <li> <%= link_to "Page 3", root_path, id: "mypages" %> </li>
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
-            <li id="sign_log">
-        	
-              <% if user_signed_in? %>
-		            <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
-
-          	  <% else %>
-		            <%= link_to "Log in", new_user_session_path  %>
-		          
-		          <% end %>
-	          </li>
+            <% if !user_signed_in? %>
+              <%= link_to "Sign in", new_user_session_path, :class => "btn btn-default" %>
+              <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-success" %>
+            <% else %>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <%= current_user.user_name %>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to "Editd", edit_user_registration_path %></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </div>
+            <% end %>
           </ul>
+
         </div>
       </div>
 </nav>
