@@ -1,0 +1,8 @@
+<h1>Followed events</h1>
+<% if @events.present? %>
+	<% @events.each do |event| %>
+	<p>
+		<%= link_to event.name, event_path(event) %>
+	</p>
+	<% end %>
+<% end %>

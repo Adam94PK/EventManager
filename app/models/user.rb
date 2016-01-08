@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   
   has_many :events
 	
-	validates :username,
+	validates :user_name,
   :presence => true,
   :uniqueness => {
     :case_sensitive => false

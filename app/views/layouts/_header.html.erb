@@ -6,6 +6,9 @@
         <div>
           <ul class="nav navbar-nav">
             <li><%= link_to "Home", root_path, id: "mypages" %></li>
+            <li>
+              <%= link_to "Events", events_path, id: "mypages" %>
+            </li>
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
@@ -19,8 +22,11 @@
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><%= link_to "Editd", edit_user_registration_path %></li>
-                  <li><a href="#">Another action</a></li>
+                  <li><%= link_to "Editd",edit_user_registration_path %>
+                  </li>
+                  <li>
+                    <%= link_to "Followed Events", events_followed_path %>
+                  </li>
                   <li><a href="#">Something else here</a></li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>

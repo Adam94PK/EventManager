@@ -3,6 +3,13 @@ class EventsController < ApplicationController
   	@events = Event.all
   end
 
+  def show_followed
+    if current_user.present?
+      @events = Event.where(user_id: current_user.id.to_s).to_a
+      puts @events.inspect    
+    end
+  end
+
   def new
   	@event = Event.new
   end
