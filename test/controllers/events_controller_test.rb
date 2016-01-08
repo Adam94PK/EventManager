@@ -4,6 +4,8 @@ class EventsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
+    assert_template :index
+    #assert(assigns(:events)) match_array([:one, :two])
   end
 
   test "should get show" do

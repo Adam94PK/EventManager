@@ -1,40 +1,43 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <%= link_to "EventManager", root_path, class: "navbar-brand" %>
-        </div>
-        <div>
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Home", root_path, id: "mypages" %></li>
-            <li>
-              <%= link_to "Events", events_path, id: "mypages" %>
-            </li>
-          </ul>
-          
-          <ul class="nav navbar-nav navbar-right">
-            <% if !user_signed_in? %>
-              <%= link_to "Sign in", new_user_session_path, :class => "btn btn-default" %>
-              <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-success" %>
-            <% else %>
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <%= current_user.user_name %>
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><%= link_to "Editd",edit_user_registration_path %>
-                  </li>
-                  <li>
-                    <%= link_to "Followed Events", events_followed_path %>
-                  </li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-                </ul>
-              </div>
-            <% end %>
-          </ul>
 
-        </div>
-      </div>
-</nav>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <%= link_to "EventManager", root_path, class: "navbar-brand" %>
+            </div>
+            <div>
+              <ul class="nav navbar-nav">
+                <li><%= link_to "Home", root_path, id: "mypages" %></li>
+                <li>
+                  <%= link_to "Events", events_path, id: "mypages" %>
+                </li>
+              </ul>
+             
+              <ul class="nav navbar-nav navbar-right">
+                <% if !user_signed_in? %>
+                  <%= link_to "Sign in", new_user_session_path, :class => "btn btn-default" %>
+                  <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-success" %>
+                <% else %>
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <%= current_user.user_name %>
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><%= link_to "Editd",edit_user_registration_path %>
+                      </li>
+                      <li>
+                        <%= link_to "Followed Events", events_followed_path %>
+                      </li>
+                      <li><a href="#">Something else here</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                    </ul>
+                  </div>
+                <% end %>
+              </ul>
+     
+            </div>
+          </div>
+    </nav>
+
