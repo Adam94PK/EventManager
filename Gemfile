@@ -30,6 +30,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Device for authentication user
 gem 'devise'
 
+# Add factory girls for test
+gem "factory_girl_rails", "~> 4.0"
+
 # Use ActiveModel has_secure_password
 #gem 'bcrypt', '~> 3.1.10'
 
