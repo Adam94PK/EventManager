@@ -6,10 +6,19 @@
 #
 user1:
   user_name: user1
-  email: email@gmail.com
+  role: admin
+  name:
+  surname:
+  company_name:
+  email: "email@gmail.com"
 # column: value
 #
 user2:
   user_name: user2
-  email: email2@gmail.com
+  role: admin
+  name:
+  surname:
+  company_name:
+  email: "email2@gmail.com"
+
 #  column: value

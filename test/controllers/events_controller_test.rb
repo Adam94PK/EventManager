@@ -1,15 +1,16 @@
 require 'test_helper'
 
 class EventsControllerTest < ActionController::TestCase
+  
   test "should get index" do
     get :index
     assert_response :success
     assert_template :index
-    #assert(assigns(:events)) match_array([:one, :two])
+    assert_equal((assigns(:events)),[@one, @two] )
   end
 
   test "should get show" do
-    get :show
+    get :show, id: @one.id
     assert_response :success
   end
 
@@ -19,8 +20,12 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit
+    get :edit , id: @one.id
     assert_response :success
   end
+
+  #test "should save event and redirect to show" do
+  #  assert_response :success
+  #end
 
 end

@@ -11,6 +11,6 @@ one:
 #
 two: 
   name: Event 2
-  user: user2
+  user: user1
   main_page_id: nil
-#  column: value
+
