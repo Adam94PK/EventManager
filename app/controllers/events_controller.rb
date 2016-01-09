@@ -34,8 +34,12 @@ class EventsController < ApplicationController
 
   def destroy
   	@event = find_event
-  	@event.destroy
-  	redirect_to action: :index
+  	if current_user.present? && current_user.id == @event.id
+      @event.destroy
+  	  redirect_to action: :index
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   private
