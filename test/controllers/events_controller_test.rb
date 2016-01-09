@@ -24,8 +24,12 @@ class EventsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  #test "should save event and redirect to show" do
-  #  assert_response :success
-  #end
+  test "should save event and redirect to show" do
+    user = create(:user)
+    sign_in user
+    puts "THIS IS THE USER ID"
+    post :create, event: { 'name' => "the newest event"}
+    assert_redirected_to event_path(assigns(:event))
+  end
 
 end

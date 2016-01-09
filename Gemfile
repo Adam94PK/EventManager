@@ -30,8 +30,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Device for authentication user
 gem 'devise'
 
-# Add factory girls for test
-gem "factory_girl_rails", "~> 4.0"
 
 # Use ActiveModel has_secure_password
 #gem 'bcrypt', '~> 3.1.10'
@@ -51,6 +49,11 @@ gem "factory_girl_rails", "~> 4.0"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Add factory girls for test
+  gem "factory_girl_rails", "~> 4.0"
+  # Add faker for tests
+  gem 'faker', '~> 1.6', '>= 1.6.1'
 end
 
 group :development do
