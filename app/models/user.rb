@@ -8,31 +8,28 @@ class User < ActiveRecord::Base
   
   has_many :events
 	
-	validates :user_name,
-  :presence => true,
-  :uniqueness => {
-    :case_sensitive => false
-  }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+	validates :user_name, presence: true, uniqueness: { case_sensitive: false }
   
   validates_format_of :user_name, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   
 	def login=(login)
     @login = login
-  	end
+  end
 
   def login
     @login || self.user_name || self.email
   end
   
-    def self.find_for_database_authentication(warden_conditions)
-      conditions = warden_conditions.dup
-      if login = conditions.delete(:login)
-        where(conditions.to_hash).where(["lower(user_name) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-      else
-         conditions[:email].downcase! if conditions[:email]
-				where(conditions.to_hash).first
-      end
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+     if login = conditions.delete(:login)
+      where(conditions.to_hash).where(["lower(user_name) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+     else
+      conditions[:email].downcase! if conditions[:email]
+			where(conditions.to_hash).first
     end
+  end
     
 
 	

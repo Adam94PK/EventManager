@@ -7,6 +7,5 @@ class ActiveSupport::TestCase
   
   include Devise::TestHelpers
   include FactoryGirl::Syntax::Methods
-
   # Add more helper methods to be used by all tests here...
 end

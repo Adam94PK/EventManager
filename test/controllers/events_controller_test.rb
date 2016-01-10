@@ -56,6 +56,14 @@ class EventsControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path
   end
 
+  test "shuld delete owned event when user is signed_in" do
+    sign_in @user1
+    event = @user1.events[Random.rand(21)].id
+    assert_difference 'Event.count', -1 do
+      delete :destroy, id: event
+    end
+  end
+
   private
 
   def initialize_events

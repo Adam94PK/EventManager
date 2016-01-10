@@ -1,18 +1,17 @@
 FactoryGirl.define do
 	factory :user do
-		user_name { Faker::Name.first_name }
-		sequence :email do |n|
-			"email#{n}@example.com"
-		end
-		role "user"
+		sequence(:user_name) {|n| "user#{n}"}
+		sequence(:email) {|n| "email#{n}@example.com"}
 		name {Faker::Name.first_name }
 		surname { Faker::Name.last_name }
+		company_name { Faker::Company.name }
+		role "user"
 		password "password"
 		password_confirmation "password"
 
 		factory :user_with_events do
 			transient do
-				events_count 2
+				events_count 1
 			end
 
 			after(:create) do |user, evaluator|
@@ -20,4 +19,5 @@ FactoryGirl.define do
 			end
 		end
 	end
+
 end
