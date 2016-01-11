@@ -4,7 +4,7 @@ class Devise::RegistrationsControllerTest < ActionController::TestCase
 
 	setup :devise_mapping
 
-	test "shuld pass" do
+	test "shuld get new" do
 		get :new
 		assert_response :success
 	end
@@ -26,6 +26,22 @@ class Devise::RegistrationsControllerTest < ActionController::TestCase
 		# should I test it in controller tes?
 		assert_template 'new'
 	end
+
+	test "shuld create only one same user" do
+		user = attributes_for(:user)
+		assert_difference 'User.count' do
+			post :create, user: user
+			post :create, user: user
+		end
+	end
+
+	test "should get edit when user is signed_id" do
+		user = create(:user)
+		sign_in user
+		get :edit
+		assert_response :success
+	end
+
 
 	private
 	def devise_mapping

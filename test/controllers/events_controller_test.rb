@@ -12,7 +12,7 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show, id: @user1.events[Random.rand(21)]
+    get :show, id: @user1.events[8]
     assert_response :success
   end
 
@@ -22,7 +22,7 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit , id: @user1.events[Random.rand(21)]
+    get :edit , id: @user1.events[6]
     assert_response :success
   end
 
@@ -49,7 +49,7 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   test "shuld redirect destroy when user in not signed_in" do
-    event = @user1.events[Random.rand(21)]
+    event = @user1.events[5]
     assert_no_difference 'Event.count' do
       delete :destroy, id: event
     end
@@ -58,7 +58,7 @@ class EventsControllerTest < ActionController::TestCase
 
   test "shuld delete owned event when user is signed_in" do
     sign_in @user1
-    event = @user1.events[Random.rand(21)].id
+    event = @user1.events[15].id
     assert_difference 'Event.count', -1 do
       delete :destroy, id: event
     end
