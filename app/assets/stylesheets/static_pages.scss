@@ -3,14 +3,72 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-    background-image: url("http://images.tinypic.pl/i/00741/woksr2xye90b.jpg");
+    background-image: url("http://oi67.tinypic.com/ny5uo0.jpg");
     background-repeat: no-repeat;
     background-position: center bottom;
-    min-height: 400px;
+    background-size: cover;
+    min-height: 700px;
+}
+
+@keyframes example {
+    from {color: #F58D44;}
+    to {color: #fff ;}
 }
 
 #mainheader {
-    color: black;
-    font-family: verdana;
+    color: #000;
+    animation-name: example;
+    animation-duration: 8s;
+
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 100px;
     text-align: center;
+    background-color: black;
+    opacity: 0.7;
+}
+
+#events_serching {
+    padding-top: 10px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 25px;
+    padding-top: 100px;
+}
+
+#events_serching input {
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+#header2 {
+    font-size: 15px;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+#glyphi {
+    animation-name: slideInRight;
+    animation-duration: 2s;
 }
