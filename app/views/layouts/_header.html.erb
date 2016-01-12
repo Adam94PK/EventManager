@@ -1,43 +1,44 @@
-
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container-fluid">
             <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main_navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+              </button>
               <%= link_to "EventManager", root_path, class: "navbar-brand" %>
             </div>
-            <div>
+
+            <div class="collapse navbar-collapse", id="main_navbar">
               <ul class="nav navbar-nav">
-                <li><%= link_to "Home", root_path, id: "mypages" %></li>
-                <li>
-                  <%= link_to "Events", events_path, id: "mypages" %>
-                </li>
+                <li> <%= link_to "Home", root_path, class: "mypages" %> </li>
+                <li> <%= link_to "Events", events_path, class: "mypages" %> </li>
               </ul>
              
               <ul class="nav navbar-nav navbar-right">
                 <% if !user_signed_in? %>
-                  <%= link_to "Sign in", new_user_session_path, :class => "btn btn-default" %>
-                  <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-success" %>
+                  <li> <%= link_to "Sign in", new_user_session_path, class: "sign_links" %> </li>
+                  <li> <%= link_to "Sign up", new_user_registration_path, class: "sign_links" %> </li>
+                  
                 <% else %>
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <li class="dropdown">
+                    <button class="btn btn-link dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                       <%= current_user.user_name %>
                       <span class="caret"></span>
                     </button>
+                    
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li><%= link_to "Editd",edit_user_registration_path %>
-                      </li>
-                      <li>
-                        <%= link_to "Followed Events", events_followed_path %>
-                      </li>
-                      <li><a href="#">Something else here</a></li>
+                      <li> <%= link_to "Edit", edit_user_registration_path %> </li>
+                      <li> <%= link_to "Followed Events", events_followed_path %> </li>
+                      <li> <a href="#">Something else here</a> </li>
                       <li role="separator" class="divider"></li>
                       <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
                     </ul>
-                  </div>
+                    
+                  </li>
                 <% end %>
               </ul>
-     
-            </div>
+             </div>
           </div>
     </nav>
 
