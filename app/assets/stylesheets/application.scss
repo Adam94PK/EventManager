@@ -20,28 +20,20 @@
 #downcontent {
     padding-top: 50px;
 }
-
 .navbar{
-    background-color: #337ab7;
-    
+    background-color: #000;
 }
 .navbar .navbar-brand {
     color: #fff;
+    font-family: 'Oswald';
 }
-#mypages {
+.mypages {
     color: #BFBFBF;
 }
-#mypages:hover{
-    color: #fff;
+.mypages:hover {
+    letter-spacing: 3px;
 }
-
-#sign_log a {
-    color: #fff;
-    font-family: arial, verdana, sans-serif;
+.sign_links {
     font-weight: bold;
-    font-size: 150%;
-}
-
-#sign_log a:hover{
-    color: #BFBFBF;
+    color: #fff;
 }
