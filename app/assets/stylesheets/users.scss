@@ -3,17 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-form {
-    padding-top: 40px; 
+.form-horizontal {
+    padding-top: 30px;
+    color: #fff;
     font-family: 'Arimo';
     font-size: 14px;
     text-align: center;
 }
 
-form p input {
+.form-horizontal p input {
     width: 200px;
     display: block;
     margin: auto;
+    text-align: center;
 }
 
 #header1 {
@@ -28,6 +30,7 @@ form p input {
 
 .btn-link-red {
     color: #ac2925;
+    background-color: #000;
 }
 .btn-link-red:hover {
     color: #c9302c;
