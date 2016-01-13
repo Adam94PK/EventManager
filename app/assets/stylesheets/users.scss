@@ -5,15 +5,31 @@
 
 form {
     padding-top: 40px; 
-    font-family: verdana;
+    font-family: 'Arimo';
+    font-size: 14px;
+    text-align: center;
 }
 
 form p input {
     width: 200px;
     display: block;
+    margin: auto;
 }
 
 #header1 {
-    color: black;
-    font-family: verdana;
+    color: #fff;
+    font-family: 'Oswald';
+    text-align: center;
+}
+
+.form-horizontal {
+    background-image: url("event coverphoto2 black.jpg");
+}
+
+.btn-link-red {
+    color: #ac2925;
+}
+.btn-link-red:hover {
+    color: #c9302c;
+    text-decoration: none;
 }

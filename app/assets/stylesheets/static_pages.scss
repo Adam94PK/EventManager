@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-    background-image: url("http://oi67.tinypic.com/ny5uo0.jpg");
+    background-image: url("event coverphoto2.jpg");
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: cover;
-    min-height: 800px;
+    min-height: 1000px;
 }
 
 @keyframes colorChange {
@@ -110,4 +110,9 @@
 #glyphi {
     animation-name: slideInRight;
     animation-duration: 2s;
+}
+
+#footer {
+  text-align: center;
+  color: #fff;
 }
