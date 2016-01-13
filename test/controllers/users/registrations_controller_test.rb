@@ -35,11 +35,15 @@ class Devise::RegistrationsControllerTest < ActionController::TestCase
 		end
 	end
 
-	test "should get edit when user is signed_id" do
+	test "should get edit when user is signed_in" do
 		user = create(:user)
 		sign_in user
 		get :edit
 		assert_response :success
+	end
+
+	test "should update user when is signed_in" do
+		
 	end
 
 
