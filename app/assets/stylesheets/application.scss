@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+    background-color: #000;
+}
+
 #downcontent {
     padding-top: 50px;
 }
@@ -29,6 +33,7 @@
 }
 .mypages {
     color: #BFBFBF;
+    font-family: 'Arimo';
 }
 .mypages:hover {
     letter-spacing: 3px;
@@ -36,4 +41,10 @@
 .sign_links {
     font-weight: bold;
     color: #fff;
+    font-family: 'Arimo';
+}
+
+#footer {
+  text-align: center;
+  color: #fff;
 }
