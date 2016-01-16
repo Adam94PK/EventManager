@@ -26,6 +26,9 @@ class EventsController < ApplicationController
 
   def show
   	@event = find_event
+    unless current_user == @event.user
+      redirect_to [@event, @event.main_page]
+    end
   end
 
   def edit

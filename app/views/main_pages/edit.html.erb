@@ -1,0 +1,23 @@
+<h1>Edit</h1>
+<div>
+	<%= form_for([@event, @event.main_page]) do |f| %>	
+	<p>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	</p>
+
+	<p>
+	<%= f.label :header %>
+	<%= f.text_field :header %>
+	</p>
+
+	<p>
+	<%= f.label :content %>
+	<%= f.text_area :content %>
+	</p>
+
+	<p>
+	<%= f.submit "submit" %>
+	</p>
+<% end %>
+</div>

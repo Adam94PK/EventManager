@@ -1,0 +1,16 @@
+<h1>
+	<%= @header %>
+</h1>
+
+<div>
+	<%= @content %>
+</div>
+
+<% if current_user == find_event.user %>
+	<p>
+		<%= link_to "Edit", edit_event_main_page_path %>
+	</p>
+	<p>
+		<%= link_to "Delete", event_main_page_path, method: :delete %>
+	</p>
+<% end %>
