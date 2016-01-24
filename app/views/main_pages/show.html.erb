@@ -1,9 +1,13 @@
 <h1>
-	<%= @header %>
+	<%= @main_page.header %>
 </h1>
 
 <div>
-	<%= @content %>
+	<%= image_tag @main_page.jumbotron.url(:medium) %>
+</div>
+
+<div>
+	<%= @main_page.content %>
 </div>
 
 <% if current_user == find_event.user %>

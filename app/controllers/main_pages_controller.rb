@@ -2,6 +2,7 @@ class MainPagesController < ApplicationController
 
 	def new
 		@event = find_event
+		@event.build_main_page
 	end
 
 	def create
@@ -40,15 +41,13 @@ class MainPagesController < ApplicationController
 	end
 
 	def show
-		main_page = find_page
-		@header = main_page.header
-		@content = main_page.content
+		@main_page = find_page
 	end
 
 	private
 
 	def main_page_params
-		params.require(:main_page).permit(:title, :header, :content)
+		params.require(:main_page).permit(:title, :header, :content, :jumbotron)
 	end
 
 	def find_page

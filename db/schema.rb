@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114170751) do
+ActiveRecord::Schema.define(version: 20160124131834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,12 +49,16 @@ ActiveRecord::Schema.define(version: 20160114170751) do
   add_index "guests", ["email"], name: "index_guests_on_email", using: :btree
 
   create_table "main_pages", force: :cascade do |t|
-    t.string   "title",      default: "Main Page"
+    t.string   "title",                  default: "Main Page"
     t.text     "header"
     t.text     "content"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.integer  "event_id"
+    t.string   "jumbotron_file_name"
+    t.string   "jumbotron_content_type"
+    t.integer  "jumbotron_file_size"
+    t.datetime "jumbotron_updated_at"
   end
 
   add_index "main_pages", ["event_id"], name: "index_main_pages_on_event_id", using: :btree
