@@ -1,16 +1,22 @@
-<h1>
+<h1 id="header1">
 	<%= @header %>
 </h1>
 
-<div>
-	<%= @content %>
-</div>
+<div class="main_page_content">
+	<div class="col-md-offset-1">
+		<p>
+			<strong>Description:</strong></br>
+			<%= @content %>
+		</p>
+	</div>
 
-<% if current_user == find_event.user %>
-	<p>
-		<%= link_to "Edit", edit_event_main_page_path %>
-	</p>
-	<p>
-		<%= link_to "Delete", event_main_page_path, method: :delete %>
-	</p>
-<% end %>
+	<% if current_user == find_event.user %>
+		<div id="ifuserloggedin">
+			<p>
+				<%= link_to "Edit", edit_event_main_page_path, class: "btn-link-red"%>
+				or
+				<%= link_to "Delete", event_main_page_path, method: :delete, class: "btn-link-red" %>
+			</p>
+		</div>
+	<% end %>
+</div>

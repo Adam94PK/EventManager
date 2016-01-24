@@ -6,8 +6,8 @@
 	</p>
 
 	<p>
-	<%= f.label :place %>
-	<%= f.text_field :place %>
+		<%= f.label :place %>
+		<%= f.text_field :place %>
 	</p>
 
 	<p>
@@ -20,8 +20,10 @@
 		<%= f.time_field :time %>
 	</p>
 
-
-	<p>
-		<%= f.submit "Submit" %>
+	</br>
+	<p class="actions">
+		<%= f.submit "Submit", class: 'btn btn-danger' %>
 	</p>
+	</br>
+	
 <% end %>
