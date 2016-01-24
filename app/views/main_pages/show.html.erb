@@ -12,7 +12,9 @@
 			<%= @main_page.content %>
 		</div>
 	</div>
-
+	<div>
+		<%= link_to "JOIN", new_event_guest_path %> 
+	</div>
 
 	<% if current_user == find_event.user %>
 		<div id="ifuserloggedin">
