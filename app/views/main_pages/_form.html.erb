@@ -10,17 +10,22 @@
 	</p>
 
 	<p>
-		<%= f.label :content %>
-		<%= f.text_area :content %>
+		<%= f.label :content %> </br>
+		<%= f.text_area :content, size: "100x10" %>
 	</p>
 
 	<p>
-		<%= f.label :jumbotron %>
+		Choose the file:</br>
+		<span class="glyphicon glyphicon-arrow-right"></span>
+		<%= f.label :jumbotron, id:"jumbotron_label" %>
+		<span class="glyphicon glyphicon-arrow-left"></span>
 		<%= f.file_field :jumbotron %>
 	</p>
 
-	<p>
-		<%= f.submit "submit" %>
+	</br>
+	
+	<p class="actions">
+		<%= f.submit "Submit", class: 'btn btn-danger' %>
 	</p>
 	
 <% end %>

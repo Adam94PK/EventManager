@@ -17,3 +17,27 @@
 #ifuserloggedin {
     text-align: center;
 }
+
+.form-horizontal #main_page_jumbotron {
+    color: #fff;
+    overflow: hidden;
+    position: absolute;
+	z-index: -1;
+}
+
+.form-horizontal #jumbotron_label {
+    color: #c9302c;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: "times new roman";
+    letter-spacing: 1px;
+}
+
+.form-horizontal #jumbotron_label:hover {
+    cursor: pointer;
+}
+
+#description {
+    white-space: pre;
+}
