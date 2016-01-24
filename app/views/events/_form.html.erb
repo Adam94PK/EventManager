@@ -1,11 +1,27 @@
 <%= form_for @event do |f| %>
 
 	<p>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
 	</p>
 
 	<p>
-	<%= f.submit "Submit" %>
+	<%= f.label :place %>
+	<%= f.text_field :place %>
+	</p>
+
+	<p>
+		<%= f.label :date %>
+		<%= f.date_field :date %>
+	</p>
+
+	<p>
+		<%= f.label :time %>
+		<%= f.time_field :time %>
+	</p>
+
+
+	<p>
+		<%= f.submit "Submit" %>
 	</p>
 <% end %>
