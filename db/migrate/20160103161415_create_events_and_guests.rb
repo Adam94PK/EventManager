@@ -2,8 +2,7 @@ class CreateEventsAndGuests < ActiveRecord::Migration
   def change
     create_table :events do |t|
       t.string :name, default: 'New Event', index: true
-      t.integer :user_id, null: false
-      t.integer :main_page_id
+      t.references :user, index: true, null: false
       t.timestamps null: false
     end
 
