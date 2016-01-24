@@ -2,20 +2,30 @@
 	<%= @event.name %>
 </h1>
 
+</br>
+
+<div class="event_content">
+</br>
+	<p><strong>Decide what you want to do</strong></p>
 <% if current_user.present? %>
 	<% if current_user.id == @event.user_id %>
 		<% if @event.main_page.present? %>
 			<p>
-				<%= link_to "Show main page", event_main_page_path(@event, @event.main_page), class: "btn btn-link-red"  %>
+				<%= link_to "Show main page", event_main_page_path(@event, @event.main_page), class: "btn btn-danger btn-size"  %>
 			</p>
 		<% else %>
 			<p>
-				<%= link_to "Create main page", new_event_main_page_path(@event), class: "btn btn-link-red"  %>
+				<%= link_to "Create main page", new_event_main_page_path(@event), class: "btn btn-danger btn-size"  %>
 			</p>
 		<% end %>
 		<p>
-			<%= link_to "Edit", edit_event_path(@event), class: "btn btn-link-red" %>
-			<%= link_to "Delete", event_path(@event), method: :delete, class: "btn btn-link-red" %>
+			<%= link_to "Edit", edit_event_path(@event), class: "btn btn-danger btn-size" %>
+		</p>
+		<p>
+			<%= link_to "Delete", event_path(@event), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-size" %>
 		</p>
 	<% end %>
 <% end %>
+
+</br>
+</div>
