@@ -18,12 +18,16 @@ ActiveRecord::Schema.define(version: 20160114170751) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",       default: "New Event"
+    t.string   "place"
+    t.date     "date"
+    t.time     "time"
     t.integer  "user_id",                          null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end
 
   add_index "events", ["name"], name: "index_events_on_name", using: :btree
+  add_index "events", ["place"], name: "index_events_on_place", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "events_guests", force: :cascade do |t|
