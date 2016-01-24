@@ -1,18 +1,21 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1 id="header1">
+	<%= @event.name %>
+</h1>
+
 <% if current_user.present? %>
 	<% if current_user.id == @event.user_id %>
 		<% if @event.main_page.present? %>
 			<p>
-				<%= link_to "Show main page", event_main_page_path(@event, @event.main_page) %>
+				<%= link_to "Show main page", event_main_page_path(@event, @event.main_page), class: "btn btn-link-red"  %>
 			</p>
 		<% else %>
 			<p>
-				<%= link_to "Create main page", new_event_main_page_path(@event) %>
+				<%= link_to "Create main page", new_event_main_page_path(@event), class: "btn btn-link-red"  %>
 			</p>
 		<% end %>
 		<p>
-			<%= link_to "Usun", event_path(@event), method: :delete %>
+			<%= link_to "Edit", edit_event_path(@event), class: "btn btn-link-red" %>
+			<%= link_to "Delete", event_path(@event), method: :delete, class: "btn btn-link-red" %>
 		</p>
 	<% end %>
 <% end %>

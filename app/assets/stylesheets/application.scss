@@ -17,6 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//main content
 body {
     background-color: #000;
 }
@@ -24,6 +25,15 @@ body {
 #downcontent {
     padding-top: 50px;
 }
+
+//headers
+#header1 {
+    color: #fff;
+    font-family: 'Oswald';
+    text-align: center;
+}
+
+//nav
 .navbar{
     background-color: #000;
 }
@@ -31,6 +41,7 @@ body {
     color: #fff;
     font-family: 'Oswald';
 }
+
 .mypages {
     color: #BFBFBF;
     font-family: 'Arimo';
@@ -44,7 +55,44 @@ body {
     font-family: 'Arimo';
 }
 
+//alert
+.alert {
+    background-color: #F9605C;
+    max-width: 300px;
+    text-align: center;
+    float: right;
+}
+
+//footer
 #footer {
   text-align: center;
   color: #fff;
+}
+
+//forms
+.form-horizontal {
+    background-image: url("event coverphoto2 black.jpg");
+    padding-top: 30px;
+    color: #fff;
+    font-family: 'Arimo';
+    font-size: 14px;
+    text-align: center;
+}
+
+.form-horizontal p input {
+    margin: auto;
+    width: 200px;
+    color: #000;
+    display: block;
+    text-align: center;
+}
+
+//buttons
+.btn-link-red {
+    color: #ac2925;
+    background-color: #000;
+}
+.btn-link-red:hover {
+    color: #c9302c;
+    text-decoration: none;
 }
