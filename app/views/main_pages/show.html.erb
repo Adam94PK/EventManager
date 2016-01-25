@@ -4,12 +4,16 @@
 
 <div class="main_page_content">
 		<div>
-			<%= image_tag @main_page.jumbotron.url(:medium) %>
+			 </br>
+			<%=image_tag @main_page.jumbotron.url(:medium) %>
 		</div>
+		
+		<hr>
 		<div id="description">
 			<strong>Description:</strong>
 			<%= @main_page.content %>
 		</div>
+		<hr>
 
 	<% if current_user == find_event.user %>
 		<div id="ifuserloggedin">
