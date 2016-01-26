@@ -10,7 +10,7 @@ class CreateEventsAndGuests < ActiveRecord::Migration
     end
 
     create_table :guests do |t|
-  	  t.string :email, null: false, index: true
+  	  t.string :email, unique: true, null: false, index: true
   	  t.string :name
   	  t.string :surname
       t.timestamps null: false

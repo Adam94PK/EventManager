@@ -13,6 +13,10 @@
 			<strong>Description:</strong>
 			<%= @main_page.content %>
 		</div>
+	
+	<div>
+		<%= link_to "JOIN", new_event_guest_path %> 
+	</div>
 		<hr>
 
 	<% if current_user == find_event.user %>

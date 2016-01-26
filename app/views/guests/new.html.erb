@@ -1,0 +1,26 @@
+<div> NEW MOTHERFUCKER!!! </div>
+<div>
+	<%= form_for([@event, @guest]) do |f| %>
+
+	<p>
+		<%= f.label :email %>
+		<%= f.email_field :email %>
+	</p>
+
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :surname %>
+		<%= f.text_field :surname %>
+	</p>
+	
+	<p>
+		<%= f.submit "SUBMIT" %>
+	</p>
+
+	<% end %>
+
+</div>
