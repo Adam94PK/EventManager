@@ -1,24 +1,15 @@
-<!--<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
-
-<%# @events.each do |event| %>
-	<div class="col-md-4">
-	<%#= link_to (image_tag event.avatar.url(:medium)), event_path(event) %>
-	<%#= event.description %>
-	</div>
-	<div class="col-md-5">I gdzie się znajduje ten tekst?</div>
-<%# end %>
-<h1 id="header1">All events</h1>-->
-
-<div class="event_content">
-<% counter = 0 %>
+<h1 id="header1">All events</h1>
+</br>
 <% @events.each do |event| %>
-	<p>
-	<%= counter+=1 %>
-	<%= link_to event.name, event_path(event), class: "btn btn-link-red" %>
-	</p>
+      <div class="col-sm-4">
+        <div class="panel">
+          <div class="panel-heading"><%= event.name %></div>
+          <div class="panel-body">
+          	<%= link_to (image_tag event.avatar.url(:medium)), event_path(event), class:"img-responsive", id:"panel_img" %>
+          </div>
+          <div class="panel-footer">When: <%= event.date %> </br>
+          Where: <%= event.place %>
+          </div>
+        </div>
+      </div>
 <% end %>
-</div>
-
-<!-- dopisac: wyswietlanie po kategoriach, po uzytkownikach,
-obok nazwy eventu wyswietlac uzytkownika i kategorie -->

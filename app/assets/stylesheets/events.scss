@@ -11,3 +11,24 @@
 .btn-size {
     width: 200px;
 }
+
+.panel-body{
+    height: 320px;
+    width: 100%;
+    text-align: center;
+}
+
+.panel-heading {
+    background-color: #d9534f;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    animation: colorChange2;
+    animation-duration: 5s;
+}
+
+@keyframes colorChange2 {
+    from {color: #fff;}
+    to {color: #d9534f ;}
+}
