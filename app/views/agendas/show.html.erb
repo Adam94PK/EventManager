@@ -3,7 +3,8 @@
 <%= image_tag @agenda.picture.url(:medium) %></br></br>
 <div id="description"><%= @agenda.content %></br></div> </br>
 
-<% if current_user == find_event.user %>
+<% if @agenda.event.users.include?(current_user) %>
+
     <%= link_to "Edit", edit_event_agenda_path, class: "btn-link-red" %> / 
     <%= link_to "Delete", event_agenda_path, class: "btn-link-red", method: :delete %>
 <% end %>
