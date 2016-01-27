@@ -1,0 +1,4 @@
+<%= image_tag @agenda.picture.url(:medium) %>
+<%= @agenda.content %>
+<%= link_to "Edit", edit_event_agenda_path %>
+<%= link_to "Delete", event_agenda_path, method: :delete %>
