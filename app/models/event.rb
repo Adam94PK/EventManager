@@ -3,7 +3,8 @@ class Event < ActiveRecord::Base
   	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 	has_and_belongs_to_many :guests
 	has_and_belongs_to_many :hotels
-	belongs_to :user
+	has_many :event_users
+	has_many :users, through: :event_users
 	has_one :main_page, dependent: :destroy
 	has_one :agenda
 end

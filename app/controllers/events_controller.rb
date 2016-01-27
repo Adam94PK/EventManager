@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
   def show_followed
     if current_user.present?
-      @events = Event.where(user_id: current_user.id.to_s).to_a
+      @events = current_user.events
       puts @events.inspect    
     end
   end
@@ -16,7 +16,8 @@ class EventsController < ApplicationController
   end
 
   def create
-  	@event = current_user.events.build(event_params)
+  	@event = Event.new(event_params)
+    @event.users<<current_user
   	if @event.save
   		redirect_to @event
   	else
@@ -27,7 +28,7 @@ class EventsController < ApplicationController
 
   def show
   	@event = find_event
-    unless current_user == @event.user
+    unless @event.users.includes(current_user)
       redirect_to [@event, @event.main_page]
     end
   end

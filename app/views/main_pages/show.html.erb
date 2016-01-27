@@ -25,7 +25,7 @@
 	</div>
 		<hr>
 
-	<% if current_user == find_event.user %>
+	<% if find_event.users.includes(current_user) %>
 		<div id="ifuserloggedin">
 			<p>
 				<%= link_to "Edit", edit_event_main_page_path, class: "btn-link-red"%>
