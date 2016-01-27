@@ -11,16 +11,19 @@ class GuestsController < ApplicationController
 			find_event.guests<<@guest
 			redirect_to events_path
 		else
-			puts "Uruchomił sie blok else"
 			@guest = find_event.guests.create(guest_params)
 			if @guest.save
 				redirect_to events_path
 			else
-				flash.now[:dange] = "Niepoprawne dane"
-				render 'new'
+				flash.now[:dange] = "Incorrect data"
+				render :new
 			end
 		end
 	end
+
+  def index
+    @guests = find_event.guests
+  end
 
 	private 
 

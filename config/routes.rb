@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root    'static_pages#index'
   get 'events/followed' => 'events#show_followed'
+
   resources :events do
     resources :agendas
     resources :guests
