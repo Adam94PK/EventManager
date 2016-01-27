@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:login]
   
-  has_many :events
+  has_many :event_users
+  has_many :events, through: :event_users
   has_many :hotels
 	
   validates :email, presence: true, uniqueness: { case_sensitive: false }
