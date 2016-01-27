@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :authentication_keys => [:login]
   
   has_many :events
+  has_many :hotels
 	
   validates :email, presence: true, uniqueness: { case_sensitive: false }
 	validates :user_name, presence: true, uniqueness: { case_sensitive: false }
