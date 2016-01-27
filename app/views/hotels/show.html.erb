@@ -1,0 +1,19 @@
+<h1>
+	<%= @hotel.name %>
+</h1>
+
+<p>
+Miasto
+	<%= @hotel.city %>
+</p>
+<p>
+Opis
+	<%= @hotel.description %>
+</p>
+<% if @hotel.user == current_user %>
+<%= render 'hotel_pictures/form' %>
+<% end %>
+<h1>Galery</h1>
+<%= @hotel.hotel_pictures.each do |pic| %>
+ <%= image_tag pic.picture.url(:medium) %>
+ <% end %>
