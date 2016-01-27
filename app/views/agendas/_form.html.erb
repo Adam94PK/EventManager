@@ -1,0 +1,14 @@
+<%= form_for([@event, @event.agenda]) do |f| %>
+<p>
+	<%= f.label :content %>
+	<%= f.text_area :content %>
+</p>
+<p>
+	<%= f.label :picture %>
+	<%= f.file_field :picture %>
+</p>
+<p>
+	<%= f.submit "SUBMIT" %>
+</p>
+
+<% end %>
