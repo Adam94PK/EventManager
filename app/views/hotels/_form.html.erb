@@ -3,4 +3,35 @@
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 </p>
+<p>
+	<%= f.label :city %>
+	<%= f.text_field :city %>
+</p>
+<p>
+	<%= f.label :address %>
+	<%= f.text_field :address %>
+</p>
+<p>
+	<%= f.label :phone %>
+	<%= f.telephone_field :phone %>
+</p>
+<p>
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+</p>
+<p>
+	<%= f.label :link %>
+	<%= f.url_field :link %>
+</p>
+<p>
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+</p>
+<p>
+	<%= f.label :standard %>
+	<%= f.number_field :standard, in: 1...6, step: 1 %>
+</p>
+<p>
+	<%= f.submit "Submit", class: "btn btn-danger" %>
+</p>
 <% end %>
