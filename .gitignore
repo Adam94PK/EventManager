@@ -17,4 +17,8 @@
 /tmp
 
 /public
+<<<<<<< HEAD
 Gemfile.lock
+=======
+Gemfile.lock
+>>>>>>> master

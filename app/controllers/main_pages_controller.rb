@@ -1,5 +1,5 @@
 class MainPagesController < ApplicationController
-
+	load_and_authorize_resource
 	def new
 		@event = find_event
 		@event.build_main_page
