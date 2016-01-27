@@ -24,6 +24,9 @@
 		<p>
 			<%= link_to "Delete", event_path(@event), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-size" %>
 		</p>
+		<p>
+			<%= link_to "Add agenda", new_event_agenda_path(@event) %>
+		</p>
 	<% end %>
 <% end %>
 
