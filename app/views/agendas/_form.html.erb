@@ -1,14 +1,17 @@
 <%= form_for([@event, @event.agenda]) do |f| %>
-<p>
-	<%= f.label :content %>
-	<%= f.text_area :content %>
-</p>
-<p>
-	<%= f.label :picture %>
-	<%= f.file_field :picture %>
-</p>
-<p>
-	<%= f.submit "SUBMIT" %>
-</p>
+	<p>
+		<%= f.label :content %> </br>
+		<%= f.text_area :content, size: "100x10" %>
+	</p>
+	<p>
+		Choose the file:</br>
+		<span class="glyphicon glyphicon-arrow-right"></span>
+		<%= f.label :picture, id:"agenda_label" %>
+		<span class="glyphicon glyphicon-arrow-left"></span>
 
+		<%= f.file_field :picture %>
+	</p>
+	<p>
+		<%= f.submit "Submit", class: 'btn btn-danger' %>
+	</p>
 <% end %>
