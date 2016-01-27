@@ -5,7 +5,6 @@ class CreateEventsAndGuests < ActiveRecord::Migration
       t.string :place, index: true
       t.date :date
       t.time :time
-      t.references :user, index: true, null: false
       t.timestamps null: false
     end
 
@@ -20,6 +19,7 @@ class CreateEventsAndGuests < ActiveRecord::Migration
     	t.belongs_to :event, null: false, index: true
     	t.belongs_to :guest, null: false, index: true
     end
+    
   end
   
 end
