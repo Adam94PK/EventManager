@@ -46,7 +46,15 @@
 
 		<p>
 		<%= f.label :role %>
-		<%= f.text_field :role, autofocus: true %>
+		
+		<div>
+		<%= f.radio_button :role, 'user' %>
+		<%= f.label :role, 'User', :value => 'user' %>
+    &emsp;
+		<%= f.radio_button :role, 'pro_user' %>
+		<%= f.label :role, 'Pro User', :value => 'pro_user' %>
+		</div>
+		
 		</p>
 		
     <p>

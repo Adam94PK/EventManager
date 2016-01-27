@@ -17,8 +17,6 @@
 /tmp
 
 /public
-<<<<<<< HEAD
 Gemfile.lock
-=======
-Gemfile.lock
->>>>>>> master
+
+/config/environments/development.rb
