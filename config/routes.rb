@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :guests
     resources :main_pages
   end
+  resources :hotels
  
 end
  # The priority is based upon order of creation: first created -> highest priority.
