@@ -1,0 +1,7 @@
+<%= form_for([@hotel, @hotel.hotel_pictures.build]) do |f| %>
+<p>
+	<%= f.file_field :picture %>
+	<%= f.submit %>
+</p>
+
+<% end %>

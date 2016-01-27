@@ -5,7 +5,7 @@ class HotelsController < ApplicationController
 	end
 
 	def create
-	  @hotel = Hotel.new(hotel_params)
+	  @hotel = current_user.hotels.build(hotel_params)
 	  if @hotel.save
 	  	redirect_to @hotel
 	  else
