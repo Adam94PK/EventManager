@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127104730) do
+ActiveRecord::Schema.define(version: 20160127122910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,36 @@ ActiveRecord::Schema.define(version: 20160127104730) do
   end
 
   add_index "guests", ["email"], name: "index_guests_on_email", using: :btree
+
+  create_table "hotels", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "name"
+    t.string   "city"
+    t.string   "address"
+    t.text     "description"
+    t.string   "link"
+    t.integer  "standard"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "hotels", ["city"], name: "index_hotels_on_city", using: :btree
+  add_index "hotels", ["event_id"], name: "index_hotels_on_event_id", using: :btree
+  add_index "hotels", ["name"], name: "index_hotels_on_name", using: :btree
+
+  create_table "hotes_events", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "hotels_id"
+  end
+
+  add_index "hotes_events", ["event_id"], name: "index_hotes_events_on_event_id", using: :btree
+  add_index "hotes_events", ["hotels_id"], name: "index_hotes_events_on_hotels_id", using: :btree
 
   create_table "main_pages", force: :cascade do |t|
     t.string   "title",                  default: "Main Page"
