@@ -16,7 +16,7 @@ class AgendasController < ApplicationController
 	  	redirect_to event_agenda_path(@event.id, @agenda)
 	  else
 	  	flash.now[:danger] = "Unpermited paramters"
-	  	render 'new'
+	  	render :new
 	  end
 	end
 
@@ -30,7 +30,7 @@ class AgendasController < ApplicationController
 	  	redirect_to event_agenda_path(@agenda.event.id, @agenda)
 	  else
 	  	flash.now[:danger] = "Unpermited paramters"
-	  	render 'edit'
+	  	render :edit
 	  end
 	end
 

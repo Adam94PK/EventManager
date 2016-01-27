@@ -23,8 +23,8 @@ Rails.application.configure do
       domain: "gmail.com",
       authentication: "plain",
       enable_starttls_auto: true,
-      user_name: "event.manager.hz@gmail.com",
-      password: "zadoraprojekthajto"
+      user_name: "event.manager.to@gmail.com",
+      password: "topassword"
   }
 
   # Print deprecation notices to the Rails logger.

@@ -4,7 +4,7 @@
 
 .main_page_content {
     color: #fff;
-    //background-image: url("event coverphoto2 black.jpg");
+    background-image: url("event coverphoto2 black.jpg");
     text-align: center;
 }
 
@@ -45,8 +45,14 @@
     margin: auto;
     border: 2px dashed #fff;
     padding: 10px 10px 10px 10px;
+    color: #fff;
+    background-color: #c9302c;
 }
 
 hr {
     width: 50%;
+}
+
+#img {
+    border: 2px solid #fff;
 }

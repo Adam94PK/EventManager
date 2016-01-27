@@ -29,8 +29,19 @@
     font-size: 20px;
     text-align: center;
     letter-spacing: 2px;
+    
+}
+
+.panel-heading a {
     animation: colorChange2;
     animation-duration: 5s;
+    color: #000;
+}
+
+.panel-heading a:hover{
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 8px;
 }
 
 @keyframes colorChange2 {
