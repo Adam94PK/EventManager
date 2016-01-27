@@ -1,3 +1,23 @@
 // Place all the styles related to the Hotels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-horizontal #hotel_label {
+    color: #c9302c;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: "times new roman";
+    letter-spacing: 1px;
+}
+
+.form-horizontal #hotel_label:hover {
+    cursor: pointer;
+}
+
+.form-horizontal #hotel_picture {
+    color: #fff;
+    overflow: hidden;
+    position: absolute;
+	z-index: -1;
+}

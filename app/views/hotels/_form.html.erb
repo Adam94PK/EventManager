@@ -24,12 +24,19 @@
 	<%= f.url_field :link %>
 </p>
 <p>
-	<%= f.label :description %>
-	<%= f.text_field :description %>
+	<%= f.label :description %> </br>
+	<%= f.text_area :description, size: "100x10" %>
 </p>
 <p>
-	<%= f.label :standard %>
+	<%= f.label :standard, "Standard: amount of stars" %>
 	<%= f.number_field :standard, in: 1...6, step: 1 %>
+</p>
+<p>
+	Choose the file:</br>
+	<span class="glyphicon glyphicon-arrow-right"></span>
+	<%= f.label :picture, id:"hotel_label" %>
+	<span class="glyphicon glyphicon-arrow-left"></span>
+	<%= f.file_field :picture %>
 </p>
 <p>
 	<%= f.submit "Submit", class: "btn btn-danger" %>

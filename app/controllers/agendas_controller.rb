@@ -12,8 +12,6 @@ class AgendasController < ApplicationController
 	def create
 	  @event = find_event
 	  @agenda = @event.build_agenda(agenda_params)
-	  puts "ZAJEBISTA Agena _______________________"
-	  puts @agenda.inspect
 	  if @agenda.save
 	  	redirect_to event_agenda_path(@event.id, @agenda)
 	  else
@@ -43,7 +41,7 @@ class AgendasController < ApplicationController
 		@agenda.destroy
 		redirect_to @event
 	  else
-		flash[:dange] = "You are not allowd to do that"
+		flash.now[:danger] = "You are not allowed to do it"
 	  end
 	end
 
