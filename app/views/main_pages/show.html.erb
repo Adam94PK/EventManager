@@ -3,18 +3,21 @@
 </h1>
 
 <div class="main_page_content">
-	<div class="col-md-offset-1">
 		<div>
-			<%= image_tag @main_page.jumbotron.url(:medium) %>
+			 </br>
+			<%=image_tag @main_page.jumbotron.url(:medium) %>
 		</div>
-		<div>
-			<strong>Description:</strong></br>
+		
+		<hr>
+		<div id="description">
+			<strong>Description:</strong>
 			<%= @main_page.content %>
 		</div>
-	</div>
+	
 	<div>
 		<%= link_to "JOIN", new_event_guest_path %> 
 	</div>
+		<hr>
 
 	<% if current_user == find_event.user %>
 		<div id="ifuserloggedin">

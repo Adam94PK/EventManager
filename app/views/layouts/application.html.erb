@@ -2,6 +2,7 @@
 <html lang= "pl">
 <head>
   <title>EventManager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Oswald|Open+Sans|Montserrat|Raleway|Arimo|Noto+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -19,12 +20,13 @@
         <%= value %>
     </div>
 	<% end %>
+	</br>
 	
 	<%= yield %>
 
-  <div id="footer">
+  <!--<div id="footer">
 	  <p>all rights reserved by Adam & Dusia</p>
-  </div>
+  </div>-->
 
 </body>
 </html>

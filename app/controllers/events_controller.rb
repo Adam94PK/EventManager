@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   	if @event.save
   		redirect_to @event
   	else
-  		flash.now[:danger] = 'Nie poprawne dane'
+  		flash.now[:danger] = 'Wrong input data'
   		render :new
   	end
   end
@@ -34,6 +34,16 @@ class EventsController < ApplicationController
   def edit
   	@event = find_event
   end
+
+  def update
+  	@event = find_event
+  	if @event.update(event_params)
+  		redirect_to @event
+  	else
+  		flash.now[:danger] = 'Wrong input data'
+  		render :new
+  	end
+  end    
 
   def destroy
   	@event = find_event

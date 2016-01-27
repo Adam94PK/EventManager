@@ -1,8 +1,13 @@
-<h1>Followed events</h1>
-<% if @events.present? %>
-	<% @events.each do |event| %>
-	<p>
-		<%= link_to event.name, event_path(event) %>
-	</p>
+<h1 id="header1">Followed events</h1>
+
+<% counter = 0 %>
+<div class="event_content">
+	<% if @events.present? %>
+		<% @events.each do |event| %>
+		<p>
+			<%= counter=+1 %>
+			<%= link_to event.name, event_path(event), class: "btn btn-link-red" %>
+		</p>
+		<% end %>
 	<% end %>
-<% end %>
+</div>

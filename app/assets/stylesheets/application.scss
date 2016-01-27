@@ -58,9 +58,8 @@ body {
 //alert
 .alert {
     background-color: #F9605C;
-    max-width: 300px;
     text-align: center;
-    float: right;
+    margin: auto;
 }
 
 //footer
@@ -85,6 +84,10 @@ body {
     color: #000;
     display: block;
     text-align: center;
+}
+
+.form-horizontal textarea {
+    color: #000;
 }
 
 //buttons
