@@ -24,7 +24,7 @@ class HotelsController < ApplicationController
 	  	redirect_to @hotel
 	  else
 	  	flash.now[:danger] = 'Wrong input data'
-	  	render :new
+	  	render :edit
 	  end
 	end
 

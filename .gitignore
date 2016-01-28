@@ -19,4 +19,4 @@
 /public
 Gemfile.lock
 
-/config/environments/development.rb
+/config/environments

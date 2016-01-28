@@ -43,7 +43,7 @@ class EventsController < ApplicationController
   		redirect_to @event
   	else
   		flash.now[:danger] = 'Wrong input data'
-  		render :new
+  		render :edit
   	end
   end    
 

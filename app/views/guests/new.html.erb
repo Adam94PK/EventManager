@@ -1,5 +1,6 @@
-<div> NEW MOTHERFUCKER!!! </div>
-<div>
+<h1 id="header1"> Join to event: <%= @event.name %> </h1>
+
+<div class="form-horizontal">
 	<%= form_for([@event, @guest]) do |f| %>
 
 	<p>
@@ -17,9 +18,9 @@
 		<%= f.text_field :surname %>
 	</p>
 	
-	<p>
-		<%= f.submit "SUBMIT" %>
-	</p>
+	<p></br>
+		<%= f.submit "Submit", class: "btn btn-danger" %>
+	</br></p>
 
 	<% end %>
 

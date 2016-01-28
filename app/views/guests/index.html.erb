@@ -1,0 +1,9 @@
+<div class="form-horizontal">
+<h1 id="header1"> Guests to event </h1>
+    <% @guests.each do |guest| %>
+        <p>
+            <%= guest.email %>
+        </p>
+    <% end %>
+</br>
+</div>

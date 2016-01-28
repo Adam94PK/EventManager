@@ -26,11 +26,14 @@
 	</p>
 
 	<p>
-		<%= f.label :avatar %>
+		Choose the file:</br>
+		<span class="glyphicon glyphicon-arrow-right"></span>
+		<%= f.label :avatar, id:"event_label" %>
+		<span class="glyphicon glyphicon-arrow-left"></span>
+
 		<%= f.file_field :avatar %>
 	</p>
 
-	</br>
 	<p class="actions">
 		<%= f.submit "Submit", class: 'btn btn-danger' %>
 	</p>
