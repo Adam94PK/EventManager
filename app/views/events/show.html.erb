@@ -18,11 +18,7 @@
 				<%= link_to "Create main page", new_event_main_page_path(@event), class: "btn btn-danger btn-size"  %>
 			</p>
 		<% end %>
-		<% @pending_contributors.each do |con| %>
-			<p>
-				<%= con.user.user_name %> wotns to join you as <%= con.role %>
-			<p>
-			<%end%>
+		<%# render 'pending_contributors/accept' %>
 		<p>
 			<%= link_to "Add agenda", new_event_agenda_path(@event), class: "btn btn-danger btn-size" %>
 		</p>

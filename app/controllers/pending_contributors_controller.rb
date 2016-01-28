@@ -8,6 +8,24 @@ class PendingContributorsController < ApplicationController
 		flash[:danger] = "Sucesfully added to pending contributors"
 		redirect_to @event
 	end
+	
+	def accept
+		event = find_event
+		pending_contributor = PendingContributor.find(params[:id])
+		user = pending_contributor.user
+		role = pending_contributor.role
+		pending_contributor.destroy
+		event_user = EventUser.new
+		event_user.event = event
+		event_user.user = user
+		event_user.role = role
+		event_user.save
+		redirect_to event
+	end
+
+	def destroy
+
+	end
 
 	private
 	def pending_contributor_params
