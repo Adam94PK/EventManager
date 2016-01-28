@@ -25,7 +25,7 @@
 	</div>
 		<hr>
 
-	<% if find_event.users.include?(current_user) %>
+	<% if @event.users.include?(current_user) %>
 		<div id="ifuserloggedin">
 			<p>
 				<%= link_to "Edit", edit_event_main_page_path, class: "btn-link-red"%>
@@ -34,7 +34,10 @@
 			</p>
 		</div>
 		<% else %>
-		<p>Współtwórz wydarzenie</p>
+		<% if @show_contributor %>
+	<p>Współtwórz wydarzenie</p>
 			<%= render 'pending_cotributors/form' %>
+			<%end%>
 	<% end %>
+	
 </div>
