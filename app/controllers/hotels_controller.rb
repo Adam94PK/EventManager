@@ -28,6 +28,10 @@ class HotelsController < ApplicationController
 	  end
 	end
 
+	def index
+		@hotels = Hotel.all
+	end
+
 	def show
 	  @hotel = find_hotel
 	end

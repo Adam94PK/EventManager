@@ -1,15 +1,30 @@
 <h1 id="header1"> <%= @hotel.name %> </h1>
 
 <div class="form-horizontal">
-    <div>
+    <p>
         <strong>City:</strong>
         <%= @hotel.city %>
-    </div></br>
+    </p>
+    
+    <p>
+        <strong>Standard (amount of stars):</strong>
+        <%= @hotel.standard %>
+    </p>
         
     <div id="description">
         <strong>Description: </strong></br>
         <%= @hotel.description %>
     </div></br>
+    <p>
+        <strong>Address: </strong>
+        <%= @hotel.address %>
+    </p>
+    <p>
+        <strong>Contact:</strong> </br>
+        Email: <%= @hotel.email %> </br>
+        Phone: <%= @hotel.phone %> </br>
+        Link: <%= @hotel.link %> </br>
+    </p>
 
     <% if @hotel.user == current_user %>
         <%= link_to "Edit", edit_hotel_path, class: "btn-link-red" %>
