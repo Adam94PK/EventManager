@@ -7,4 +7,5 @@ class Event < ActiveRecord::Base
 	has_many :users, through: :event_users
 	has_one :main_page, dependent: :destroy
 	has_one :agenda
+	has_many :pending_contributors
 end

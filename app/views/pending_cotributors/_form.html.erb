@@ -1,0 +1,6 @@
+<%= form_for([@event, @event.pending_contributors.build]) do |f| %>
+<p>
+	<%= f.text_field :role %>
+	<%= f.submit %>
+</p>
+<% end %>

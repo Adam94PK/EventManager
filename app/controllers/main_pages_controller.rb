@@ -42,6 +42,7 @@ class MainPagesController < ApplicationController
 
 	def show
 		@main_page = find_page
+		@event = find_event
 	end
 
 	private

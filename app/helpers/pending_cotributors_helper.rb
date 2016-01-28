@@ -1,0 +1,2 @@
+module PendingCotributorsHelper
+end

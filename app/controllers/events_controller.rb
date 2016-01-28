@@ -28,7 +28,7 @@ class EventsController < ApplicationController
 
   def show
   	@event = find_event
-    unless @event.users.includes(current_user)
+    unless @event.users.include?(current_user)
       redirect_to [@event, @event.main_page]
     end
   end
@@ -55,6 +55,10 @@ class EventsController < ApplicationController
     else
       redirect_to new_user_session_path
     end
+  end
+
+  def search
+    @events = Event.where("name LIKE '%#{params[:event][:name]}%'")
   end
 
   private

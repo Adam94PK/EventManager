@@ -19,7 +19,7 @@
 	</div>
 		<hr>
 
-	<% if find_event.users.includes(current_user) %>
+	<% if find_event.users.include?(current_user) %>
 		<div id="ifuserloggedin">
 			<p>
 				<%= link_to "Edit", edit_event_main_page_path, class: "btn-link-red"%>
@@ -27,5 +27,8 @@
 				<%= link_to "Delete", event_main_page_path, method: :delete, class: "btn-link-red" %>
 			</p>
 		</div>
+		<% else %>
+		<p>Współtwórz wydarzenie</p>
+			<%= render 'pending_cotributors/form' %>
 	<% end %>
 </div>

@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root    'static_pages#index'
   get 'events/followed' => 'events#show_followed'
+  get 'events/search' => 'events#search'
+  post 'events/search' => 'events#search'
   resources :events do
+    resources :pending_contributors
     resources :agendas
     resources :guests
     resources :main_pages

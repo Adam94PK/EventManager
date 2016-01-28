@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :event_users
   has_many :events, through: :event_users
   has_many :hotels
+  has_many :pending_contributors
 	
   validates :email, presence: true, uniqueness: { case_sensitive: false }
 	validates :user_name, presence: true, uniqueness: { case_sensitive: false }
