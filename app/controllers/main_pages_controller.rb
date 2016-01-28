@@ -43,6 +43,14 @@ class MainPagesController < ApplicationController
 	def show
 		@main_page = find_page
 		@event = find_event
+		@show_contributor = true
+		contributors = @event.pending_contributors
+		contributors.each do |c|
+			if c.user_id == current_user.id
+				@show_contributor = false
+				break
+			end
+		end
 	end
 
 	private

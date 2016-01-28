@@ -5,7 +5,8 @@ class PendingContributorsController < ApplicationController
 		@pending_contributor = @event.pending_contributors.build(pending_contributor_params)
 		@pending_contributor.user = current_user
 		@pending_contributor.save
-		redirect_to root_path
+		flash[:danger] = "Sucesfully added to pending contributors"
+		redirect_to @event
 	end
 
 	private
