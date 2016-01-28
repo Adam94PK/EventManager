@@ -50,7 +50,7 @@ class EventsController < ApplicationController
 
   def destroy
   	@event = find_event
-  	if current_user.present? && current_user.id == @event.user_id
+  	if current_user.present? && @event.users.include?(current_user)
       @event.destroy
   	  redirect_to action: :index
     else
