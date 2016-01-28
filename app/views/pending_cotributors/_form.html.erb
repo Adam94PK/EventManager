@@ -1,6 +1,14 @@
 <%= form_for([@event, @event.pending_contributors.build]) do |f| %>
 <p>
-	<%= f.text_field :role %>
-	<%= f.submit %>
+	
+	<%= f.radio_button :role, 'admin', :checked => true %>
+	<%= f.label :role, 'Admin', :value => 'admin' %>
+        &emsp;
+	<%= f.radio_button :role, 'user' %>
+	<%= f.label :role, 'User', :value => 'user' %>
+		
+</p>
+<p>
+	<%= f.submit "Submit", class: "btn-link-red" %>
 </p>
 <% end %>
