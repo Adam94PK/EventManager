@@ -32,6 +32,12 @@ class HotelsController < ApplicationController
 		@hotels = Hotel.all
 	end
 
+	def show_followed
+	if current_user.present?
+    	@hotels = current_user.hotels
+    end
+    end
+
 	def show
 	  @hotel = find_hotel
 	end

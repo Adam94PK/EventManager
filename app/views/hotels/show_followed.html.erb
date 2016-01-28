@@ -1,0 +1,23 @@
+<h1 id="header1">Followed hotels</h1>
+</br>
+
+<%# counter = 0 %>
+
+	<% if @hotels.present? %>
+		<% @hotels.each do |hotel| %>
+		<div class="event_content2">
+		
+		        <div class="panel">
+        		  <div class="panel-heading">
+        		  	<%= link_to hotel.name, hotels_path(hotel) %>
+        		  </div>
+		          <div class="panel-footer">
+		          	City: <%= hotel.city %> </br>
+        			Address: <%= hotel.address %> </br>
+        			Link: <%= hotel.link %> </br>
+          		  </div>
+        		</div>
+
+		</div>
+		<% end %>
+	<% end %>
