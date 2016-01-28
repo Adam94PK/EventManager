@@ -1,7 +1,14 @@
 <%= form_for([@hotel, @hotel.hotel_pictures.build]) do |f| %>
 <p>
+	Choose the file:</br>
+		<span class="glyphicon glyphicon-arrow-right"></span>
+		<%= f.label :picture, id:"hotel_label" %>
+		<span class="glyphicon glyphicon-arrow-left"></span>
+	
 	<%= f.file_field :picture %>
-	<%= f.submit %>
+</p>
+<p>
+	<%= f.submit "Submit", class: "btn btn-danger" %>
 </p>
 
 <% end %>
