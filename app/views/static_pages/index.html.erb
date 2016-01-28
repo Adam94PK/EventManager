@@ -3,10 +3,9 @@
 	    <div id="events_serching">
 	        <h2 id="header2">find an event</h2>
 	        <%= form_for(:event, as: :event, url: events_search_path, action: :post ) do |f| %>
-	        <%= f.text_field :name, placeholder: "search for events" %>
-	        <%= f.submit "", id: "glyphi", class: "glyphicon glyphicon-menu-right" %>
-	        <span id="glyphi" class="glyphicon glyphicon-menu-right"></span> </br>
+	        <%= f.text_field :name, placeholder: "search for events", id: "placeholder" %>
+	        <span id="glyphi" class="glyphicon glyphicon-menu-right"></span> </br></br>
+	        <%= f.submit "Search", class: "btn btn-danger btn-lg" %>
 	        <% end %>
-	        <!--<input type="text" placeholder="search for events">
-	        <span id="glyphi" class="glyphicon glyphicon-menu-right"></span> </br>-->
 	    </div>
+</div>	    
