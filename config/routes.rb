@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'events/followed' => 'events#show_followed'
   get 'events/search' => 'events#search'
   post 'events/search' => 'events#search'
+  patch 'pending_contributors/accept' => 'pending_contributors#accept'
 
   resources :events do
     resources :pending_contributors

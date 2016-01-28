@@ -32,11 +32,6 @@ class EventsController < ApplicationController
       redirect_to [@event, @event.main_page]
     end
     @pending_contributors = @event.pending_contributors
-    @pending_user_ids = []
-    @pending_contributors.each do |c|
-      @pending_user_ids<<c.user_id
-    end
-
   end
 
   def edit
