@@ -10,6 +10,7 @@ class Ability
         can :manage, MainPage
     else
         can :read, :all
+        can :manage, :all
     end
     # Define abilities for the passed in user here. For example:
     #
