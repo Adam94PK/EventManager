@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   patch 'pending_contributors/accept' => 'pending_contributors#accept'
 
   resources :events do
-    resources :pending_contributors
+    patch 'pending_contributors/accept' => 'pending_contributors#accept'
+    post 'pending_contributors/create' => 'pending_contributors#create'
     resources :agendas
     resources :guests
     resources :main_pages

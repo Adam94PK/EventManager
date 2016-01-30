@@ -34,7 +34,7 @@
 			</p>
 		</div>
 		<% else %>
-		<% if @show_contributor %>
+		<% if @show_contributor && current_user.present? %>
 	<p>Co-create the event</p>
 		<%= render 'pending_contributors/form' %>
 		<%end%>

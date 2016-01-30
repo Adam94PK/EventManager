@@ -1,7 +1,6 @@
 <% @pending_contributors.each do |con| %>
-	<%= form_for [con], url: pending_contributors_accept_path, action: :post do |f| %>
+	<%= form_for(con, url: event_pending_contributors_accept_path(@event, id: con)) do |f| %>
 	<p>
-		<% hidden_field(:event, :id) %>
 		<%= con.user.user_name %> wotns to join you as <%= con.role %> <%= f.submit %>
 	<p>
 	<% end %>

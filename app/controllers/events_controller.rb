@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   def show
   	@event = find_event
     unless @event.users.include?(current_user)
-      redirect_to [@event, @event.main_page]
+      redirect_to [@event, @event.main_page] if @event.main_page.present?
     end
     @pending_contributors = @event.pending_contributors
   end
@@ -50,7 +50,7 @@ class EventsController < ApplicationController
 
   def destroy
   	@event = find_event
-  	if current_user.present? && current_user.id == @event.user_id
+  	if current_user.present? && @event.users.include?(current_user)
       @event.destroy
   	  redirect_to action: :index
     else

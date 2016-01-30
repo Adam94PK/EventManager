@@ -1,8 +1,14 @@
-<h1>Wyniki wyszukiwania</h1>
+<h1 id="header1">Wyniki wyszukiwania</h1>
 
+<% @counter = 0 %>
+<div class="form-horizontal">
 <% @events.each do |event| %>
+	<% @counter += 1 %>
 	<p>
-		<%= event.name %>
+		<%= @counter %> 
+		<%= link_to event.name, event_path(event), class: "btn-link-red" %>
 	</p>
 
 	<% end %>
+	</br>
+</div>
