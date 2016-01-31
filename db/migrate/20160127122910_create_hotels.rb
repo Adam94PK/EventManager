@@ -1,7 +1,6 @@
 class CreateHotels < ActiveRecord::Migration
   def change
     create_table :hotels do |t|
-      t.references :event, index: true
       t.string :name, index: true
       t.string :city, index: true
       t.string :address

@@ -10,6 +10,25 @@ class EventsController < ApplicationController
       puts @events.inspect    
     end
   end
+      
+  def chose_hotels_to_add
+    city = params[:city]
+    @event = find_event
+    if city.present?
+      hotels = Hotel.where(["city = ?", city])
+      @hotels = hotels - @event.hotels
+    else
+      hotels = Hotel.all
+      @hotels = hotels - @event.hotels
+    end
+  end
+
+  def add_hotel
+    @hotel = Hotel.find(params[:hotel_id])
+    @event = find_event
+    @event.hotels << @hotel
+    redirect_to events_chose_hotels_to_add_path(id: @event)
+  end
 
   def new
   	@event = Event.new
