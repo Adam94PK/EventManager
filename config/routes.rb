@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'events/search' => 'events#search'
   get 'hotels/show_followed' => 'hotels#show_followed'
   patch 'pending_contributors/accept' => 'pending_contributors#accept'
+  post 'events/category' => 'events#category'
 
   resources :events do
     patch 'pending_contributors/accept' => 'pending_contributors#accept'

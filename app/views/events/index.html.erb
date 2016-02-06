@@ -1,6 +1,29 @@
 <h1 id="header1">All events</h1>
 </br>
 
+<div class= "form-horizontal">
+  <strong>Find events by category</strong>
+  <%= form_for(:event, as: :event, url: events_category_path, action: :post ) do |f| %>
+
+
+		<%= f.radio_button :category, 'science and conferences', :checked => true %>
+		<%= f.label :category, 'Science and conferences', :value => 'science and conferences' %>
+        &emsp;
+		<%= f.radio_button :category, 'entertainment' %>
+		<%= f.label :category, 'Entertainment', :value => 'entertainment' %>
+		&emsp;
+		<%= f.radio_button :category, 'courses and training' %>
+		<%= f.label :category, 'Courses and training', :value => 'courses and training' %>
+		&emsp;
+		<%= f.radio_button :category, 'personal growth' %>
+		<%= f.label :category, 'Personal growth', :value => 'personal growth' %>
+		</br></br>
+  <%= f.submit 'Search', class: "btn-link-red" %>
+  </br></br></br>
+  <% end %>
+</div>
+
+
 <% @events.each do |event| %>
       <div class="col-sm-4">
         <div class="panel">
