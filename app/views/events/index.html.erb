@@ -8,8 +8,10 @@
           <div class="panel-body">
           	<%= link_to (image_tag event.avatar.url(:medium)), event_path(event), class:"img-responsive", id:"panel_img" %>
           </div>
-          <div class="panel-footer">When: <%= event.date %> </br>
-          Where: <%= event.place %>
+          <div class="panel-footer">
+            <strong>Category:</strong> <%= event.category %> </br>
+            <strong>When:</strong> <%= event.date %> </br>
+            <strong>Where:</strong> <%= event.place %>
           </div>
         </div>
       </div>
