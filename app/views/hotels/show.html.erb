@@ -31,7 +31,7 @@
 
     <% if @hotel.user == current_user %>
         <%= link_to "Edit", edit_hotel_path, class: "btn-link-red" %> or 
-        <%= link_to "Delete", hotel_path(@hotel), data: { confirm: "Are you sure?" }, method: :delete %>
+        <%= link_to "Delete", hotel_path(@hotel), data: { confirm: "Are you sure?" }, method: :delete, class: "btn-link-red" %>
         <%= render 'hotel_pictures/form' %>
     <% end %>
 
