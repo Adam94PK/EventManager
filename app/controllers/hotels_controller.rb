@@ -57,4 +57,5 @@ class HotelsController < ApplicationController
 	def find_hotel
 		Hotel.find(params[:id])
 	end
+	
 end

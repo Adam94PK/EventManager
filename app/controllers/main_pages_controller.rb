@@ -32,7 +32,7 @@ class MainPagesController < ApplicationController
 	def destroy
 		@main_page = find_page
 		@event = @main_page.event
-		if current_user == @event.user
+		if @event.users.include?(current_user)
 			@main_page.destroy
 			redirect_to @event
 		else

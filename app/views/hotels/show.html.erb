@@ -30,11 +30,12 @@
     </p>
 
     <% if @hotel.user == current_user %>
-        <%= link_to "Edit", edit_hotel_path, class: "btn-link-red" %>
+        <%= link_to "Edit", edit_hotel_path, class: "btn-link-red" %> or 
+        <%= link_to "Delete", hotel_path(@hotel), data: { confirm: "Are you sure?" }, method: :delete %>
         <%= render 'hotel_pictures/form' %>
     <% end %>
 
-    <h1 id="header1">Galery</h1>
+    <h1 id="header1">Gallery</h1>
     <% @hotel.hotel_pictures.each do |pic| %>
         <%= image_tag pic.picture.url(:medium) %>
     <% end %>

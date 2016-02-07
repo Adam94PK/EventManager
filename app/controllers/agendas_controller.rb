@@ -37,7 +37,7 @@ class AgendasController < ApplicationController
 	def destroy
 	  @agenda = find_agenda
 	  @event = @agenda.event
-      if current_user == @event.user
+      if @event.users.include?(current_user)
 		@agenda.destroy
 		redirect_to @event
 	  else
