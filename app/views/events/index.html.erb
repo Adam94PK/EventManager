@@ -1,6 +1,29 @@
 <h1 id="header1">All events</h1>
 </br>
 
+<div class= "form-horizontal">
+  <strong>Find events by category</strong>
+  <%= form_for(:event, as: :event, url: events_category_path, action: :post ) do |f| %>
+
+
+		<%= f.radio_button :category, 'science and conferences', :checked => true %>
+		<%= f.label :category, 'Science and conferences', :value => 'science and conferences' %>
+        &emsp;
+		<%= f.radio_button :category, 'entertainment' %>
+		<%= f.label :category, 'Entertainment', :value => 'entertainment' %>
+		&emsp;
+		<%= f.radio_button :category, 'fair and festivals' %>
+		<%= f.label :category, 'Fair and festivals', :value => 'fair and festivals' %>
+		&emsp;
+		<%= f.radio_button :category, 'personal growth' %>
+		<%= f.label :category, 'Personal growth', :value => 'personal growth' %>
+		</br></br>
+  <%= f.submit 'Search', class: "btn-link-red" %>
+  </br></br></br>
+  <% end %>
+</div>
+
+
 <% @events.each do |event| %>
       <div class="col-sm-4">
         <div class="panel">
@@ -8,8 +31,10 @@
           <div class="panel-body">
           	<%= link_to (image_tag event.avatar.url(:medium)), event_path(event), class:"img-responsive", id:"panel_img" %>
           </div>
-          <div class="panel-footer">When: <%= event.date %> </br>
-          Where: <%= event.place %>
+          <div class="panel-footer">
+            <strong>Category:</strong> <%= event.category %> </br>
+            <strong>When:</strong> <%= event.date %> </br>
+            <strong>Where:</strong> <%= event.place %>
           </div>
         </div>
       </div>

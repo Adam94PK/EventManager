@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'events/chose_hotels_to_add' => 'events#chose_hotels_to_add'
   post 'events/add_hotel' => 'events#add_hotel'
   get 'hotels/show_followed' => 'hotels#show_followed'
+  patch 'pending_contributors/accept' => 'pending_contributors#accept'
+  post 'events/category' => 'events#category'
 
   resources :events do
     patch 'pending_contributors/accept' => 'pending_contributors#accept'

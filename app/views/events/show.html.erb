@@ -6,7 +6,6 @@
 
 <div class="event_content">
 </br>
-	<p><strong>Decide what you want to do</strong></p>
 <% if current_user.present? %>
 	<% if  @event.users.include?(current_user) %>
 		<% if @event.main_page.present? %>

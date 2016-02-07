@@ -19,10 +19,28 @@
 		<%= f.label :time %>
 		<%= f.time_field :time %>
 	</p>
+	
+	<p>
+		<%= f.label :category %>
+			
+		<div>
+		<%= f.radio_button :category, 'science and conferences', :checked => true %>
+		<%= f.label :category, 'Science and conferences', :value => 'science and conferences' %>
+        &emsp;
+		<%= f.radio_button :category, 'entertainment' %>
+		<%= f.label :category, 'Entertainment', :value => 'entertainment' %>
+		&emsp;
+		<%= f.radio_button :category, 'fair and festivals' %>
+		<%= f.label :category, 'Fair and festivals', :value => 'fair and festivals' %>
+		&emsp;
+		<%= f.radio_button :category, 'personal growth' %>
+		<%= f.label :category, 'Personal growth', :value => 'personal growth' %>
+		</div>
+	</p>
 
 	<p>
-		<%= f.label :description %>
-		<%= f.text_field :description %>
+		<%= f.label :description %> </br>
+		<%= f.text_area :description, size: "100x10" %>
 	</p>
 
 	<p>

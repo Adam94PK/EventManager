@@ -80,10 +80,14 @@ class EventsController < ApplicationController
   def search
     @events = Event.where("name LIKE '%#{params[:event][:name]}%'")
   end
+  
+  def category
+    @events = Event.where("category LIKE '%#{params[:event][:category]}%'")
+  end
 
   private
   def event_params
-  	params.require(:event).permit(:user_id, :name, :place, :date, :time, :description, :avatar)  	
+  	params.require(:event).permit(:user_id, :name, :place, :date, :time, :description, :avatar, :category)  	
   end
   def find_event
   	Event.find(params[:id])
