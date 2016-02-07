@@ -1,3 +1,7 @@
+<% if @hotels.empty? %>
+<h1 id="header1">There is nothing to add</h1>
+<% end %>
+
 <% @hotels.each do |hotel| %>
       <div class="col-sm-4">
         <div class="panel">
@@ -13,3 +17,4 @@
         </div>
       </div>
 <% end %>
+</br>
