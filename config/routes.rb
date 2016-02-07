@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'hotels/show_followed' => 'hotels#show_followed'
   patch 'pending_contributors/accept' => 'pending_contributors#accept'
   post 'events/category' => 'events#category'
+  get 'events/hotels' => 'events#show_events_hotels'
 
   resources :events do
     patch 'pending_contributors/accept' => 'pending_contributors#accept'

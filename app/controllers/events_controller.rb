@@ -30,6 +30,11 @@ class EventsController < ApplicationController
     redirect_to events_chose_hotels_to_add_path(id: @event)
   end
 
+  def show_events_hotels
+    @event = find_event
+    @hotels = @event.hotels
+  end
+
   def new
   	@event = Event.new
   end
