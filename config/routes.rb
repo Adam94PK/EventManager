@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'events/followed' => 'events#show_followed'
   get 'events/search' => 'events#search'
   post 'events/search' => 'events#search'
-  get 'events/chose_hotels_to_add' => 'events#chose_hotels_to_add'
+  get 'events/choose_hotels_to_add' => 'events#choose_hotels_to_add'
   post 'events/add_hotel' => 'events#add_hotel'
   get 'hotels/show_followed' => 'hotels#show_followed'
   patch 'pending_contributors/accept' => 'pending_contributors#accept'

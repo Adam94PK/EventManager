@@ -21,3 +21,14 @@
     position: absolute;
 	z-index: -1;
 }
+
+#hotel_pic {
+    margin: auto;
+    border: 3px solid #fff;
+}
+
+#panel_img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}

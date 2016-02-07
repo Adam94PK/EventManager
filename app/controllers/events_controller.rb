@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     end
   end
       
-  def chose_hotels_to_add
+  def choose_hotels_to_add
     city = params[:city]
     @event = find_event
     if city.present?
@@ -27,7 +27,8 @@ class EventsController < ApplicationController
     @hotel = Hotel.find(params[:hotel_id])
     @event = find_event
     @event.hotels << @hotel
-    redirect_to events_chose_hotels_to_add_path(id: @event)
+    flash[:danger] = 'Hotel added to event'
+    redirect_to events_choose_hotels_to_add_path(id: @event)
   end
 
   def show_events_hotels
