@@ -1,7 +1,17 @@
-<h1>Events Hotels</h1>
+<h1 id= "header1">Hotels of event: <%= @event.name %> </h1>
 
 <% @hotels.each do |hotel| %>
-	<p>
-		<%= image_tag hotel.picture.url(:medium) %>
-	</p>
+	<div class="col-sm-4">
+        <div class="panel">
+          <div class="panel-heading"><%= hotel.name %></div>
+          <div class="panel-body">
+          	<%= link_to (image_tag hotel.picture.url(:medium)), events_add_hotel_path(id: @event.id, hotel_id: hotel), method: :post, class:"img-responsive", id:"panel_img" %>
+          </div>
+          <div class="panel-footer">
+              <strong>City:</strong> <%= hotel.city %> </br>
+              <strong>Link:</strong> <%= hotel.link %> </br>
+              <strong>Standard:</strong> <%= hotel.standard %> stars
+          </div>
+        </div>
+      </div>
 <% end %>

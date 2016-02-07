@@ -1,7 +1,10 @@
+<div>
 <% @pending_contributors.each do |con| %>
 	<%= form_for(con, url: event_pending_contributors_accept_path(@event, id: con)) do |f| %>
 	<p>
-		<%= con.user.user_name %> wotns to join you as <%= con.role %> <%= f.submit %>
-	<p>
+		<div class="col-md-offset-4 col-md-3"><%= con.user.user_name %> wants to join you as <%= con.role %></div>
+		<div class="col-md-1"><%= f.submit "Accept", class: 'btn-link-red' %></div>
+	</p>
 	<% end %>
 <%end%>
+</div>

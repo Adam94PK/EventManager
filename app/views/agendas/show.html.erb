@@ -1,6 +1,6 @@
-
+<h1 id="header1">Agenda</h1>
 <div class= "agenda_cont">
-<%= image_tag @agenda.picture.url(:medium) %></br></br>
+<%= image_tag @agenda.picture.url(:medium), id: "hotel_pic" %></br></br>
 <div id="description"><%= @agenda.content %></br></div> </br>
 
 <% if @agenda.event.users.include?(current_user) %>
