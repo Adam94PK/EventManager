@@ -1,0 +1,7 @@
+<h1>Events Hotels</h1>
+
+<% @hotels.each do |hotel| %>
+	<p>
+		<%= image_tag hotel.picture.url(:medium) %>
+	</p>
+<% end %>
