@@ -2,6 +2,9 @@
 
 <div class="form-horizontal">
     <p>
+        <%= image_tag @hotel.picture.url(:big),  id: "hotel_pic" %>
+    </p>
+    <p>
         <strong>City:</strong>
         <%= @hotel.city %>
     </p>

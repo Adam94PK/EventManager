@@ -68,3 +68,9 @@
 .form-horizontal #event_label:hover {
     cursor: pointer;
 }
+
+#panel_img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
