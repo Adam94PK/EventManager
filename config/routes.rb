@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   patch 'pending_contributors/accept' => 'pending_contributors#accept'
   post 'events/category' => 'events#category'
   get 'events/hotels' => 'events#show_events_hotels'
-
+  patch 'events' => 'events#index'
   resources :events do
     patch 'pending_contributors/accept' => 'pending_contributors#accept'
     post 'pending_contributors/create' => 'pending_contributors#create'

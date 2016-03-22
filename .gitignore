@@ -20,3 +20,6 @@
 Gemfile.lock
 
 /config/environments
+
+#Ignore ruby mine project settings
+.idea

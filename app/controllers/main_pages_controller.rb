@@ -43,6 +43,7 @@ class MainPagesController < ApplicationController
 	def show
 		@main_page = find_page
 		@event = find_event
+		@guests_count = @event.guests.length
 		@show_contributor = false
 		if current_user.present?
 			@show_contributor = true

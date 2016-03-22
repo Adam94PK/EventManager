@@ -12,6 +12,10 @@
 			<%= link_to "AGENDA", event_agenda_path, class: "btn-link-red" %> / 
 			<%= link_to "HOTELS", events_hotels_path(id: @event.id), class: "btn-link-red" %>
 		</div>
+
+  <div>
+    <p>Do tego wydarzenia dloaczylo <%= @guests_count%></p>
+  </div>
 		
 		<hr>
 		

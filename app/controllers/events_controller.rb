@@ -1,7 +1,13 @@
 class EventsController < ApplicationController
   load_and_authorize_resource
   def index
-  	@events = Event.all
+    if !params[:event].nil?
+      @sort_by = params[:event][:sort_by]
+      @sort_by = @sort_by.to_s
+      @events = Event.order("#{@sort_by}")
+    else
+      @events = Event.all
+    end
   end
 
   def show_followed
