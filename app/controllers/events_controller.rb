@@ -2,10 +2,16 @@ class EventsController < ApplicationController
   load_and_authorize_resource
   def index
     if !params[:event].nil?
+      puts "IF if IF if"
+      #popularity newest city sunnest
+      hahs = []
+      hash = {city: 'place', newest: 'created_at DESC', sunnest: 'date'}
       @sort_by = params[:event][:sort_by]
-      @sort_by = @sort_by.to_s
-      @events = Event.order("#{@sort_by}")
+      @sort_by = @sort_by.to_sym
+      puts "co do kurwy #{ hash[@sort_by]}, #{@sort_by}"
+      @events = Event.order("#{hash[@sort_by]}")
     else
+      puts "else ELSE else"
       @events = Event.all
     end
   end
