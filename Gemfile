@@ -51,6 +51,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  #Generate UML controler and model class diagram
+  gem 'railroady'
   # Add factory girls for test
   gem "factory_girl_rails", "~> 4.0"
   # Add faker for tests
