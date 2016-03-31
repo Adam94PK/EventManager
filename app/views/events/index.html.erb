@@ -5,13 +5,15 @@
   <strong>Order by</strong>
   <%= form_for(:event, as: :event, url: events_path, method: :patch ) do |f| %>
     <p>
-      <%= f.select(:sort_by,  options_for_select(%i[newest city sunnest]) ) %>
+      <%= f.select(:sort_by,  options_for_select(%i[newest city soonest]) ) %>
     </p>
     <p>
-      <%= f.submit 'Order' %>
+      <%= f.submit 'Order', class: "btn-danger" %>
     </p>
   <% end %>
 
+  </br>
+  
   <strong>Find events by category</strong>
   <%= form_for(:event, as: :event, url: events_category_path, action: :post ) do |f| %>
 

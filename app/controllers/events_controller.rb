@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   load_and_authorize_resource
   def index
     if !params[:event].nil?
-      hash = {'city' => 'place', 'newest' => 'created_at DESC', 'sunnest' => 'date'}
+      hash = {'city' => 'place', 'newest' => 'created_at DESC', 'soonest' => 'date'}
       @sort_by = params[:event][:sort_by]
       @events = Event.order("#{hash[@sort_by]}")
     else
