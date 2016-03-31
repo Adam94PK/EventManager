@@ -30,7 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Device for authentication user
 gem 'devise'
 # Use Paperclip to keep images in database
-gem "paperclip", "~> 4.3"
+gem 'paperclip', '~> 4.3'
 
 # Use ActiveModel has_secure_password
 #gem 'bcrypt', '~> 3.1.10'
@@ -54,7 +54,7 @@ group :development, :test do
   #Generate UML controler and model class diagram
   gem 'railroady'
   # Add factory girls for test
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
   # Add faker for tests
   gem 'faker', '~> 1.6', '>= 1.6.1'
 end

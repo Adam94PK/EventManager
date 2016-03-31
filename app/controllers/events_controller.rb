@@ -19,7 +19,7 @@ class EventsController < ApplicationController
       
   def choose_hotels_to_add
     city = params[:city]
-    @event = find_event
+    @event = find_event :event_id
     if city.present?
       hotels = Hotel.where(["city = ?", city])
       @hotels = hotels - @event.hotels
@@ -34,10 +34,10 @@ class EventsController < ApplicationController
     @event = find_event
     @event.hotels << @hotel
     flash[:danger] = 'Hotel added to event'
-    redirect_to events_choose_hotels_to_add_path(id: @event)
+    redirect_to event_choose_hotels_to_add_path(id: @event)
   end
 
-  def show_events_hotels
+  def show_event_hotels
     @event = find_event
     @hotels = @event.hotels
   end
@@ -101,7 +101,7 @@ class EventsController < ApplicationController
   def event_params
   	params.require(:event).permit(:user_id, :name, :place, :date, :time, :description, :avatar, :category)  	
   end
-  def find_event
-  	Event.find(params[:id])
+  def find_event(sym = :id)
+  	Event.find(params[sym])
   end
 end

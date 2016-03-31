@@ -1,28 +1,26 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root    'static_pages#index'
-  get 'events/followed' => 'events#show_followed'
-  get 'events/search' => 'events#search'
-  post 'events/search' => 'events#search'
-  get 'events/choose_hotels_to_add' => 'events#choose_hotels_to_add'
-  post 'events/add_hotel' => 'events#add_hotel'
-  get 'hotels/show_followed' => 'hotels#show_followed'
-  patch 'pending_contributors/accept' => 'pending_contributors#accept'
-  post 'events/category' => 'events#category'
-  get 'events/hotels' => 'events#show_events_hotels'
-  patch 'events' => 'events#index'
+  devise_for :users
+  patch 'events', to: 'events#index'
+  match 'events/search', to: 'events#search', via: [:get, :post]
+  get 'events/followed', to: 'events#show_followed'
+  post 'events/category', to: 'events#category'
   resources :events do
-    patch 'pending_contributors/accept' => 'pending_contributors#accept'
-    post 'pending_contributors/create' => 'pending_contributors#create'
-    resources :agendas
-    resources :guests
-    resources :main_pages
+    get 'choose_hotels_to_add', to: 'events#choose_hotels_to_add'
+    post 'add_hotel', to: 'events#add_hotel'
+    get 'hotels', to: 'events#show_event_hotels'
+    patch 'pending_contributors/accept', to: 'pending_contributors#accept'
+    post 'pending_contributors/create', to: 'pending_contributors#create'
+    resources :agendas, except: [:index]
+    resources :guests, only: [:index, :create, :new]
+    resources :main_pages, except: [:index]
   end
+  get 'hotels_show_followed', to: 'hotels#show_followed'
   resources :hotels do
-    resources :hotel_pictures
+    resources :hotel_pictures, only: [:create, :destroy]
   end
- 
+
 end
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
