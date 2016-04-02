@@ -1,21 +1,29 @@
 class HotelsController < ApplicationController
 
+  def index
+    @hotels = Hotel.all
+  end
+
+  def create
+    @hotel = current_user.hotels.build(hotel_params)
+    if @hotel.save
+      redirect_to @hotel
+    else
+      flash.now[:danger] = 'Wrong input data'
+      render :new
+    end
+	end
+
 	def new
 		@hotel = Hotel.new
 	end
 
-	def create
-	  @hotel = current_user.hotels.build(hotel_params)
-	  if @hotel.save
-	  	redirect_to @hotel
-	  else
-	  	flash.now[:danger] = 'Wrong input data'
-  		render :new
-  	  end
-	end
-
 	def edit
 		@hotel = find_hotel
+	end
+
+  def show
+    @hotel = find_hotel
 	end
 
 	def update
@@ -28,25 +36,17 @@ class HotelsController < ApplicationController
 	  end
 	end
 
-	def index
-		@hotels = Hotel.all
-	end
+  def destroy
+    @hotel = find_hotel
+    @hotel.destroy
+    redirect_to root_path
+  end
 
-	def show_followed
-	if current_user.present?
+  def show_followed
+	  if current_user.present?
     	@hotels = current_user.hotels
     end
-    end
-
-	def show
-	  @hotel = find_hotel
-	end
-
-	def destroy
-	  @hotel = find_hotel
-	  @hotel.destroy
-	  redirect_to root_path
-	end
+  end
 
 	private
 

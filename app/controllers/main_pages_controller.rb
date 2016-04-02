@@ -1,9 +1,7 @@
 class MainPagesController < ApplicationController
+
+	#for can can
 	load_and_authorize_resource
-	def new
-		@event = find_event
-		@event.build_main_page
-	end
 
 	def create
 		@event = find_event
@@ -16,28 +14,13 @@ class MainPagesController < ApplicationController
 		end
 	end
 
-	def update
-		@main_page = find_page
-		if @main_page.update(main_page_params)
-			redirect_to event_main_page_path(@main_page.event, @main_page)
-		else
-			render 'edit'
-		end
+	def new
+		@event = find_event
+		@event.build_main_page
 	end
 
 	def edit
 		@event = find_event
-	end
-
-	def destroy
-		@main_page = find_page
-		@event = @main_page.event
-		if @event.users.include?(current_user)
-			@main_page.destroy
-			redirect_to @event
-		else
-			flash[:dange] = "You are not allowd to do that"
-		end
 	end
 
 	def show
@@ -56,6 +39,27 @@ class MainPagesController < ApplicationController
 			end
 		end
 	end
+
+	def update
+		@main_page = find_page
+		if @main_page.update(main_page_params)
+			redirect_to event_main_page_path(@main_page.event, @main_page)
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@main_page = find_page
+		@event = @main_page.event
+		if @event.users.include?(current_user)
+			@main_page.destroy
+			redirect_to @event
+		else
+			flash[:dange] = "You are not allowd to do that"
+		end
+	end
+
 
 	private
 

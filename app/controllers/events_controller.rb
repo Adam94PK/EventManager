@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
+
+  #for can can
   load_and_authorize_resource
+
   def index
     if !params[:event].nil?
       hash = {'city' => 'place', 'newest' => 'created_at DESC', 'soonest' => 'date'}
@@ -10,13 +13,61 @@ class EventsController < ApplicationController
     end
   end
 
+  def create
+    @event = Event.new(event_params)
+    @event.users<<current_user
+    if @event.save
+      redirect_to @event
+    else
+      flash.now[:danger] = 'Wrong input data'
+      render :new
+    end
+  end
+
+  def new
+    @event = Event.new
+  end
+
+  def edit
+    @event = find_event
+  end
+
+  def show
+    @event = find_event
+    unless @event.users.include?(current_user)
+      redirect_to [@event, @event.main_page] if @event.main_page.present?
+    end
+    @pending_contributors = @event.pending_contributors
+  end
+
+  def update
+    @event = find_event
+    if @event.update(event_params)
+      redirect_to @event
+    else
+      flash.now[:danger] = 'Wrong input data'
+      render :edit
+    end
+  end
+
+  def destroy
+    @event = find_event
+    if current_user.present? && @event.users.include?(current_user)
+      @event.destroy
+      redirect_to action: :index
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
+
   def show_followed
     if current_user.present?
       @events = current_user.events
-      puts @events.inspect    
+      puts @events.inspect
     end
   end
-      
+
   def choose_hotels_to_add
     city = params[:city]
     @event = find_event :event_id
@@ -42,64 +93,17 @@ class EventsController < ApplicationController
     @hotels = @event.hotels
   end
 
-  def new
-  	@event = Event.new
-  end
-
-  def create
-  	@event = Event.new(event_params)
-    @event.users<<current_user
-  	if @event.save
-  		redirect_to @event
-  	else
-  		flash.now[:danger] = 'Wrong input data'
-  		render :new
-  	end
-  end
-
-  def show
-  	@event = find_event
-    unless @event.users.include?(current_user)
-      redirect_to [@event, @event.main_page] if @event.main_page.present?
-    end
-    @pending_contributors = @event.pending_contributors
-  end
-
-  def edit
-  	@event = find_event
-  end
-
-  def update
-  	@event = find_event
-  	if @event.update(event_params)
-  		redirect_to @event
-  	else
-  		flash.now[:danger] = 'Wrong input data'
-  		render :edit
-  	end
-  end    
-
-  def destroy
-  	@event = find_event
-  	if current_user.present? && @event.users.include?(current_user)
-      @event.destroy
-  	  redirect_to action: :index
-    else
-      redirect_to new_user_session_path
-    end
-  end
-
   def search
     @events = Event.where("name LIKE '%#{params[:event][:name]}%'")
   end
-  
+
   def category
     @events = Event.where("category LIKE '%#{params[:event][:category]}%'")
   end
 
   private
   def event_params
-  	params.require(:event).permit(:user_id, :name, :place, :date, :time, :description, :avatar, :category)  	
+  	params.require(:event).permit(:user_id, :name, :place, :date, :time, :description, :avatar, :category)
   end
   def find_event(sym = :id)
   	Event.find(params[sym])
