@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :hotel_pictures, only: [:create, :destroy]
   end
   get 'admin', to: 'admin_panel#index'
+  get 'admin/user_list', to: 'admin_panel#user_list'
 
 end
  # The priority is based upon order of creation: first created -> highest priority.
