@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
   get 'admin', to: 'admin_panel#index'
   get 'admin/user_list', to: 'admin_panel#user_list'
+  get 'admin/user_content', to: 'admin_panel#user_content'
 
 end
  # The priority is based upon order of creation: first created -> highest priority.

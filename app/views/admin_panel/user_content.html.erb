@@ -1,0 +1,32 @@
+<h1 id="header1"><%= @user.user_name %></h1>
+
+<div class="userslist">
+  <div class="support">
+  <p>
+    <h2 id="header2">personal data</h2>
+    <strong>user name: </strong><%= @user.user_name %> </br>
+    <strong>email: </strong> <%= @user.email %> </br>
+    <strong>name: </strong> <%= @user.name %> </br>
+    <strong>surname: </strong> <%= @user.surname %> </br>
+    <strong>role: </strong> <%= @user.role %> </br></br>
+  </p>
+  
+  <p>
+    <h2 id="header2">user events: </h2>
+    <ol>
+      <% @events.each do |event| %>
+        <li><%= link_to event.name, event_path(event) %></li>
+      <% end %>
+    </ol>
+  </p>
+  
+  <p>
+    <h2 id="header2">user hotels: </h2>
+    <ol>
+      <% @hotels.each do |hotel| %>
+        <li><%= link_to hotel.name, hotel_path(hotel) %></li>
+      <% end %>
+    </ol>
+  </p></br>
+  </div>
+</div>
