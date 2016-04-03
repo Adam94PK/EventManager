@@ -8,11 +8,9 @@
 	<p>Surname: <%= @user.surname %></p>
 	<p>Email: <%= @user.email %></p>
 	<p>Company name: <%= @user.company_name %></p>
+	<p><%= image_tag @user.avatar.url(:icon) %></p>
+
 </div>
 
-<% if current_user.id == @user.id %>
-	<%= link_to "Edytuj", edit_user_path(@user), class: 'btn btn-link-red col-sm-offset-1' %>
-	
-	<%= link_to "Usuń", user_path(@user), method: :delete, class: 'btn btn-link-red'  %>
-<% end %>
+
 

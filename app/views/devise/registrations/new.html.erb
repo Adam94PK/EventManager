@@ -28,6 +28,15 @@
 		<%= f.label :company_name %>
 		<%= f.text_field :company_name, autofocus: true %>		
 		</p>
+		
+		<p>
+	  	Choose new avatar:</br>
+		  <span class="glyphicon glyphicon-arrow-right"></span>
+		  <%= f.label :avatar, id:"event_label" %>
+		  <span class="glyphicon glyphicon-arrow-left"></span>
+
+		  <%= f.file_field :avatar %>
+	  </p>
 
 		<p>
 		<%= f.label :role %>
