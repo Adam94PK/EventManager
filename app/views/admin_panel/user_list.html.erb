@@ -8,7 +8,23 @@
     </p>
   <% end %>
 
-  <h2><%= @temp.inspect %></h2>
+
+  
+  <h2 id="header2">Use filtration</h2>
+  <%= form_tag(admin_user_list_path, method: :get) do %>
+    <%= radio_button_tag :role, 'user' %>
+		<%= label_tag :role, 'user', :value => 'user' %>
+		&emsp;
+		<%= radio_button_tag :role, 'pro_user' %>
+		<%= label_tag :role, 'pro user', :value => 'pro_user' %>
+		&emsp;
+		<%= radio_button_tag :role, '' %>
+		<%= label_tag :role, 'all users', :value => '' %>
+		&emsp;&emsp;
+		<%= submit_tag "filtr", class: "btn-danger" %>
+  <% end %>
+  
+  </br>
 
   <%= will_paginate @users %>
 
@@ -21,4 +37,5 @@
     </li>
   <% end %>
   </ol>
+  </br>
 </div>
