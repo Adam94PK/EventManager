@@ -1,15 +1,24 @@
-<div class = "col-sm-offset-1">
-	<h1>User: <%= @user.user_name %></h1>
+<div class = "user-profile">
+<div class="user-info">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= image_tag @user.avatar.url(:icon) %>
+    </div>
+    <div class="col-sm-9">
+
+	<h1><%= @user.user_name %></h1>
+	<span><span class="glyphicon glyphicon-star"></span> 
+	<span class="glyphicon glyphicon-star"></span> 
+	<span class="glyphicon glyphicon-star"></span> 
+	<span class="glyphicon glyphicon-star"></span> 
+	<span class="glyphicon glyphicon-star"></span> </span>
+
+  </div>
+  </div>
+  <div class="info">
+  <p>Tu jest mój piękny opis. Lorem ipsum pierdu pierdu.</p>
+  </div>
 </div>
-
-<div class= "col-sm-offset-1">
-	<!--<p>User Name: <%= @user.user_name %></p>-->
-	<p>Name: <%= @user.name %></p>
-	<p>Surname: <%= @user.surname %></p>
-	<p>Email: <%= @user.email %></p>
-	<p>Company name: <%= @user.company_name %></p>
-	<p><%= image_tag @user.avatar.url(:icon) %></p>
-
 </div>
 
 

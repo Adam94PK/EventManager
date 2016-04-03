@@ -9,3 +9,31 @@
     display: block;
     text-align: center;
 }**/
+
+.user-profile {
+    background-image: url("event coverphoto2 black.jpg");
+    color: #fff;
+    font-family: 'Arimo';
+    font-size: 14px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding-top: 100px;
+}
+
+.user-info {
+    width: 50%;
+    background-color: #000000;
+    margin: 0 auto;
+    vertical-align: center;
+    padding: 10px;
+}
+
+.glyphicon-star {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.info {
+    padding: 40px;
+}
