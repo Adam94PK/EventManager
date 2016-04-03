@@ -1,7 +1,17 @@
 <div class="userslist col-md-offset-4">
-  
+
+  <%= form_tag(admin_user_list_path, method: :get) do %>
+    <p>
+      <%= text_field_tag(:keyword) %>
+      <%= select_tag(:select_by, options_for_select([:email, :user_name])) %>
+      <%= submit_tag(:Search) %>
+    </p>
+  <% end %>
+
+  <h2><%= @temp.inspect %></h2>
+
   <%= will_paginate @users %>
-  
+
   <ol>
   <% @users.each do |user| %>
     <li>
