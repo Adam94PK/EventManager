@@ -16,24 +16,64 @@
     font-family: 'Arimo';
     font-size: 14px;
     position: absolute;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
-    padding-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .user-info {
     width: 50%;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.8);
     margin: 0 auto;
     vertical-align: center;
-    padding: 10px;
+    padding: 50px;
+    h1 {
+        margin-top: 0px;
+    }
 }
 
 .glyphicon-star {
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 .info {
-    padding: 40px;
+    padding-top: 40px;
+}
+
+.carousel-inner {
+    max-width: 70%;
+    margin: auto;
+}
+
+#myCarousel {
+    margin-top: 40px;
+}
+
+#events-header {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.carousel-inner {
+    text-align: center;
+    p {
+        padding-top: 10px;
+    }
+}
+
+.event-thumb {
+    height: 100px;
+    display: table;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+.inner {
+    display: table;
+    margin: 0 auto;
 }
