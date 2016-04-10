@@ -1,4 +1,13 @@
-<div class="userslist col-md-offset-4">
+<div class="userslist">
+<div class="support col-md-offset-4">
+  <h2 id="header2">Search</h2>
+  <%= form_tag(admin_user_list_path, method: :get) do %>
+    <p><%= text_field_tag(:keyword) %></p>
+    <p><%= select_tag(:select_by, options_for_select([:email, :user_name])) %></p>
+    <p><%= submit_tag "Search", class: "btn-danger" %></p>
+  <% end %>
+
+
   
   <h2 id="header2">Use filtration</h2>
   <%= form_tag(admin_user_list_path, method: :get) do %>
@@ -10,14 +19,14 @@
 		&emsp;
 		<%= radio_button_tag :role, '' %>
 		<%= label_tag :role, 'all users', :value => '' %>
-		&emsp;&emsp;
+		&emsp;
 		<%= submit_tag "filtr", class: "btn-danger" %>
   <% end %>
   
   </br>
-  
+
   <%= will_paginate @users %>
-  
+
   <ol>
   <% @users.each do |user| %>
     <li>
@@ -28,4 +37,5 @@
   <% end %>
   </ol>
   </br>
+  </div>
 </div>

@@ -1,18 +1,72 @@
-<div class = "col-sm-offset-1">
-	<h1>User: <%= @user.user_name %></h1>
+<div class = "user-profile">
+<div class="user-info">
+  <div class="row">
+    <div class="col-sm-4" id="avatar">
+      <%= image_tag @user.avatar.url(:icon) %>
+    </div>
+    <div class="col-sm-8">
+	    <h1><%= @user.user_name %></h1>
+	    <span>
+	      <span class="glyphicon glyphicon-star"></span> 
+	      <span class="glyphicon glyphicon-star"></span> 
+	      <span class="glyphicon glyphicon-star"></span> 
+	      <span class="glyphicon glyphicon-star"></span> 
+	      <span class="glyphicon glyphicon-star"></span> 
+	    </span>
+    </div>
+  </div>
+  <div class="info">
+    <p><%= @user.description %></p>
+  </div>
+  <div id="events-header">
+    <h1>Organised Events:</h1>
+  </div>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <% for i in 0..2 %>
+        <% if (i > (@events.length-1)) %>
+          <% break %>
+        <%end %>
+        <div class="col-sm-4">
+          <div class="event-thumb">
+            <div class="middle">
+              <div class="inner">
+                <%= link_to (image_tag @events[i].avatar.url(:thumb)), event_path(@events[i]) %>
+              </div>
+            </div>
+          </div>
+          <p><%= @events[i].name %></p>
+        </div>
+      <% end %>
+    </div>
+    <% @events.each_slice(3) do |e| %>
+    <div class="item">
+      <% e.each do |n| %>
+      <div class="col-sm-4">
+        <div class="event-thumb">
+          <div class="middle">
+            <div class="inner">
+               <%= link_to (image_tag n.avatar.url(:thumb)), event_path(n) %>
+            </div>
+          </div>
+        </div>
+        <p><%= n.name %></p></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+</div>
 </div>
 
-<div class= "col-sm-offset-1">
-	<!--<p>User Name: <%= @user.user_name %></p>-->
-	<p>Name: <%= @user.name %></p>
-	<p>Surname: <%= @user.surname %></p>
-	<p>Email: <%= @user.email %></p>
-	<p>Company name: <%= @user.company_name %></p>
-</div>
 
-<% if current_user.id == @user.id %>
-	<%= link_to "Edytuj", edit_user_path(@user), class: 'btn btn-link-red col-sm-offset-1' %>
-	
-	<%= link_to "Usuń", user_path(@user), method: :delete, class: 'btn btn-link-red'  %>
-<% end %>
 
