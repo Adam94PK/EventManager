@@ -1,8 +1,5 @@
 class GuestsController < ApplicationController
-
-	def index
-		@guests = find_event.guests
-	end
+	
 
 	def create
 		@guest = Guest.find_by email: params[:guest][:email]
