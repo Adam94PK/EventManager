@@ -98,7 +98,7 @@ class EventsController < ApplicationController
   end
 
   def search
-    @events = Event.where("name LIKE '%#{params[:event][:name]}%'")
+    @events = Event.where("LOWER(name) LIKE LOWER('%#{params[:event][:name]}%')")
   end
 
   def category
