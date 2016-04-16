@@ -2,7 +2,7 @@
 	    <h1 id="mainheader">EventManager</h1>
 	    <div id="events_serching">
 	        <h2 id="header2">find an event</h2>
-	        <%= form_for(:event, as: :event, url: events_search_path, action: :post ) do |f| %>
+	        <%= form_for(:event, as: :event, url: events_search_path, method: :get ) do |f| %>
 	        <%= f.text_field :name, placeholder: "search for events", id: "placeholder" %>
 	        <span id="glyphi" class="glyphicon glyphicon-menu-right"></span> </br></br>
 	        <%= f.submit "Search", class: "btn btn-danger btn-lg" %>

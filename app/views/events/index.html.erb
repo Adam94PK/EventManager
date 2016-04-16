@@ -33,7 +33,11 @@
   <%= f.submit 'Search', class: "btn-link-red" %>
   </br></br></br>
   <% end %>
+<%= will_paginate @events %>
+</br></br></br>
 </div>
+
+
 
 
 <% @events.each do |event| %>
