@@ -1,5 +1,8 @@
 class AgendasController < ApplicationController
 
+	#for can can
+	load_and_authorize_resource
+
 	def create
 		@event = find_event
 		@agenda = @event.build_agenda(agenda_params)
