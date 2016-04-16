@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206152023) do
+ActiveRecord::Schema.define(version: 20160404113046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20160206152023) do
   end
 
   create_table "hotels", force: :cascade do |t|
+    t.integer  "event_id"
     t.string   "name"
     t.string   "city"
     t.string   "address"
@@ -113,6 +114,7 @@ ActiveRecord::Schema.define(version: 20160206152023) do
   end
 
   add_index "hotels", ["city"], name: "index_hotels_on_city", using: :btree
+  add_index "hotels", ["event_id"], name: "index_hotels_on_event_id", using: :btree
   add_index "hotels", ["name"], name: "index_hotels_on_name", using: :btree
   add_index "hotels", ["user_id"], name: "index_hotels_on_user_id", using: :btree
 
@@ -170,6 +172,11 @@ ActiveRecord::Schema.define(version: 20160206152023) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.text     "description"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
