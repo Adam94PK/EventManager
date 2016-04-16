@@ -50,6 +50,10 @@ class HotelsController < ApplicationController
     	@hotels = current_user.hotels
     end
   end
+  
+  def search
+  	@hotels = Hotel.where("LOWER(name) LIKE LOWER('%#{params[:hotel][:name]}%')")
+  end
 
 	private
 
