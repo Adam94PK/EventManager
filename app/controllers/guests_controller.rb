@@ -1,5 +1,9 @@
 class GuestsController < ApplicationController
 
+	#for can can
+	load_and_authorize_resource
+
+	#Wyświetla listę użytkowników którzy dołączyli do wydarzenia
 	def index
 		@guests = find_event.guests
 	end

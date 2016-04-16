@@ -1,4 +1,8 @@
 class AdminPanelController < ApplicationController
+
+  #for cancan
+  authorize_resource :class => :controller
+
   def index
   end
 

@@ -1,4 +1,8 @@
 class HotelPicturesController < ApplicationController
+
+	#for can can
+	load_and_authorize_resource
+
 	def create
 		@hotel = find_hotel
 		@hotel_picture = @hotel.hotel_pictures.create(hotel_picture_params)

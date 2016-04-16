@@ -2,15 +2,27 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    puts "CanCANCANCANCNACAN"
     user ||= User.new
     if user.role == "admin"
         can :manage, :all
     elsif user.role == "pro_user"
-        can :manage, Event
+        can [:show, :index], Event
+        can :edit, Event, Event do |event|
+          event.user_ids.include?(user.id)
+        end
         can :manage, MainPage
+        cannot :edit, MainPage, MainPage do |page|
+          !page.event.user_ids.include?(user.id)
+        end
+    elsif user.role == "user"
+      alias_action :index, :show, :to => :read
+      can :read, [Agenda, Hotel, MainPage, User]
+      can [:read, :show_event_hotels, :search, :category], Event
+      can [:create, :new], Guest
+      can :read, :static_pages
     else
-        can :read, :all
-        can :manage, :all
+
     end
     # Define abilities for the passed in user here. For example:
     #
