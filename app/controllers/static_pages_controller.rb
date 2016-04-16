@@ -1,4 +1,5 @@
-class StaticPagesController < ApplicationController	
+class StaticPagesController < ApplicationController
+
 	def index
 		@event = Event.new
 	end

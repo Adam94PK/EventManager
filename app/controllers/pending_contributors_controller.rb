@@ -1,5 +1,8 @@
 class PendingContributorsController < ApplicationController
 
+	#for can can
+	load_and_authorize_resource
+
 	def create
 		@event = find_event
 		@pending_contributor = @event.pending_contributors.build(pending_contributor_params)
