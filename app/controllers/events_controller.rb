@@ -93,6 +93,10 @@ class EventsController < ApplicationController
     @hotels = @event.hotels
   end
 
+  def event_guests
+    @guests = find_event(:event_id).guests
+  end
+
   def search
     @events = Event.where("name LIKE '%#{params[:event][:name]}%'")
   end
