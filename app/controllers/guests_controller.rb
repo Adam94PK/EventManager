@@ -1,7 +1,5 @@
 class GuestsController < ApplicationController
-
-	#for can can
-	load_and_authorize_resource
+	
 
 	def create
 		@guest = Guest.find_by email: params[:guest][:email]

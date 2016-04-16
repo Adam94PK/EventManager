@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    puts "CanCANCANCANCNACAN"
     user ||= User.new
     if user.role == "admin"
         can :manage, :all
@@ -32,6 +33,7 @@ class Ability
       cannot [:accept, :destroy], PendingContributor, PendingContributor do |pc|
         !pc.event.user_ids.include?(user.id)
       end
+
     elsif user.role == "user"
       alias_action :index, :show, :to => :read
       can :read, [Agenda, Hotel, MainPage, User]
