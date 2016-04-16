@@ -89,7 +89,7 @@ class EventsController < ApplicationController
   end
 
   def show_event_hotels
-    @event = find_event
+    @event = find_event :event_id
     @hotels = @event.hotels
   end
 
