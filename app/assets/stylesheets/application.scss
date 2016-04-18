@@ -84,12 +84,15 @@ body {
     text-align: center;
 }
 
-.form-horizontal  input, select, textarea {
-    margin: auto;
-    width: 185px;
-    color: #000;
-    display: block;
-    text-align: center;
+.form-horizontal p input, select {
+  margin: auto;
+  width: 200px;
+  display: block;
+  text-align: center;
+}
+
+.form-horizontal input, select {
+  color: #000;
 }
 
 .form-horizontal textarea {

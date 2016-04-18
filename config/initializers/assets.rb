@@ -12,3 +12,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( user-default.png )
 Rails.application.config.assets.precompile += %w( default_event_thumb.png )
 Rails.application.config.assets.precompile += %w( default_event_medium.png )
+Rails.application.config.assets.precompile += %w( default_hotel_thumb.png )
+Rails.application.config.assets.precompile += %w( default_hotel_medium.png )
+Rails.application.config.assets.precompile += %w( default_hotel_big.png )
