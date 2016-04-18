@@ -9,7 +9,7 @@ class EventsController < ApplicationController
       @sort_by = params[:event][:sort_by]
       @events = Event.order("#{hash[@sort_by]}")
     else
-      @events = Event.all
+      @events = Event.all.paginate :page => params[:page], :per_page => 6
     end
   end
 
@@ -98,7 +98,7 @@ class EventsController < ApplicationController
   end
 
   def search
-    @events = Event.where("name LIKE '%#{params[:event][:name]}%'")
+    @events = Event.where("LOWER(name) LIKE LOWER('%#{params[:event][:name]}%')").paginate :page => params[:page], :per_page => 6
   end
 
   def category
