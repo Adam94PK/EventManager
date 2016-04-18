@@ -36,6 +36,7 @@ class Ability
       can :create, PendingContributor
       can [:accept, :destroy], PendingContributor, PendingContributor do |pc|
         pc.event.user_ids.include?(user.id)
+
       end
 
     elsif user.role == "user"
