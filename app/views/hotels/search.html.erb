@@ -1,12 +1,11 @@
 <h1 id="header1">All hotels</h1>
 
 <div class="form-horizontal">
-<h2 id="header2">find an hotel</h2>
-<%= form_for(:hotel, as: :hotel, url: hotels_path, method: :patch ) do |f| %>
-  <%= f.text_field :name, placeholder: "search by name", id: "placeholder" %>
-  <%= f.text_field :city, placeholder: "search by city", id: "placeholder" %>
-	<%= f.submit "Search", class: "btn-danger" %> </br></br>
-<% end %>
+  <h2 id="header2">find a hotel</h2>
+  <%= form_for(:hotel, as: :hotel, url: hotels_path, method: :patch ) do |f| %>
+    <%= f.text_field :name, placeholder: "search by name", id: "placeholder" %>
+  	<%= f.submit "Search", class: "btn-danger" %> </br></br>
+  <% end %>
 </div>
 
 <% @hotels.each do |hotel| %>
