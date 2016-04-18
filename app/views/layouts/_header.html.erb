@@ -29,7 +29,9 @@
                     </button>
                     
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li> <%= link_to "My Profile", user_path(current_user) %></li>
+                      <% if current_user.role != 'admin' %>
+                        <li> <%= link_to "My Profile", user_path(current_user) %></li>
+                      <% end %>
                       <li> <%= link_to "Edit", edit_user_registration_path %> </li>
                       <li role="separator" class="divider"></li>
                       <li> <%= link_to "My events", events_followed_path %> </li>
