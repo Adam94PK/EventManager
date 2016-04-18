@@ -4,22 +4,26 @@ class Ability
   def initialize(user)
     puts "CanCANCANCANCNACAN"
     user ||= User.new
+
     if user.role == "admin"
+
         can :manage, :all
+
     elsif user.role == "pro_user"
+
       alias_action :edit, :update, :destroy, :to => :edu
       can :show, Agenda
       can :manage, Agenda, Agenda do |agenda|
         agenda.event.user_ids.include?(user.id)
       end
       can :manage, Event
-      cannot [:edu, :chose_hotels_to_add, :add_hotel, :event_guests], Event do |event|
+      cannot [:edu, :choose_hotels_to_add, :add_hotel, :event_guests], Event, Event do |event|
         !event.user_ids.include?(user.id)
       end
       can :manage, Guest
       can :create, HotelPicture
-      cannot :destroy, HotelPicture, HotelPicture do |hotPic|
-        !hotPic.hotel.user_id == user.id
+      can :manage, HotelPicture, HotelPicture do |hotPic|
+        hotPic.hotel.user_id == user.id
       end
       can :manage, Hotel
       cannot :edu, Hotel, Hotel do |hotel|
@@ -30,13 +34,13 @@ class Ability
         !page.event.user_ids.include?(user.id)
       end
       can :create, PendingContributor
-      cannot [:accept, :destroy], PendingContributor, PendingContributor do |pc|
-        !pc.event.user_ids.include?(user.id)
+      can [:accept, :destroy], PendingContributor, PendingContributor do |pc|
+        pc.event.user_ids.include?(user.id)
       end
 
     elsif user.role == "user"
       alias_action :index, :show, :to => :read
-      can :read, [Agenda, Hotel, MainPage, User]
+      can :read, [Agenda, Hotel, MainPage]
       can [:read, :show_event_hotels, :search, :category], Event
       can [:create, :new], Guest
       can :read, :static_pages
