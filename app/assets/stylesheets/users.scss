@@ -77,3 +77,9 @@
     display: table;
     margin: 0 auto;
 }
+
+.uploadfile {
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+}

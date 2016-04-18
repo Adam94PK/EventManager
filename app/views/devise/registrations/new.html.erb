@@ -14,8 +14,8 @@
 		<%= f.email_field :email, autofocus: true %>
 		</p>
 
-        <p>
-        <%= f.label :name %>
+    <p>
+    <%= f.label :name %>
 		<%= f.text_field :name, autofocus: true%>
 		</p>
 
@@ -35,7 +35,7 @@
 		  <%= f.label :avatar, id:"event_label" %>
 		  <span class="glyphicon glyphicon-arrow-left"></span>
 
-		  <%= f.file_field :avatar %>
+		  <%= f.file_field :avatar, class:"uploadfile" %>
 	  </p>
 
 		<p>

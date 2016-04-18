@@ -16,17 +16,12 @@
 	
 	<% flash.each do |key, value| %>
     <div class="alert alert-<%= key %> alert-dismissable">
-        <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>-->
         <%= value %>
     </div>
 	<% end %>
 	</br>
 	
 	<%= yield %>
-
-  <!--<div id="footer">
-	  <p>all rights reserved by Adam & Dusia</p>
-  </div>-->
 
 </body>
 </html>
