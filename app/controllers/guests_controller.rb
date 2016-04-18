@@ -1,5 +1,4 @@
 class GuestsController < ApplicationController
-	
 
 	def create
 		@guest = Guest.find_by email: params[:guest][:email]
