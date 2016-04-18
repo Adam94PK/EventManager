@@ -11,8 +11,9 @@ Rails.application.routes.draw do
     get 'choose_hotels_to_add', to: 'events#choose_hotels_to_add'
     post 'add_hotel', to: 'events#add_hotel'
     get 'hotels', to: 'events#show_event_hotels'
-    patch 'pending_contributors/accept', to: 'pending_contributors#accept'
+    post 'pending_contributors/accept', to: 'pending_contributors#accept'
     post 'pending_contributors/create', to: 'pending_contributors#create'
+    delete 'pending_contributors/delete', to: 'pending_contributors#destroy'
     resources :agendas, except: [:index]
     resources :guests, only: [:create, :new]
     resources :main_pages, except: [:index]
