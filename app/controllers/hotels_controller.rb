@@ -52,9 +52,9 @@ class HotelsController < ApplicationController
   end
   
   def search
-  	@hotels = Hotel.where("LOWER(name) LIKE LOWER('%#{params[:hotel][:name]}%')")
+  	@hotels = Hotel.where("LOWER(name) LIKE LOWER('%#{params[:hotel][:name]}%') AND LOWER(city) LIKE LOWER('%#{params[:hotel][:city]}%') AND standard LIKE '%#{params[:hotel][:standard]}%'")
   end
-
+  
 	private
 
 	def hotel_params

@@ -3,8 +3,10 @@
 <div class="form-horizontal">
 <h2 id="header2">find an hotel</h2>
 <%= form_for(:hotel, as: :hotel, url: hotels_path, method: :patch ) do |f| %>
-  <%= f.text_field :name, placeholder: "search by name", id: "placeholder" %>
-  <%= f.text_field :city, placeholder: "search by city", id: "placeholder" %>
+  <%= f.text_field :name, placeholder: "search by name", id: "placeholder" %></br>
+  <%= f.text_field :city, placeholder: "search by city", id: "placeholder" %></br>
+  <%= f.select :standard, options_for_select({"1","2","3","4","5"}, params[:standard]), :include_blank => true, id: "placeholder" %>
+	<%#= select( "hotel", "search", { "1 star" => "1", "2 stars" => "2", "5 stars" => "5"}) %>
 	<%= f.submit "Search", class: "btn-danger" %> </br></br>
 <% end %>
 </div>
