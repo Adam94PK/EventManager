@@ -1,10 +1,9 @@
 <div>
 <% @pending_contributors.each do |con| %>
-	<%= form_for(con, url: event_pending_contributors_accept_path(@event, id: con)) do |f| %>
 	<p>
-		<div class="col-md-offset-4 col-md-3"><%= con.user.user_name %> wants to join you as <%= con.role %></div>
-		<div class="col-md-1"><%= f.submit "Accept", class: 'btn-link-red' %></div>
+		<div class="col-md-offset-4 col-md-3"><%= link_to con.user.user_name, user_path(con.user) %> wants to join you as <%= con.role %></div>
+		<div class="col-md-1"><%= button_to "Accept", event_pending_contributors_accept_path(@event, id: con), class: 'btn-link-red' %></div>
+		<div class="col-md-1"><%= button_to "Delete", event_pending_contributors_delete_path(@event, id: con), method: :delete, class: 'btn-link-red' %></div>
 	</p>
-	<% end %>
 <%end%>
 </div>

@@ -27,7 +27,10 @@ class PendingContributorsController < ApplicationController
 	end
 
 	def destroy
-
+		event = find_event
+		pending_contributor = PendingContributor.find(params[:id])
+		pending_contributor.destroy
+		redirect_to event
 	end
 
 	private
