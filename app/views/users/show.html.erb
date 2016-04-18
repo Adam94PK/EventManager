@@ -24,11 +24,11 @@
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <% for i in 0..2 %>
+      <% for i in 0..3 %>
         <% if (i > (@events.length-1)) %>
           <% break %>
         <%end %>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="event-thumb">
             <div class="middle">
               <div class="inner">
@@ -40,10 +40,10 @@
         </div>
       <% end %>
     </div>
-    <% @events.each_slice(3) do |e| %>
+    <% @events.each_slice(4) do |e| %>
     <div class="item">
       <% e.each do |n| %>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <div class="event-thumb">
           <div class="middle">
             <div class="inner">
