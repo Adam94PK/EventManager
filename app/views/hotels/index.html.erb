@@ -5,7 +5,8 @@
 <%= form_for(:hotel, as: :hotel, url: hotels_path, method: :patch ) do |f| %>
   <%= f.text_field :name, placeholder: "search by name", id: "placeholder" %></br>
   <%= f.text_field :city, placeholder: "search by city", id: "placeholder" %></br>
-  <%= f.select :standard,  options_from_collection_for_select(@standard, 'standard', 'name'), :include_blank => true, id: "placeholder", class: "form-control" %></br>
+  <%= f.select :standard,  options_from_collection_for_select(@standard, 'standard', 'name'), :include_blank => true %>
+
 	<%= f.submit "Search", class: "btn-danger" %> </br></br>
 <% end %>
 </div>
