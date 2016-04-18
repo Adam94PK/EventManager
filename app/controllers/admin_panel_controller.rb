@@ -7,7 +7,7 @@ class AdminPanelController < ApplicationController
   end
 
   def user_list
-    @users = User.where(filtr_by).where(find_user_by).order(:user_name).paginate :page => params[:page], :per_page => 5
+   @users = User.where(filtr_by).order(:user_name).paginate :page => params[:page], :per_page => 5
   end
   
   def user_content
