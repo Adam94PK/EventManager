@@ -87,9 +87,12 @@ body {
 .form-horizontal p input, select {
     margin: auto;
     width: 200px;
-    color: #000;
     display: block;
     text-align: center;
+}
+
+.form-horizontal input, select {
+    color: #000;
 }
 
 .form-horizontal textarea {
