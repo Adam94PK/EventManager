@@ -15,3 +15,4 @@ Rails.application.config.assets.precompile += %w( default_event_medium.png )
 Rails.application.config.assets.precompile += %w( default_hotel_thumb.png )
 Rails.application.config.assets.precompile += %w( default_hotel_medium.png )
 Rails.application.config.assets.precompile += %w( default_hotel_big.png )
+
