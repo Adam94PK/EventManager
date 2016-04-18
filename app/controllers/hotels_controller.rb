@@ -67,7 +67,7 @@ class HotelsController < ApplicationController
 		end
 		if !(params[:hotel][:name] == "")
 			war3 = "LOWER(name) LIKE LOWER('%#{params[:hotel][:name]}%')"
-			puts "name"
+			puts "nat me"
 		end
 		puts params[:hotel][:name]
 		@hotels = Hotel.where(war1).where(war2).where(war3)
