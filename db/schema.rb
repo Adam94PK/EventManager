@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 20160404113046) do
   end
 
   create_table "hotels", force: :cascade do |t|
-    t.integer  "event_id"
     t.string   "name"
     t.string   "city"
     t.string   "address"
@@ -114,7 +113,6 @@ ActiveRecord::Schema.define(version: 20160404113046) do
   end
 
   add_index "hotels", ["city"], name: "index_hotels_on_city", using: :btree
-  add_index "hotels", ["event_id"], name: "index_hotels_on_event_id", using: :btree
   add_index "hotels", ["name"], name: "index_hotels_on_name", using: :btree
   add_index "hotels", ["user_id"], name: "index_hotels_on_user_id", using: :btree
 

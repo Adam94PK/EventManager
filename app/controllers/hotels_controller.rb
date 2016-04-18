@@ -1,5 +1,8 @@
 class HotelsController < ApplicationController
 
+	#for can can
+	load_and_authorize_resource
+
   def index
     @hotels = Hotel.all
   end
@@ -46,6 +49,10 @@ class HotelsController < ApplicationController
 	  if current_user.present?
     	@hotels = current_user.hotels
     end
+  end
+  
+  def search
+  	@hotels = Hotel.where("LOWER(name) LIKE LOWER('%#{params[:hotel][:name]}%')")
   end
 
 	private

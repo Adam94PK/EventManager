@@ -1,4 +1,8 @@
 class AdminPanelController < ApplicationController
+
+  #for cancan
+  authorize_resource :class => :controller
+
   def index
   end
 
@@ -15,14 +19,10 @@ class AdminPanelController < ApplicationController
 
   private
 
-  def find_user_by
-    if params[:keyword].present?
-      "#{params[:select_by]} LIKE '#{params[:keyword]}'"
-    end
-  end
-
   def filtr_by
-    if params[:role].present?
+    if params[:keyword].present?
+    "#{params[:select_by]} LIKE '#{params[:keyword]}'"
+    elsif params[:role].present?
       "role LIKE '#{params[:role]}'"
     end
   end
