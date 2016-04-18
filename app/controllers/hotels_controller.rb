@@ -5,6 +5,7 @@ class HotelsController < ApplicationController
 
   def index
     @hotels = Hotel.all
+		@standard = Standard.all
   end
 
   def create
@@ -52,8 +53,25 @@ class HotelsController < ApplicationController
   end
   
   def search
-  	@hotels = Hotel.where("LOWER(name) LIKE LOWER('%#{params[:hotel][:name]}%') AND LOWER(city) LIKE LOWER('%#{params[:hotel][:city]}%') AND standard LIKE '%#{params[:hotel][:standard]}%'")
-  end
+		@standard = Standard.all
+		war1 = ""
+		war2 = ""
+		war3 = ""
+		if !(params[:hotel][:standard] == "")
+			war1 = "standard = (#{params[:hotel][:standard].to_i})"
+			puts "standard"
+		end
+		if !(params[:hotel][:city] == "")
+			war2 = "LOWER(city) LIKE LOWER('%#{params[:hotel][:city]}%')"
+			puts "city"
+		end
+		if !(params[:hotel][:name] == "")
+			war3 = "LOWER(name) LIKE LOWER('%#{params[:hotel][:name]}%')"
+			puts "name"
+		end
+		puts params[:hotel][:name]
+		@hotels = Hotel.where(war1).where(war2).where(war3)
+	end
   
 	private
 
