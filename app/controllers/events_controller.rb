@@ -69,6 +69,7 @@ class EventsController < ApplicationController
   end
 
   def choose_hotels_to_add
+    authorize! :choose_hotels_to_add, Event
     city = params[:city]
     @event = find_event :event_id
     if city.present?
