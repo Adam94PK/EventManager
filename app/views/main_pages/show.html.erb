@@ -17,6 +17,9 @@
 
     <p><%= @guests_count%> going to this event</p>
   </div>
+  <div>
+    created by <%= link_to "ADMIN", user_path(id: @admin.user_id) %>
+  </div>
 		
 		<hr>
 		
