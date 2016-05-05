@@ -9,8 +9,10 @@
 		</div>
 		
 		<div>
+      <% if ! @event.agenda.nil? %>
 			<%= link_to "AGENDA", event_agenda_path(@event, @event.agenda), class: "btn-link-red" %> /
-			<%= link_to "HOTELS", event_hotels_path(id: @event.id), class: "btn-link-red" %>
+			<% end %>
+      <%= link_to "HOTELS", event_hotels_path(id: @event.id), class: "btn-link-red" %>
 		</div>
 
   <div>
