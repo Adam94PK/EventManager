@@ -34,7 +34,6 @@ class EventsController < ApplicationController
 
   def show
     @event = find_event
-    @admin = EventUser.where(event_id: @event.id).select(:user_id).take
     unless @event.users.include?(current_user)
       redirect_to [@event, @event.main_page] if @event.main_page.present?
     end
