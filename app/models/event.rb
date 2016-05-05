@@ -6,6 +6,6 @@ class Event < ActiveRecord::Base
 	has_many :event_users
 	has_many :users, through: :event_users
 	has_one :main_page, dependent: :destroy
-	has_one :agenda
+	has_one :agenda, dependent: :destroy
 	has_many :pending_contributors
 end

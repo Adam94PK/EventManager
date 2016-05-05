@@ -3,5 +3,5 @@ class Hotel < ActiveRecord::Base
   	validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 	has_and_belongs_to_many :events
 	belongs_to :user
-	has_many :hotel_pictures
+	has_many :hotel_pictures, dependent: :destroy
 end
