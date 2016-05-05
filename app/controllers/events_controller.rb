@@ -61,7 +61,7 @@ class EventsController < ApplicationController
   end
 
 
-  def show_followed
+  def show_created
     if current_user.present?
       @events = current_user.events
       puts @events.inspect

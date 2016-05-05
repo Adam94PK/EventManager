@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'follower/create'
+
   root    'static_pages#index'
   devise_for :users
   patch 'events', to: 'events#index'
   match 'events/search', to: 'events#search', via: [:get, :post]
   get 'events/followed', to: 'events#show_followed'
+  get 'events/created', to: 'events#show_created'
   post 'events/category', to: 'events#category'
   resources :events do
     get 'guests', to: 'events#event_guests'
@@ -17,6 +20,7 @@ Rails.application.routes.draw do
     resources :agendas, except: [:index]
     resources :guests, only: [:create, :new]
     resources :main_pages, except: [:index]
+    post 'followers/create', to: 'followers#create'
   end
   get 'hotels_show_followed', to: 'hotels#show_followed'
   patch 'hotels', to: 'hotels#search'
