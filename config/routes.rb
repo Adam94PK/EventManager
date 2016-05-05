@@ -20,8 +20,8 @@ Rails.application.routes.draw do
     resources :agendas, except: [:index]
     resources :guests, only: [:create, :new]
     resources :main_pages, except: [:index]
-    post 'followers/create', to: 'followers#create'
   end
+  post 'followers/create', to: 'followers#create'
   get 'hotels_show_followed', to: 'hotels#show_followed'
   patch 'hotels', to: 'hotels#search'
   resources :hotels do

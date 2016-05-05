@@ -30,9 +30,11 @@
 	
 	<div> </br>
     <% if current_user.present? %>
-        <p>kkakakakak</p>
-        <%= button_to "JOIN!", "/followers/create?event_id=1"  , :method=>:post, class: "btn btn-danger btn-lg" %>
-        <#%= link_to "JOIN!", new_event_guest_path, method: :post, class: "btn btn-danger btn-lg" %>
+        <#% if @event.followers.include?(current_user) %>
+            <p>lslslslsls</p>
+        <#% else %>
+          <%= button_to "JOIN!", "/followers/create?event_id=1"  , :method=>:post, class: "btn btn-danger btn-lg" %>
+        <#% end %>
     <% else %>
 		    <%= link_to "JOIN!", new_event_guest_path, class: "btn btn-danger btn-lg" %>
     <% end %>
