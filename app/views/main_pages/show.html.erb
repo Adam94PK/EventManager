@@ -9,7 +9,7 @@
 		</div>
 		
 		<div>
-			<%= link_to "AGENDA", event_agenda_path, class: "btn-link-red" %> / 
+			<%= link_to "AGENDA", event_agenda_path(@event, @event.agenda), class: "btn-link-red" %> /
 			<%= link_to "HOTELS", event_hotels_path(id: @event.id), class: "btn-link-red" %>
 		</div>
 
