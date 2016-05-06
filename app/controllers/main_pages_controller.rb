@@ -28,7 +28,7 @@ class MainPagesController < ApplicationController
 		@event = find_event
 		@admin_id = @event.user_ids.first
 		@admin_name = User.where(id: @admin_id).select(:user_name).take
-		@guests_count = @event.guests.length
+		@guests_count = @event.guests.length + @event.followers.length
 		@show_contributor = false
 		if current_user.present?
 			@show_contributor = true

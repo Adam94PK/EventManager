@@ -5,7 +5,7 @@
   <strong>Order by</strong>
   <%= form_for(:event, as: :event, url: events_path, method: :patch ) do |f| %>
     <p>
-      <%= f.select(:sort_by,  options_for_select(%i[newest city soonest]) ) %>
+      <%= f.select(:sort_by,  options_for_select(%i[newest city soonest popularity]) ) %>
     </p>
     <p>
       <%= f.submit 'Order', class: "btn-danger" %>
@@ -72,7 +72,7 @@
             <strong>Category:</strong> <%= event.category %> </br>
             <strong>When:</strong> <%= event.date %> </br>
             <strong>Where:</strong> <%= event.place %></br>
-            <strong>People going:</strong><%= event.guests.length %>
+            <strong>People going:</strong><%= event.guests.length + event.followers.length%>
           </div>
         </div>
       </div>

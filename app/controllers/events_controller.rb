@@ -6,8 +6,12 @@ class EventsController < ApplicationController
   def index
     if !params[:event].nil?
       hash = {'city' => 'place', 'newest' => 'created_at DESC', 'soonest' => 'date'}
-      @sort_by = params[:event][:sort_by]
-      @events = Event.order("#{hash[@sort_by]}").paginate :page => params[:page], :per_page => 6
+      if params[:event] == 'popularity'
+        @events = Event.top.paginate :page => params[:page], :per_page => 6
+      else
+        @sort_by = params[:event][:sort_by]
+        @events = Event.order("#{hash[@sort_by]}").paginate :page => params[:page], :per_page => 6
+      end
     else
       @events = Event.all.paginate :page => params[:page], :per_page => 6
     end
