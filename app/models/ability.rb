@@ -32,7 +32,11 @@ class Ability
       end
       can :manage, MainPage
       cannot :show, MainPage, MainPage do |page|
+        if page.event.user_ids.include?(user.id)
+          false 
+        else
         ! page.event.published
+        end
       end
       cannot :edu, MainPage, MainPage do |page|
         !page.event.user_ids.include?(user.id)
@@ -47,7 +51,11 @@ class Ability
       alias_action :index, :show, :to => :read
       can :read, [Agenda, Hotel, MainPage]
       cannot :show, MainPage, MainPage do |page|
-        !page.event.published
+        if page.event.user_ids.include?(user.id)
+          false
+        else
+          !page.event.published
+        end
       end
       can [:read, :show_event_hotels, :search, :category], Event
       can [:create, :new], Guest
