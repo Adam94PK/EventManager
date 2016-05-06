@@ -68,6 +68,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def show_followed
+    if current_user.present?
+      followed = Follower.where(user_id: current_user).pluck(:event_id)
+      @events = Event.where(id: followed)
+    end
+  end
+
   def choose_hotels_to_add
     city = params[:city]
     @event = find_event :event_id

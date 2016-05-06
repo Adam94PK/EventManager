@@ -5,7 +5,6 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :hotels
 	has_many :event_users
 	has_many :followers, dependent: :destroy
-	#has_many :users, through: :followers
 	has_many :users, through: :event_users
 	has_one :main_page, dependent: :destroy
 	has_one :agenda

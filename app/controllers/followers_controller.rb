@@ -2,8 +2,8 @@ class FollowersController < ApplicationController
   def create
     @event = find_event
     user = current_user
-    follower = Follower.new
-    #follower = @event.followers.new
+    #follower = Follower.new
+    follower = @event.followers.new
     follower.event_id = @event.id
     follower.user_id = user.id
     if !(Follower.exists?(event_id: follower.event_id, user_id: follower.user_id))

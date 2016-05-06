@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   has_many :event_users
   has_many :events, through: :event_users
   has_many :followers, dependent: :destroy
-  #has_many :events, through: :followers
   has_many :hotels
   has_many :pending_contributors
 	
