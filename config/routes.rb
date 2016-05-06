@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :main_pages, except: [:index]
   end
   post 'followers/create', to: 'followers#create'
+  delete 'followers/destroy', to: 'followers#destroy'
   get 'hotels_show_followed', to: 'hotels#show_followed'
   patch 'hotels', to: 'hotels#search'
   resources :hotels do

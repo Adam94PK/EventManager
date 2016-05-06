@@ -16,6 +16,13 @@ class FollowersController < ApplicationController
     end
   end
 
+  def destroy
+    event = find_event
+    follower = Follower.where(user_id: current_user).where(event_id: event.id).first
+    follower.destroy
+    redirect_to :back
+  end
+
   private
 
   def find_event
