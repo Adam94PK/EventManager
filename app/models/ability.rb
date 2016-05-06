@@ -33,7 +33,7 @@ class Ability
       can :manage, MainPage
       cannot :show, MainPage, MainPage do |page|
         if page.event.user_ids.include?(user.id)
-          false 
+          false
         else
         ! page.event.published
         end

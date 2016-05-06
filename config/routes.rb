@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'events/followed', to: 'events#show_followed'
   post 'events/category', to: 'events#category'
   resources :events do
+    post 'publish', to: 'events#publish'
+    post 'unpublish', to: 'events#unpublish'
     get 'guests', to: 'events#event_guests'
     get 'choose_hotels_to_add', to: 'events#choose_hotels_to_add'
     get 'choose_hotels_to_delete', to: 'events#choose_hotels_to_delete'

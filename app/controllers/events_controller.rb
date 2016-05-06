@@ -60,6 +60,19 @@ class EventsController < ApplicationController
     end
   end
 
+  def publish
+    event = find_event :event_id
+    event.published = true
+    event.save
+    redirect_to :back
+  end
+
+  def unpublish
+    event = find_event :event_id
+    event.published = false
+    event.save
+    redirect_to :back
+  end
 
   def show_followed
     if current_user.present?
