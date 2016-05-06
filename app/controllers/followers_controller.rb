@@ -19,7 +19,7 @@ class FollowersController < ApplicationController
   private
 
   def find_event
-    Event.find(params[:event_id])
+    Event.find(params[:id])
   end
 end
 

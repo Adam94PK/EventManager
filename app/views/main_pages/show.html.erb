@@ -30,11 +30,11 @@
 	
 	<div> </br>
     <% if current_user.present? %>
-        <#% if @event.followers.include?(current_user) %>
-            <p>lslslslsls</p>
-        <#% else %>
-          <%= button_to "JOIN!", "/followers/create?event_id=1"  , :method=>:post, class: "btn btn-danger btn-lg" %>
-        <#% end %>
+        <% if @event.followers.where(user_id: current_user) %>
+            <p>You are following this event</p>
+        <% else %>
+          <%= button_to "JOIN!", followers_create_path(id: @event.id) , :method=>:post, class: "btn btn-danger btn-lg" %>
+        <% end %>
     <% else %>
 		    <%= link_to "JOIN!", new_event_guest_path, class: "btn btn-danger btn-lg" %>
     <% end %>
