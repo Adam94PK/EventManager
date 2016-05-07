@@ -19,11 +19,16 @@
 		<% end %>
 		
 		<p>
-			<%= link_to "Add agenda", new_event_agenda_path(@event), class: "btn btn-danger btn-size" %>
+			<% if @event.agenda.nil? %>
+          <%= link_to "Add agenda", new_event_agenda_path(@event), class: "btn btn-danger btn-size" %>
+      <% end %>
 		</p>
 		<p>
 			<%= link_to "Add hotels", event_choose_hotels_to_add_path(event_id: @event.id), class: "btn btn-danger btn-size" %>
 		</p>
+    <p>
+      <%= link_to "Delete hotels", event_choose_hotels_to_delete_path(event_id: @event.id), class: "btn btn-danger btn-size" %>
+    </p>
 		<p>
 			<%= link_to "Guests", event_guests_path(@event), class: "btn btn-danger btn-size" %>
 		</p>

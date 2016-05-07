@@ -8,6 +8,7 @@ class Ability
     if user.role == "admin"
 
         can :manage, :all
+        cannot :show, User, :role => 'admin'
 
     elsif user.role == "pro_user"
 
@@ -19,6 +20,7 @@ class Ability
       can :manage, Event
       cannot [:edu, :choose_hotels_to_add, :add_hotel, :event_guests], Event, Event do |event|
         !event.user_ids.include?(user.id)
+        puts "dodawanie hoteli kurwa#{!event.user_ids.include?(user.id)}"
       end
       can :manage, Guest
       can :create, HotelPicture

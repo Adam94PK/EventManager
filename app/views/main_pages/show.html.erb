@@ -9,8 +9,10 @@
 		</div>
 		
 		<div>
-			<%= link_to "AGENDA", event_agenda_path, class: "btn-link-red" %> / 
-			<%= link_to "HOTELS", event_hotels_path(id: @event.id), class: "btn-link-red" %>
+      <% if ! @event.agenda.nil? %>
+			<%= link_to "AGENDA", event_agenda_path(@event, @event.agenda), class: "btn-link-red" %> /
+			<% end %>
+      <%= link_to "HOTELS", event_hotels_path(id: @event.id), class: "btn-link-red" %>
 		</div>
 
   <div>
@@ -34,7 +36,7 @@
             <p>You are following this event</p>
             <%= button_to "UNFOLLOW", followers_destroy_path(id: @event.id) , method: :delete, class: "btn btn-danger btn-lg" %>
         <% else %>
-          <%= button_to "JOIN!", followers_create_path(id: @event.id) , method: :post, class: "btn btn-danger btn-lg" %>
+          <%= button_to "JOIN!", followers_create_path(id: @event.id) , method: :put, class: "btn btn-danger btn-lg" %>
         <% end %>
     <% else %>
 		    <%= link_to "JOIN!", new_event_guest_path, class: "btn btn-danger btn-lg" %>

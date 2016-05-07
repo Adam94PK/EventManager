@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 	has_many :followers, dependent: :destroy
 	has_many :users, through: :event_users
 	has_one :main_page, dependent: :destroy
-	has_one :agenda
+	has_one :agenda, dependent: :destroy
 	has_many :pending_contributors
 	scope :top, -> {
 				select("events.*, count(followers) AS followers_count").

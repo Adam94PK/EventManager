@@ -80,6 +80,7 @@ class EventsController < ApplicationController
   end
 
   def choose_hotels_to_add
+    authorize! :choose_hotels_to_add, Event
     city = params[:city]
     @event = find_event :event_id
     if city.present?
@@ -91,12 +92,25 @@ class EventsController < ApplicationController
     end
   end
 
+  def choose_hotels_to_delete
+    authorize! :choose_hotels_to_delete, Event
+    @event = find_event :event_id
+    @hotels = @event.hotels
+  end
+
   def add_hotel
     @hotel = Hotel.find(params[:hotel_id])
     @event = find_event
     @event.hotels << @hotel
     flash[:danger] = 'Hotel added to event'
     redirect_to event_choose_hotels_to_add_path(id: @event)
+  end
+
+  def delete_hotel
+    @event = find_event
+    hotel = Hotel.find(params[:hotel_id])
+    @event.hotels.delete hotel
+    redirect_to event_choose_hotels_to_delete_path(id: @event)
   end
 
   def show_event_hotels

@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :events do
     get 'guests', to: 'events#event_guests'
     get 'choose_hotels_to_add', to: 'events#choose_hotels_to_add'
+    get 'choose_hotels_to_delete', to: 'events#choose_hotels_to_delete'
     post 'add_hotel', to: 'events#add_hotel'
+    post 'delete_hotel', to: 'events#delete_hotel'
     get 'hotels', to: 'events#show_event_hotels'
     post 'pending_contributors/accept', to: 'pending_contributors#accept'
     post 'pending_contributors/create', to: 'pending_contributors#create'
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
     resources :guests, only: [:create, :new]
     resources :main_pages, except: [:index]
   end
-  post 'followers/create', to: 'followers#create'
+  put 'followers/create', to: 'followers#create'
   delete 'followers/destroy', to: 'followers#destroy'
   get 'hotels_show_followed', to: 'hotels#show_followed'
   patch 'hotels', to: 'hotels#search'
