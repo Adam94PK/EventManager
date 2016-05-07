@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :guests, only: [:create, :new]
     resources :main_pages, except: [:index]
   end
-  post 'followers/create', to: 'followers#create'
+  put 'followers/create', to: 'followers#create'
   delete 'followers/destroy', to: 'followers#destroy'
   get 'hotels_show_followed', to: 'hotels#show_followed'
   patch 'hotels', to: 'hotels#search'

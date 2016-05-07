@@ -8,6 +8,7 @@ class Ability
     if user.role == "admin"
 
         can :manage, :all
+        cannot :show, User, :role => 'admin'
 
     elsif user.role == "pro_user"
 

@@ -1,12 +1,8 @@
 class FollowersController < ApplicationController
   def create
-    @event = find_event
-    user = current_user
-    #follower = Follower.new
-    follower = @event.followers.new
-    follower.event_id = @event.id
-    follower.user_id = user.id
-    if !(Follower.exists?(event_id: follower.event_id, user_id: follower.user_id))
+    event = find_event
+    follower = event.followers.build(event_id: event.id, user_id: current_user.id)
+    if !(Follower.exists?(follower))
       follower.save
       flash[:dange] = "Event followed"
       redirect_to :back
