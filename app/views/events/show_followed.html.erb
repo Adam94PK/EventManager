@@ -1,23 +1,4 @@
 <h1 id="header1">Followed events</h1>
 </br>
 
-<%# counter = 0 %>
-
-	<% if @events.present? %>
-		<% @events.each do |event| %>
-		<div class="event_content2">
-		
-		        <div class="panel">
-        		  <div class="panel-heading">
-        		  	<%= link_to event.name, event_path(event) %>
-        		  </div>
-		          <div class="panel-footer">
-		          	Category: <%= event.category %></br>
-		          	When: <%= event.date %> &emsp;
-        			Where: <%= event.place %>
-          		  </div>
-        		</div>
-
-		</div>
-		<% end %>
-	<% end %>
+<%= render 'show_events' %>

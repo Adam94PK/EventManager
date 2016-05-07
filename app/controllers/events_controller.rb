@@ -6,8 +6,12 @@ class EventsController < ApplicationController
   def index
     if !params[:event].nil?
       hash = {'city' => 'place', 'newest' => 'created_at DESC', 'soonest' => 'date'}
-      @sort_by = params[:event][:sort_by]
-      @events = Event.order("#{hash[@sort_by]}").paginate :page => params[:page], :per_page => 6
+      if params[:event] == 'popularity'
+        @events = Event.top.paginate :page => params[:page], :per_page => 6
+      else
+        @sort_by = params[:event][:sort_by]
+        @events = Event.order("#{hash[@sort_by]}").paginate :page => params[:page], :per_page => 6
+      end
     else
       @events = Event.all.paginate :page => params[:page], :per_page => 6
     end
@@ -61,10 +65,17 @@ class EventsController < ApplicationController
   end
 
 
-  def show_followed
+  def show_created
     if current_user.present?
       @events = current_user.events
       puts @events.inspect
+    end
+  end
+
+  def show_followed
+    if current_user.present?
+      followed = Follower.where(user_id: current_user).pluck(:event_id)
+      @events = Event.where(id: followed)
     end
   end
 
