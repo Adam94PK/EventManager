@@ -37,7 +37,9 @@ class Ability
       can [:accept, :destroy], PendingContributor, PendingContributor do |pc|
         pc.event.user_ids.include?(user.id)
       end
-      can :show, User, role: ['user','pro_user']
+      can :show, User, role: ['user','pro_user'],
+                       profile_access: true
+      can :show, User, id: user.id
 
     elsif user.role == "user"
       alias_action :edit, :update, :destroy, :to => :edu
@@ -66,7 +68,9 @@ class Ability
       can [:accept, :destroy], PendingContributor, PendingContributor do |pc|
         pc.event.user_ids.include?(user.id)
       end
-      can :show, User, role: ['user','pro_user']
+      can :show, User, role: ['user','pro_user'],
+          profile_access: true
+      can :show, User, id: user.id
 
     else
       alias_action :index, :show, :to => :read
@@ -74,6 +78,9 @@ class Ability
       can [:read, :show_event_hotels, :search, :category], Event
       can [:create, :new], Guest
       can :read, :static_pages
+      can :show, User, role: ['user','pro_user'],
+          profile_access: true
+      can :show, User, id: user.id
 
     end
     # Define abilities for the passed in user here. For example:
