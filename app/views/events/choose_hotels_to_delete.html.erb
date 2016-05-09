@@ -7,12 +7,15 @@
     <div class="panel">
         <div class="panel-heading"><%= hotel.name %></div>
         <div class="panel-body">
-            <%= link_to (image_tag hotel.picture.url(:medium)), event_delete_hotel_path(id: @event.id, hotel_id: hotel), method: :post, class:"img-responsive", id:"panel_img" %>
+            <%= image_tag hotel.picture.url(:medium), class:"img-responsive", id:"panel_img"  %>
         </div>
         <div class="panel-footer">
             <strong>City:</strong> <%= hotel.city %> </br>
             <strong>Link:</strong> <%= hotel.link %> </br>
             <strong>Standard:</strong> <%= hotel.standard %> stars
+        </div>
+        <div>
+          <%= link_to "Delete", event_delete_hotel_path(id: @event.id, hotel_id: hotel), method: :put, class: "btn btn-danger btn-size" %>
         </div>
     </div>
 </div>
