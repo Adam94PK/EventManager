@@ -7,7 +7,7 @@
     <div class="panel">
         <div class="panel-heading"><%= hotel.name %></div>
         <div class="panel-body">
-            <%= image_tag hotel.picture.url(:medium) %>
+            <%= image_tag hotel.picture.url(:medium), class:"img-responsive", id:"panel_img"  %>
         </div>
         <div class="panel-footer">
             <strong>City:</strong> <%= hotel.city %> </br>
