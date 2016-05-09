@@ -7,8 +7,7 @@ class Ability
 
     if user.role == "admin"
 
-        can :manage, :all
-        cannot :show, User, :role => 'admin'
+      can :manage, :all
 
     elsif user.role == "pro_user"
 
@@ -20,7 +19,6 @@ class Ability
       can :manage, Event
       cannot [:edu, :choose_hotels_to_add, :add_hotel, :event_guests], Event, Event do |event|
         !event.user_ids.include?(user.id)
-        puts "dodawanie hoteli kurwa#{!event.user_ids.include?(user.id)}"
       end
       can :manage, Guest
       can :create, HotelPicture
@@ -45,10 +43,43 @@ class Ability
       can :create, PendingContributor
       can [:accept, :destroy], PendingContributor, PendingContributor do |pc|
         pc.event.user_ids.include?(user.id)
-
       end
+      can :show, User, role: ['user','pro_user'],
+                       profile_access: true
+      can :show, User, id: user.id
 
     elsif user.role == "user"
+      alias_action :edit, :update, :destroy, :to => :edu
+      can :show, Agenda
+      can :manage, Agenda, Agenda do |agenda|
+        agenda.event.user_ids.include?(user.id)
+      end
+      can :manage, Event
+      cannot [:edu, :choose_hotels_to_add, :add_hotel, :event_guests], Event, Event do |event|
+        !event.user_ids.include?(user.id)
+      end
+      can :manage, Guest
+      can :create, HotelPicture
+      can :manage, HotelPicture, HotelPicture do |hotPic|
+        hotPic.hotel.user_id == user.id
+      end
+      can :manage, Hotel
+      cannot :edu, Hotel, Hotel do |hotel|
+        !hotel.user_id == user.id
+      end
+      can :manage, MainPage
+      cannot :edu, MainPage, MainPage do |page|
+        !page.event.user_ids.include?(user.id)
+      end
+      can :create, PendingContributor
+      can [:accept, :destroy], PendingContributor, PendingContributor do |pc|
+        pc.event.user_ids.include?(user.id)
+      end
+      can :show, User, role: ['user','pro_user'],
+          profile_access: true
+      can :show, User, id: user.id
+
+    else
       alias_action :index, :show, :to => :read
       can :read, [Agenda, Hotel, MainPage]
       cannot :show, MainPage, MainPage do |page|
@@ -61,7 +92,9 @@ class Ability
       can [:read, :show_event_hotels, :search, :category], Event
       can [:create, :new], Guest
       can :read, :static_pages
-    else
+      can :show, User, role: ['user','pro_user'],
+          profile_access: true
+      can :show, User, id: user.id
 
     end
     # Define abilities for the passed in user here. For example:
