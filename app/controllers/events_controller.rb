@@ -7,13 +7,13 @@ class EventsController < ApplicationController
     if !params[:event].nil?
       hash = {'city' => 'place', 'newest' => 'created_at DESC', 'soonest' => 'date'}
       if params[:event] == 'popularity'
-        @events = Event.top.paginate :page => params[:page], :per_page => 6
+        @events = Event.published.top.paginate :page => params[:page], :per_page => 6
       else
         @sort_by = params[:event][:sort_by]
-      @events = Event.where(published: :true).order("#{hash[@sort_by]}").paginate :page => params[:page], :per_page => 6
+      @events = Event.published.order("#{hash[@sort_by]}").paginate :page => params[:page], :per_page => 6
       end
     else
-      @events = Event.where(published: :true).paginate :page => params[:page], :per_page => 6
+      @events = Event.published.paginate :page => params[:page], :per_page => 6
     end
   end
 
@@ -120,10 +120,10 @@ class EventsController < ApplicationController
   end
 
   def delete_hotel
-    @event = find_event
+    event = find_event
     hotel = Hotel.find(params[:hotel_id])
-    @event.hotels.delete hotel
-    redirect_to event_choose_hotels_to_delete_path(id: @event)
+    event.hotels.delete hotel
+    redirect_to event_choose_hotels_to_delete_path(id: event)
   end
 
   def show_event_hotels
@@ -136,11 +136,11 @@ class EventsController < ApplicationController
   end
 
   def search
-    @events = Event.where("LOWER(name) LIKE LOWER('%#{params[:event][:name]}%')").paginate :page => params[:page], :per_page => 6
+    @events = Event.published.where("LOWER(name) LIKE LOWER('%#{params[:event][:name]}%')").paginate :page => params[:page], :per_page => 6
   end
 
   def category
-    @events = Event.where("category LIKE '%#{params[:event][:category]}%'")
+    @events = Event.published.where("category LIKE '%#{params[:event][:category]}%'")
   end
 
   private
