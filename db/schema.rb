@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 20160506154238) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "followers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "followers", ["event_id"], name: "index_followers_on_event_id", using: :btree
+  add_index "followers", ["user_id", "event_id"], name: "index_followers_on_user_id_and_event_id", unique: true, using: :btree
+  add_index "followers", ["user_id"], name: "index_followers_on_user_id", using: :btree
+
   create_table "guests", force: :cascade do |t|
     t.string   "email",      null: false
     t.string   "name"
