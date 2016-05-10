@@ -38,6 +38,13 @@
 		<p>
 			<%= link_to "Delete", event_path(@event), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-size" %>
 		</p>
+    <p>
+      <% if @event.published %>
+        <%= link_to "Unpublish", event_unpublish_path(@event), method: :post, class: "btn btn-danger btn-size" %>
+      <% else %>
+        <%= link_to "Publish", event_publish_path(@event), method: :post, class: "btn btn-danger btn-size" %>
+      <% end %>
+    </p>
 		<p>
 		<%= render 'pending_contributors/accept' %>
 		</p>

@@ -15,4 +15,7 @@ class Event < ActiveRecord::Base
 						group("events.id").
 						order("followers_count DESC")
 	}
+	scope :published, -> {
+				Event.where(published: :true)
+	}
 end
