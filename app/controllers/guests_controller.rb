@@ -8,6 +8,7 @@ class GuestsController < ApplicationController
 		else
 			@guest = find_event.guests.create(guest_params)
 			if @guest.save
+				event.increment!(:participants, 1)
 				redirect_to events_path
 			else
 				flash.now[:dange] = "Incorrect data"
