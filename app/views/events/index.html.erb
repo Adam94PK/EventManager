@@ -51,11 +51,7 @@
 		<%= f.radio_button :category, 'other' %>
 		<%= f.label :category, 'other', :value => 'other' %>
 		</br></br>
-<<<<<<< HEAD
   <%= f.submit 'Search', class: "btn-danger" %>
-=======
-      <%= f.submit 'Search', class: "btn-danger" %>
->>>>>>> b83493bd07aa7435b7e4932d54822f30517f7ecb
   </br></br></br>
   <% end %>
 <%= will_paginate @events %>
@@ -73,6 +69,20 @@
           	<%= link_to (image_tag event.avatar.url(:medium)), event_path(event), class:"img-responsive", id:"panel_img" %>
           </div>
           <div class="panel-footer">
+          	<center>
+          		<div> </br>
+    						<% if current_user.present? %>
+        					<% if event.followers.exists?(user_id: current_user) %>
+            				<p>You are following this event</p>
+            				<%= button_to "UNFOLLOW", followers_destroy_path(id: event.id) , method: :delete, class: "btn btn-danger btn-lg" %>
+        					<% else %>
+          					<%= button_to "JOIN!", followers_create_path(id: event.id) , method: :put, class: "btn btn-danger btn-lg" %>
+        					<% end %>
+    						<% else %>
+		    					<%= link_to "JOIN!", new_event_guest_path(event_id: event.id), class: "btn btn-danger btn-lg" %>
+    						<% end %>
+							</div>
+          	</center>
             <strong>Category:</strong> <%= event.category %> </br>
             <strong>When:</strong> <%= event.date %> </br>
             <strong>Where:</strong> <%= event.place %></br>
