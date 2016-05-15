@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
 
+  get 'follower/create'
+
   root    'static_pages#index'
   devise_for :users
   patch 'events', to: 'events#index'
   match 'events/search', to: 'events#search', via: [:get, :post]
   get 'events/followed', to: 'events#show_followed'
+  get 'events/created', to: 'events#show_created'
   post 'events/category', to: 'events#category'
   resources :events do
+    post 'publish', to: 'events#publish'
+    post 'unpublish', to: 'events#unpublish'
     get 'guests', to: 'events#event_guests'
     get 'choose_hotels_to_add', to: 'events#choose_hotels_to_add'
-    post 'add_hotel', to: 'events#add_hotel'
+    get 'choose_hotels_to_delete', to: 'events#choose_hotels_to_delete'
+    put 'add_hotel', to: 'events#add_hotel'
+    put 'delete_hotel', to: 'events#delete_hotel'
     get 'hotels', to: 'events#show_event_hotels'
     post 'pending_contributors/accept', to: 'pending_contributors#accept'
     post 'pending_contributors/create', to: 'pending_contributors#create'
@@ -18,6 +25,8 @@ Rails.application.routes.draw do
     resources :guests, only: [:create, :new]
     resources :main_pages, except: [:index]
   end
+  put 'followers/create', to: 'followers#create'
+  delete 'followers/destroy', to: 'followers#destroy'
   get 'hotels_show_followed', to: 'hotels#show_followed'
   patch 'hotels', to: 'hotels#search'
   resources :hotels do

@@ -36,14 +36,14 @@ class EventsControllerTest < ActionController::TestCase
 
   test "should get only asocieted events when user is signed_in" do
     sign_in @user1
-    get :show_followed
+    get :show_created
     assert_response :success
     assert_equal((assigns(:events)), @user1.events )
     assert_not_includes (assigns(:events)), @user2.events.first
   end
 
   test "should get no events when user is not signed_in" do
-    get :show_followed
+    get :show_created
     assert_response :success
     assert_nil(assigns(:events))
   end

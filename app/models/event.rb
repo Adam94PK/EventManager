@@ -1,11 +1,21 @@
 class Event < ActiveRecord::Base
-	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ActionController::Base.helpers.asset_path("/assets/default_event_:style.png")
   	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 	has_and_belongs_to_many :guests
 	has_and_belongs_to_many :hotels
 	has_many :event_users
+	has_many :followers, dependent: :destroy
 	has_many :users, through: :event_users
 	has_one :main_page, dependent: :destroy
-	has_one :agenda
+	has_one :agenda, dependent: :destroy
 	has_many :pending_contributors
+	scope :top, -> {
+				select("events.*, count(followers) AS followers_count").
+						joins(:followers).
+						group("events.id").
+						order("followers_count DESC")
+	}
+	scope :published, -> {
+				Event.where(published: :true)
+	}
 end

@@ -85,10 +85,19 @@ body {
 }
 
 .form-horizontal p input, select {
-    margin: auto;
-    width: 200px;
-    display: block;
-    text-align: center;
+  margin: auto;
+  width: 200px;
+  display: block;
+  text-align: center;
+}
+
+.form-horizontal input, select {
+  color: #000;
+}
+
+.form-horizontal select {
+  width: 185px;
+  margin-bottom: 10px;
 }
 
 .form-horizontal input, select {
@@ -97,6 +106,19 @@ body {
 
 .form-horizontal textarea {
     color: #000;
+}
+
+.field_with_errors input {
+  width: 200px;
+}
+
+#error_explanation {
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+    padding: 0;
+    color: #c9302c;
+  }
 }
 
 //buttons
@@ -117,3 +139,4 @@ body {
 #placeholder{
     margin-bottom: 10px;
 }
+
