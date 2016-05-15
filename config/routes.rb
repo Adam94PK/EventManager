@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   get 'admin/user_list', to: 'admin_panel#user_list'
   get 'admin/user_content', to: 'admin_panel#user_content'
   resources :users, only: [:show]
+  get 'report/new', to: 'reported_events#new'
+  post 'report/create', to: 'reported_events#create'
 
 end
  # The priority is based upon order of creation: first created -> highest priority.

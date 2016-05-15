@@ -43,6 +43,12 @@
     <% end %>
 	</div>
 		<hr>
+		
+		<div>
+			<% if current_user.present? %>
+				<%= link_to "Report", report_new_path(reported_event: {event_id: @event.id}) %>
+			<%end%>
+		</div>
 
 	<% if @event.users.include?(current_user) %>
 		<div id="ifuserloggedin">
