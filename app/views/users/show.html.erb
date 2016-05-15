@@ -24,26 +24,23 @@
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <% for i in 0..2 %>
-        <% if (i > (@events.length-1)) %>
-          <% break %>
-        <%end %>
-        <div class="col-sm-4">
+      <% @events_f.each do |e| %>
+        <div class="col-sm-3">
           <div class="event-thumb">
             <div class="middle">
               <div class="inner">
-                <%= link_to (image_tag @events[i].avatar.url(:thumb)), event_path(@events[i]) %>
+                <%= link_to (image_tag e.avatar.url(:thumb)), event_path(e) %>
               </div>
             </div>
           </div>
-          <p><%= @events[i].name %></p>
+          <p><%= e.name %></p>
         </div>
       <% end %>
     </div>
-    <% @events.each_slice(3) do |e| %>
+    <% @events_r.each_slice(4) do |e| %>
     <div class="item">
       <% e.each do |n| %>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <div class="event-thumb">
           <div class="middle">
             <div class="inner">

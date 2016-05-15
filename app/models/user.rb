@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
-  
-  has_attached_file :avatar, styles: { icon: "200x200" }, default_url: "/images/:style/missing.png"
+
+  #bundle exec rake assets:precompile
+  has_attached_file :avatar, styles: { icon: "200x200" }, default_url: ActionController::Base.helpers.asset_path("user-default.png")
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-  	
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -11,6 +12,7 @@ class User < ActiveRecord::Base
   
   has_many :event_users
   has_many :events, through: :event_users
+  has_many :followers, dependent: :destroy
   has_many :hotels
   has_many :pending_contributors
 	

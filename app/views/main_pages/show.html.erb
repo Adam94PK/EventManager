@@ -9,13 +9,21 @@
 		</div>
 		
 		<div>
-			<%= link_to "AGENDA", event_agenda_path, class: "btn-link-red" %> / 
-			<%= link_to "HOTELS", event_hotels_path(id: @event.id), class: "btn-link-red" %>
+      <% if ! @event.agenda.nil? %>
+			<%= link_to "AGENDA", event_agenda_path(@event, @event.agenda), class: "btn-link-red" %> /
+			<% end %>
+      <%= link_to "HOTELS", event_hotels_path(id: @event.id), class: "btn-link-red" %>
 		</div>
 
   <div>
 
     <p><%= @guests_count%> going to this event</p>
+<<<<<<< HEAD
+=======
+  </div>
+  <div>
+    created by <%= link_to @admin_name.user_name, user_path(id: @admin_id) %>
+>>>>>>> master
   </div>
 		
 		<hr>
@@ -26,7 +34,16 @@
 		</div>
 	
 	<div> </br>
-		<%= link_to "JOIN!", new_event_guest_path, class: "btn btn-danger btn-lg" %> 
+    <% if current_user.present? %>
+        <% if @event.followers.exists?(user_id: current_user) %>
+            <p>You are following this event</p>
+            <%= button_to "UNFOLLOW", followers_destroy_path(id: @event.id) , method: :delete, class: "btn btn-danger btn-lg" %>
+        <% else %>
+          <%= button_to "JOIN!", followers_create_path(id: @event.id) , method: :put, class: "btn btn-danger btn-lg" %>
+        <% end %>
+    <% else %>
+		    <%= link_to "JOIN!", new_event_guest_path, class: "btn btn-danger btn-lg" %>
+    <% end %>
 	</div>
 		<hr>
 

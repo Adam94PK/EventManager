@@ -1,0 +1,23 @@
+<% if @hotels.empty? %>
+<h1 id="header1">There is nothing to delete</h1>
+<% end %>
+
+<% @hotels.each do |hotel| %>
+<div class="col-sm-4">
+    <div class="panel">
+        <div class="panel-heading"><%= hotel.name %></div>
+        <div class="panel-body">
+            <%= image_tag hotel.picture.url(:medium), class:"img-responsive", id:"panel_img"  %>
+        </div>
+        <div class="panel-footer">
+            <strong>City:</strong> <%= hotel.city %> </br>
+            <strong>Link:</strong> <%= hotel.link %> </br>
+            <strong>Standard:</strong> <%= hotel.standard %> stars
+        </div>
+        <div>
+          <%= link_to "Delete", event_delete_hotel_path(id: @event.id, hotel_id: hotel), method: :put, class: "btn btn-danger btn-size" %>
+        </div>
+    </div>
+</div>
+<% end %>
+</br>

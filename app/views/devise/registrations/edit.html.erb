@@ -70,6 +70,19 @@
 		</div>
 		
 		</p>
+
+    <p>
+    <%= f.label :profile_access %>
+
+    <div>
+    <%= f.radio_button :profile_access, true %>
+    <%= f.label :profile_access, 'Public', :value => true %>
+    &emsp;
+    <%= f.radio_button :profile_access, false %>
+    <%= f.label :profile_access, 'Private', :value => false %>
+    </div>
+
+    </p>
 		
     <p>
     <%= f.label :current_password %>
