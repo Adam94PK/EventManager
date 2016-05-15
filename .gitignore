@@ -29,3 +29,5 @@ Gemfile.lock
 /spring-1000
 
 app/controllers/*.rb.orig
+
+RackMulti*
