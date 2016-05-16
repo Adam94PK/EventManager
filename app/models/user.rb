@@ -19,6 +19,14 @@ class User < ActiveRecord::Base
 	
   validates :email, presence: true, uniqueness: { case_sensitive: false }
 	validates :user_name, presence: true, uniqueness: { case_sensitive: false }
+	
+	validates :user_name, obscenity: { sanitize: true, replacement: :vowels }
+	validates :name, obscenity: { sanitize: true, replacement: :vowels }
+	validates :surname, obscenity: { sanitize: true, replacement: :vowels }
+	validates :company_name, obscenity: { sanitize: true, replacement: :vowels }
+	validates :description, obscenity: { sanitize: true, replacement: :vowels }
+
+
   
   validates_format_of :user_name, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   

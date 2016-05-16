@@ -10,6 +10,11 @@ class Event < ActiveRecord::Base
 	has_one :agenda, dependent: :destroy
 	has_many :pending_contributors
 	has_many :reported_events
+	
+	validates :name, obscenity: { sanitize: true, replacement: :vowels }
+	validates :place, obscenity: { sanitize: true, replacement: :vowels }
+	validates :description, obscenity: { sanitize: true, replacement: :vowels }
+	
 	scope :top, -> {
 				select("events.*, count(followers) AS followers_count").
 						joins(:followers).

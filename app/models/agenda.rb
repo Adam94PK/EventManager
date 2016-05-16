@@ -3,4 +3,7 @@ class Agenda < ActiveRecord::Base
   	validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 	belongs_to :event
 	validates_uniqueness_of :event_id
+	
+  validates :content, obscenity: { sanitize: true, replacement: :vowels }
+
 end

@@ -44,7 +44,7 @@ class EventsController < ApplicationController
     @pending_contributors = @event.pending_contributors
   end
 
-  def updateall
+  def update
     @event = find_event
     if @event.update(event_params)
       redirect_to @event
