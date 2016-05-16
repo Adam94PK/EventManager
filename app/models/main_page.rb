@@ -3,22 +3,8 @@ class MainPage < ActiveRecord::Base
   	validates_attachment_content_type :jumbotron, content_type: /\Aimage\/.*\Z/
 	belongs_to :event
 	
-	before_save :change_bad_language
-	
-	private
-	@@words = %w[kurw pierdol chuj]
-	
-	def change_bad_language
-		@@words.each do |w|
-			self.title.gsub!(w, censored_word(w))
-			self.header.gsub!(w, censored_word(w))
-			self.content.gsub!(w,censored_word(w))
-		end
-	end
-	
-	def censored_word(word)
-		length = word.length
-		word[0] + ('*' *(length-2)) + word[length-1]
-	end
-	
+  validates :title, obscenity: { sanitize: true, replacement: :vowels }
+  validates :header, obscenity: { sanitize: true, replacement: :vowels }
+  validates :content, obscenity: { sanitize: true, replacement: :vowels }
+
 end
