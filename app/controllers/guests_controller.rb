@@ -2,8 +2,10 @@ class GuestsController < ApplicationController
 
 	def create
 		@guest = Guest.find_by email: params[:guest][:email]
+		event = find_event
 		if !@guest.nil?
 			find_event.guests<<@guest
+			event.increment!(:participants, 1)
 			redirect_to events_path
 		else
 			@guest = find_event.guests.create(guest_params)

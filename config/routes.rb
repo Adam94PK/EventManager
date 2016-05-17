@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin_panel#index'
   get 'admin/user_list', to: 'admin_panel#user_list'
   get 'admin/user_content', to: 'admin_panel#user_content'
+  get 'admin/reported', to: 'admin_panel#reported_event_list'
   resources :users, only: [:show]
   get 'report/new', to: 'reported_events#new'
   post 'report/create', to: 'reported_events#create'

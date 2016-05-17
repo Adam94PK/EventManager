@@ -1,0 +1,10 @@
+<h1>Reported events</h1>
+<ol>
+  <% @reported_events.each do |reported| %>
+    <li>
+      <%= reported.event.name %>
+      Zglosil
+      <%= link_to reported.user.email, reported.user %>
+    </li>
+  <% end %>
+</ol>

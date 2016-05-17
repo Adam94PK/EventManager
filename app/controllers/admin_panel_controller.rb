@@ -16,6 +16,9 @@ class AdminPanelController < ApplicationController
     @hotels = @user.hotels
   end
 
+  def reported_event_list
+    @reported_events = ReportedEvent.all
+  end
 
   private
 
