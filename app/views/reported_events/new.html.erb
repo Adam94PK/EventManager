@@ -1,0 +1,6 @@
+<%= form_for @report, url: report_create_path do |f| %>
+  <%= f.text_area :reason %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :event_id, value: @event.id %>
+  <%= f.submit %>
+<%end%>

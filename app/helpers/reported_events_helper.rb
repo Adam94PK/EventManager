@@ -1,0 +1,2 @@
+module ReportedEventsHelper
+end

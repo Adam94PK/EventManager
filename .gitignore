@@ -21,11 +21,12 @@ db/schema.rb
 Gemfile.lock
 
 /config/environments
-Gemfile.lock
 
 #Ignore ruby mine project settings
 .idea
 
-/spring-1000
+/spring-1000/9*.pid
 
 app/controllers/*.rb.orig
+
+RackMulti*
