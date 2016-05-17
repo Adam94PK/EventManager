@@ -9,12 +9,6 @@ class Event < ActiveRecord::Base
 	has_one :main_page, dependent: :destroy
 	has_one :agenda, dependent: :destroy
 	has_many :pending_contributors
-	scope :top, -> {
-				select("events.*, count(followers) AS followers_count").
-						joins(:followers).
-						group("events.id").
-						order("followers_count DESC")
-	}
 	scope :published, -> {
 				Event.where(published: :true)
 	}

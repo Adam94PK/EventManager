@@ -5,13 +5,9 @@ class EventsController < ApplicationController
 
   def index
     if !params[:event].nil?
-      hash = {'city' => 'place', 'newest' => 'created_at DESC', 'soonest' => 'date'}
-      if params[:event] == 'popularity'
-        @events = Event.published.top.paginate :page => params[:page], :per_page => 6
-      else
-        @sort_by = params[:event][:sort_by]
+      hash = {'city' => 'place', 'newest' => 'created_at DESC', 'soonest' => 'date', 'popularity' => 'participants DESC'}
+      @sort_by = params[:event][:sort_by]
       @events = Event.published.order("#{hash[@sort_by]}").paginate :page => params[:page], :per_page => 6
-      end
     else
       @events = Event.published.paginate :page => params[:page], :per_page => 6
     end
@@ -44,7 +40,7 @@ class EventsController < ApplicationController
     @pending_contributors = @event.pending_contributors
   end
 
-  def updateall
+  def update
     @event = find_event
     if @event.update(event_params)
       redirect_to @event
