@@ -4,6 +4,7 @@ class FollowersController < ApplicationController
     follower = event.followers.build(event_id: event.id, user_id: current_user.id)
     if !(Follower.exists?(follower))
       follower.save
+      event.increment!(:participants, 1)
       flash[:dange] = "Event followed"
       redirect_to :back
     else
@@ -16,6 +17,7 @@ class FollowersController < ApplicationController
     event = find_event
     follower = Follower.where(user_id: current_user).where(event_id: event.id).first
     follower.destroy
+    event.decrement!(:participants, 1)
     redirect_to :back
   end
 
