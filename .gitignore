@@ -30,3 +30,5 @@ Gemfile.lock
 app/controllers/*.rb.orig
 
 RackMulti*
+
+db/schema.rb
