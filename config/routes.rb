@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :agendas, except: [:index]
     resources :guests, only: [:create, :new]
     resources :main_pages, except: [:index]
+    resources :comments
   end
   put 'followers/create', to: 'followers#create'
   delete 'followers/destroy', to: 'followers#destroy'
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
   get 'admin/user_list', to: 'admin_panel#user_list'
   get 'admin/user_content', to: 'admin_panel#user_content'
   resources :users, only: [:show]
+
 
 end
  # The priority is based upon order of creation: first created -> highest priority.
