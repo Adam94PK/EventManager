@@ -33,6 +33,7 @@
         <%= link_to user.user_name, admin_user_content_path(id: user) %>&nbsp;&nbsp;
         <%= user.email %>&nbsp;&nbsp;
         <%= user.role %>
+        <%= button_to 'BAN', user_ban_path(user.id) , data: {:confirm => 'Are you sure?'}, method: :put, class: "btn btn-danger btn-lg" %>
     </li>
   <% end %>
   </ol>

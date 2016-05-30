@@ -36,7 +36,11 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin_panel#index'
   get 'admin/user_list', to: 'admin_panel#user_list'
   get 'admin/user_content', to: 'admin_panel#user_content'
-  resources :users, only: [:show]
+  resources :users do
+    get 'users', to: 'users#show'
+    put 'ban', to: 'users#ban'
+    post 'unban', to: 'users#unban'
+  end
 
 
 end
