@@ -21,9 +21,11 @@ class AdminPanelController < ApplicationController
 
   def filtr_by
     if params[:keyword].present?
-    "#{params[:select_by]} LIKE '#{params[:keyword]}'"
+      "#{params[:select_by]} LIKE '#{params[:keyword]}'"
     elsif params[:role].present?
       "role LIKE '#{params[:role]}'"
+    elsif params[:banned].present?
+      "banned = true"
     end
   end
 

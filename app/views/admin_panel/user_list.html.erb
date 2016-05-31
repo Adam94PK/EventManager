@@ -17,9 +17,12 @@
 		<%= radio_button_tag :role, 'pro_user' %>
 		<%= label_tag :role, 'pro user', :value => 'pro_user' %>
 		&emsp;
-		<%= radio_button_tag :role, '' %>
-		<%= label_tag :role, 'all users', :value => '' %>
+		<%= radio_button_tag :banned, 'banned' %>
+		<%= label_tag :banned, 'banned' %>
 		&emsp;
+    <%= radio_button_tag :role, '' %>
+    <%= label_tag :role, 'all users', :value => '' %>
+    &emsp;
 		<%= submit_tag "filtr", class: "btn-danger" %>
   <% end %>
 
