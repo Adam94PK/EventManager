@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :users do
     get 'users', to: 'users#show'
     put 'ban', to: 'users#ban'
-    post 'unban', to: 'users#unban'
+    put 'unban', to: 'users#unban'
   end
 
 

@@ -9,21 +9,23 @@ class UsersController < ApplicationController
   end
 
   def ban
-    @user = User.find(params[:id])
+    @user = find_user
     @user.banned = true
     @user.save
+    redirect_to :back
   end
 
   def unban
     @user = find_user
     @user.banned = false
     @user.save
+    redirect_to :back
   end
 
   private
 
   def find_user
-    User.find(params[:id])
+    User.find(params[:user_id])
   end
 
 end

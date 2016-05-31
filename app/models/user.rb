@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
 			where(conditions.to_hash).first
     end
   end
+
+  def active_for_authentication?
+    super && !self.banned
+  end
     
 
 	
