@@ -32,11 +32,11 @@
     <li>
         <%= link_to user.user_name, admin_user_content_path(id: user) %>&nbsp;&nbsp;
         <%= user.email %>&nbsp;&nbsp;
-        <%= user.role %>
+        <%= user.role %>&nbsp;&nbsp;
         <% if user.banned == false %>
-          <%= button_to 'BAN', user_ban_path(user_id: user.id) , data: {:confirm => 'Are you sure?'}, method: :put, class: "btn btn-danger btn-lg" %>
+          <%= button_to 'BAN', user_ban_path(user_id: user.id) , data: {:confirm => 'Are you sure?'}, method: :put, class: "btn btn-danger btn-sm" %>
         <% else %>
-          <%= button_to 'UNBAN', user_unban_path(user_id: user.id) , data: {:confirm => 'Are you sure?'}, method: :put, class: "btn btn-danger btn-lg" %>
+          <%= button_to 'UNBAN', user_unban_path(user_id: user.id) , data: {:confirm => 'Are you sure?'}, method: :put, class: "btn btn-danger btn-sm" %>
         <% end %>
     </li>
   <% end %>
