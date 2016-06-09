@@ -44,6 +44,7 @@
 	</div>
 		<hr>
 
+  <div>
 	<% if @event.users.include?(current_user) %>
 		<div id="ifuserloggedin">
 			<p>
@@ -58,5 +59,44 @@
 		<%= render 'pending_contributors/form' %>
 		<%end%>
 	<% end %>
-	
-</div>
+    <br>
+  </div>
+
+
+  </div>
+
+<div class="comment-section">
+  <br><br>
+  <p>Leave a comment:</p>
+    <div class="form-comment">
+  <%= form_for [@event, @event.comments.build] do |f| %>
+      <p><%= f.text_area :comment, size: "50x5" %></p>
+      <p><%= f.submit "Comment", class: 'btn btn-danger' %></p>
+  <% end %>
+    </div>
+  <br>
+  <div>
+    <%= will_paginate @comments %>
+  <% @comments.each do |comment| %>
+        <div class="comment-box">
+    <p><%= comment.created_at.strftime("%d %b %Y, %H:%M") %>
+    <% if comment.user_id == nil %>
+      <b>Anonim:</b>
+    <% else %>
+      <b><%= link_to comment.user.user_name, user_path(id: comment.user_id) %>:</b>
+    <% end %>
+    </p>
+
+    <p><%= comment.comment %></p>
+          <% if (comment.user == current_user && current_user != nil) %>
+              <%= link_to 'Delete', event_comment_path(@event, comment), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+              <% end %>
+
+        </div>
+  <% end %>
+    </div>
+  <br><br>
+  <div>
+
+
+

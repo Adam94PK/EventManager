@@ -29,6 +29,7 @@ class MainPagesController < ApplicationController
 		@admin_id = @event.user_ids.first
 		@admin_name = User.where(id: @admin_id).select(:user_name).take
 		@show_contributor = false
+		@comments = @event.comments.order("created_at DESC").paginate :page => params[:page], :per_page => 20
 		if current_user.present?
 			@show_contributor = true
 			contributors = @event.pending_contributors

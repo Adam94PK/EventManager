@@ -8,6 +8,15 @@
     text-align: center;
 }
 
+.comment-section {
+  text-align: center;
+  color: #fff;
+}
+
+.form-comment {
+  color: #000000;
+}
+
 #header1 {
     color: #fff;
     font-family: 'Oswald';
@@ -47,6 +56,17 @@
     padding: 10px 10px 10px 10px;
     color: #fff;
     background-color: #c9302c;
+}
+
+.comment-box {
+  width: 450px;
+  text-align: left;
+  margin: auto;
+  border: 2px dashed #fff;
+  padding: 10px 10px 10px 10px;
+  margin-top: 20px;
+  color: #fff;
+  background-color: #c9302c;
 }
 
 hr {
