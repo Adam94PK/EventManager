@@ -2,13 +2,13 @@ class FollowersController < ApplicationController
   def create
     event = find_event
     follower = event.followers.build(event_id: event.id, user_id: current_user.id)
-    if !(Follower.exists?(follower))
+    if !Follower.exists?(follower)
       follower.save
       event.increment!(:participants, 1)
-      flash[:dange] = "Event followed"
+      flash[:dange] = 'Event followed'
       redirect_to :back
     else
-      flash[:dange] = "You are already following this event"
+      flash[:dange] = 'You are already following this event'
       redirect_to :back
     end
   end
@@ -27,4 +27,3 @@ class FollowersController < ApplicationController
     Event.find(params[:id])
   end
 end
-

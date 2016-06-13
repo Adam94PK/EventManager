@@ -4,6 +4,6 @@ class DeleteDefaultValueFromUserRole < ActiveRecord::Migration
   end
 
   def down
-    change_column :users, :role, :string, default: "user"
+    change_column :users, :role, :string, default: 'user'
   end
 end
