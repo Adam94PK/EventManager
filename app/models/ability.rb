@@ -2,16 +2,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    puts "CanCANCANCANCNACAN"
+    puts 'CanCANCANCANCNACAN'
     user ||= User.new
 
-    if user.role == "admin"
+    if user.role == 'admin'
 
       can :manage, :all
 
-    elsif user.role == "pro_user"
+    elsif user.role == 'pro_user'
 
-      alias_action :edit, :update, :destroy, :to => :edu
+      alias_action :edit, :update, :destroy, to: :edu
       can :show, Agenda
       can :manage, Agenda, Agenda do |agenda|
         agenda.event.user_ids.include?(user.id)
@@ -34,7 +34,7 @@ class Ability
         if page.event.user_ids.include?(user.id)
           false
         else
-        ! page.event.published
+          !page.event.published
         end
       end
       cannot :edu, MainPage, MainPage do |page|
@@ -44,12 +44,12 @@ class Ability
       can [:accept, :destroy], PendingContributor, PendingContributor do |pc|
         pc.event.user_ids.include?(user.id)
       end
-      can :show, User, role: ['user','pro_user'],
+      can :show, User, role: %w(user pro_user),
                        profile_access: true
       can :show, User, id: user.id
 
-    elsif user.role == "user"
-      alias_action :edit, :update, :destroy, :to => :edu
+    elsif user.role == 'user'
+      alias_action :edit, :update, :destroy, to: :edu
       can :show, Agenda
       can :manage, Agenda, Agenda do |agenda|
         agenda.event.user_ids.include?(user.id)
@@ -75,12 +75,12 @@ class Ability
       can [:accept, :destroy], PendingContributor, PendingContributor do |pc|
         pc.event.user_ids.include?(user.id)
       end
-      can :show, User, role: ['user','pro_user'],
-          profile_access: true
+      can :show, User, role: %w(user pro_user),
+                       profile_access: true
       can :show, User, id: user.id
 
     else
-      alias_action :index, :show, :to => :read
+      alias_action :index, :show, to: :read
       can :read, [Agenda, Hotel, MainPage]
       cannot :show, MainPage, MainPage do |page|
         if page.event.user_ids.include?(user.id)
@@ -92,8 +92,8 @@ class Ability
       can [:read, :show_event_hotels, :search, :category], Event
       can [:create, :new], Guest
       can :read, :static_pages
-      can :show, User, role: ['user','pro_user'],
-          profile_access: true
+      can :show, User, role: %w(user pro_user),
+                       profile_access: true
       can :show, User, id: user.id
 
     end

@@ -9,17 +9,15 @@ class CreateEventsAndGuests < ActiveRecord::Migration
     end
 
     create_table :guests do |t|
-  	  t.string :email, unique: true, null: false, index: true
-  	  t.string :name
-  	  t.string :surname
+      t.string :email, unique: true, null: false, index: true
+      t.string :name
+      t.string :surname
       t.timestamps null: false
     end
 
     create_table :events_guests do |t|
-    	t.belongs_to :event, null: false, index: true
-    	t.belongs_to :guest, null: false, index: true
+      t.belongs_to :event, null: false, index: true
+      t.belongs_to :guest, null: false, index: true
     end
-    
   end
-  
 end
