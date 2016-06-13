@@ -66,12 +66,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'my_heroku' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: "event.manager.hz@gmail.com",
-      password: "zadoraprojekthajto"
+    address: 'smtp.gmail.com',
+    port: 587,
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: 'event.manager.hz@gmail.com',
+    password: 'zadoraprojekthajto'
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

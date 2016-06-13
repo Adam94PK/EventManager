@@ -1,21 +1,20 @@
 class EventsController < ApplicationController
-
-  #for can can
+  # for can can
   load_and_authorize_resource
 
   def index
     if !params[:event].nil?
-      hash = {'city' => 'place', 'newest' => 'created_at DESC', 'soonest' => 'date', 'popularity' => 'participants DESC'}
+      hash = { 'city' => 'place', 'newest' => 'created_at DESC', 'soonest' => 'date', 'popularity' => 'participants DESC' }
       @sort_by = params[:event][:sort_by]
-      @events = Event.published.order("#{hash[@sort_by]}").paginate :page => params[:page], :per_page => 6
+      @events = Event.published.order((hash[@sort_by]).to_s).paginate page: params[:page], per_page: 6
     else
-      @events = Event.published.paginate :page => params[:page], :per_page => 6
+      @events = Event.published.paginate page: params[:page], per_page: 6
     end
   end
 
   def create
     @event = Event.new(event_params)
-    @event.users<<current_user
+    @event.users << current_user
     if @event.save
       redirect_to @event
     else
@@ -93,7 +92,7 @@ class EventsController < ApplicationController
     city = params[:city]
     @event = find_event :event_id
     if city.present?
-      hotels = Hotel.where(["city = ?", city])
+      hotels = Hotel.where(['city = ?', city])
       @hotels = hotels - @event.hotels
     else
       hotels = Hotel.all
@@ -132,7 +131,7 @@ class EventsController < ApplicationController
   end
 
   def search
-    @events = Event.published.where("LOWER(name) LIKE LOWER('%#{params[:event][:name]}%')").paginate :page => params[:page], :per_page => 6
+    @events = Event.published.where("LOWER(name) LIKE LOWER('%#{params[:event][:name]}%')").paginate page: params[:page], per_page: 6
   end
 
   def category
@@ -140,10 +139,12 @@ class EventsController < ApplicationController
   end
 
   private
+
   def event_params
-  	params.require(:event).permit(:user_id, :name, :place, :date, :time, :description, :avatar, :category)
+    params.require(:event).permit(:user_id, :name, :place, :date, :time, :description, :avatar, :category)
   end
+
   def find_event(sym = :id)
-  	Event.find(params[sym])
+    Event.find(params[sym])
   end
 end

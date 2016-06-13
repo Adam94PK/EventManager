@@ -13,10 +13,9 @@ class CreateHotels < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-      create_table :hotes_events do |t|
-  	t.references :event, index: true
-  	t.references :hotels, index: true
-  end
-
+    create_table :hotes_events do |t|
+      t.references :event, index: true
+      t.references :hotels, index: true
+    end
   end
 end

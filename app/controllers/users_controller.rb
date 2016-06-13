@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   load_and_authorize_resource
 
   def show
@@ -27,5 +26,4 @@ class UsersController < ApplicationController
   def find_user
     User.find(params[:user_id])
   end
-
 end
